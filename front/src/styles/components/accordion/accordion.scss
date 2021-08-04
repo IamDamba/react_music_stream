@@ -1,0 +1,99 @@
+@import "../../variables/colors";
+@import "../../variables/interfaces";
+
+.accordion_item {
+  text-align: justify;
+  display: grid;
+  gap: 30px;
+
+  .accordion_item_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+
+    &:hover {
+      .accordion_item_header_btn.close {
+        border: 2px solid transparent;
+        background-color: $color-link;
+      }
+    }
+
+    .accordion_item_header_btn {
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      background-color: transparent;
+      border: 2px solid $color-text-white;
+      position: relative;
+      transition: all 0.3s;
+
+      span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: block;
+        height: 15px;
+        width: 3px;
+        background-color: $color-text-white;
+      }
+    }
+    .accordion_item_header_btn.close {
+      background-color: transparent;
+      border: 2px solid $color-text-white;
+
+      .span_1 {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+      .span_2 {
+        transform: translate(-50%, -50%) rotate(90deg);
+      }
+      &:hover {
+        border: 2px solid transparent;
+        background-color: $color-link;
+      }
+    }
+    .accordion_item_header_btn.open {
+      border: 2px solid transparent;
+      background-color: $color-link;
+
+      .span_1 {
+        transform: translate(-50%, -50%) rotate(90deg);
+      }
+      .span_2 {
+        transform: translate(-50%, -50%) rotate(-90deg);
+      }
+      &:hover {
+        background-color: transparent;
+        border: 2px solid $color-text-white;
+      }
+    }
+  }
+  .accordion_item_body {
+    letter-spacing: 0.1rem;
+    display: grid;
+    gap: 30px;
+
+    h4 {
+      font-size: 0.9rem;
+    }
+    .accordion_item_body_text {
+      display: flex;
+      overflow: hidden;
+      transition: all 0.3s ease-in-out;
+      padding-bottom: 30px;
+      border-bottom: 3px solid $color-text-white;
+
+      p {
+        line-height: 1.6;
+        letter-spacing: .1rem;
+        font-size: 0.9rem;
+      }
+    }
+    .accordion_item_body_text.hide {
+      height: 0;
+      opacity: 0;
+    }
+  }
+}

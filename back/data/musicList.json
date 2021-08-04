@@ -1,0 +1,84 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "img": "../media/playerImg.png",
+      "title": "The Bigger Picture",
+      "time": "03:17",
+      "bpm": "110",
+      "tags": ["lil Baby"]
+    },
+    {
+      "id": 2,
+      "img": "../media/playerImg.png",
+      "title": "Tim Duncan",
+      "time": "03:17",
+      "bpm": "112",
+      "tags": ["Tory Lanez"]
+    },
+    {
+      "id": 3,
+      "img": "../media/playerImg.png",
+      "title": "Passion Fruit",
+      "time": "03:17",
+      "bpm": "97",
+      "tags": ["Drake"]
+    },
+    {
+      "id": 4,
+      "img": "../media/playerImg.png",
+      "title": "Marvin's Room",
+      "time": "03:17",
+      "bpm": "130",
+      "tags": ["Drake"]
+    },
+    {
+      "id": 5,
+      "img": "../media/playerImg.png",
+      "title": "Man Of My Word5",
+      "time": "03:17",
+      "bpm": "112",
+      "tags": ["lil Baby"]
+    },
+    {
+      "id": 6,
+      "img": "../media/playerImg.png",
+      "title": "Real As It Gets",
+      "time": "03:17",
+      "bpm": "130",
+      "tags": ["lil Baby"]
+    },
+    {
+      "id": 7,
+      "img": "../media/playerImg.png",
+      "title": "Jungle",
+      "time": "03:17",
+      "bpm": "112",
+      "tags": ["Drake"]
+    },
+    {
+      "id": 8,
+      "img": "../media/playerImg.png",
+      "title": "BOP",
+      "time": "03:17",
+      "bpm": "110",
+      "tags": ["DaBaby"]
+    },
+    {
+      "id": 9,
+      "img": "../media/playerImg.png",
+      "title": "Nikes",
+      "time": "03:17",
+      "bpm": "112",
+      "tags": ["Frank Ocean"]
+    },
+    {
+      "id": 10,
+      "img": "../media/playerImg.png",
+      "title": "School Sirit",
+      "time": "03:17",
+      "bpm": "97",
+      "tags": ["Kanye West"]
+    }
+  ]
+}
