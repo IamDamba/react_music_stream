@@ -1,0 +1,17 @@
+@import "../../variables/colors";
+@import "../../variables/interfaces";
+
+.privacy {
+  .content {
+    padding-top: 180px;
+
+    .privacy_list {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      margin-top: 80px;
+      display: grid;
+      gap: 60px;
+    }
+  }
+}

@@ -1,0 +1,103 @@
+@import "../variables/colors";
+@import "../variables/interfaces";
+@import "../variables/fonts";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: $font-lato;
+  a,
+  p,
+  li,
+  b,
+  i,
+  em,
+  input,
+  label,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $color-text-white;
+  }
+  button{
+    font-size: 1rem;
+  }
+}
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: $color-bg;
+}
+#container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: $color-bg;
+
+  header,
+  main,
+  footer {
+    display: flex;
+  }
+}
+header {
+  position: fixed;
+  width: 100%;
+  z-index: 8;
+  .ham {
+    z-index: 10;
+  }
+  nav {
+    z-index: 9;
+  }
+}
+main {
+  flex: 1;
+  color: $color-text-white;
+
+  .content {
+    width: 100%;
+    padding: 180px 0 50px 0;
+
+    .content_header {
+      display: grid;
+      gap: 10px;
+      width: 100%;
+      padding: 0px 8%;
+      margin-bottom: 60px;
+      text-align: center;
+
+      h1 {
+        text-transform: uppercase;
+        font-size: 1.8rem;
+        font-weight: 900;
+      }
+      h2 {
+        font-size: 1.1rem;
+        font-weight: 400;
+        color: #b3b3b3;
+      }
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    textarea {
+      @include input_interface;
+    }
+
+    section {
+      width: 100%;
+      z-index: 5;
+      position: relative;
+    }
+  }
+}

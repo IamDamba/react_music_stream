@@ -1,0 +1,67 @@
+@import "../../variables/colors";
+@import "../../variables/interfaces";
+
+.tracks {
+  .content {
+    padding-top: 180px;
+
+    .content_header {
+      form {
+        display: flex;
+        padding: 30px;
+        justify-content: center;
+
+        .input {
+          @include search_interface;
+          width: 100%;
+          max-width: 400px;
+          input[type="search"] {
+            padding: 15px 8% 15px 16%;
+          }
+        }
+        .button {
+          button {
+            @include button_interface;
+            border: none;
+            &:hover {
+              color: $color-link;
+            }
+          }
+        }
+      }
+    }
+    .tracks_list {
+      width: 100%;
+      padding: 0 8%;
+      margin-bottom: 30px;
+
+      .tracks_list_filter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 30px 0;
+        background-color: $color-bg-tracks;
+
+        .filters {
+          display: flex;
+          column-gap: 30px;
+          justify-content: space-evenly;
+
+          select {
+            @include select_interface;
+            border: none;
+          }
+        }
+      }
+      .tracks_list_table {
+        @include table_interface;
+      }
+      .tracks_list_pagination {
+        @include pagination_interface;
+      }
+    }
+  }
+}
