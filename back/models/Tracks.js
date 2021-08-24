@@ -10,6 +10,10 @@ const tracksSchema = new mongoose.Schema({
     type: String,
     require: true,
   },
+  media: {
+    type: String,
+    require: true,
+  },
   title: {
     type: String,
     require: true,

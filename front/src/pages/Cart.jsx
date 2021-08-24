@@ -4,8 +4,19 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
+import { useDispatch, useSelector } from "react-redux";
+import { addCartItem, deleteCartItem, resetCart } from "../slices/cartSlice";
+import CartItemModel from "../components/cart/CartItemModel";
+
 const Cart = () => {
+  //Scroll To Top
+  window.scrollTo(0, 0);
+
+  // Variables
   const [active, setActive] = useState(0);
+
+  const { cartSlice } = useSelector((state) => state.cartSlice);
+  const dispatch = useDispatch();
 
   return (
     <main className="cart">
@@ -27,57 +38,9 @@ const Cart = () => {
                 </thead>
                 <tbody>
                   <tr></tr>
-                  <tr>
-                    <td className="cart_table_body_Product">
-                      <img src="" alt="" />
-                      <p>Track 1</p>
-                    </td>
-                    <td className="cart_table_body_licence">
-                      <p>Standard Licence</p>
-                    </td>
-                    <td className="cart_table_body_price">
-                      <p>€29.99</p>
-                    </td>
-                    <td className="cart_table_body_button">
-                      <button>
-                        <FontAwesomeIcon icon={faTimes} />
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="cart_table_body_Product">
-                      <img src="" alt="" />
-                      <p>Track 1</p>
-                    </td>
-                    <td className="cart_table_body_licence">
-                      <p>Standard Licence</p>
-                    </td>
-                    <td className="cart_table_body_price">
-                      <p>€29.99</p>
-                    </td>
-                    <td className="cart_table_body_button">
-                      <button>
-                        <FontAwesomeIcon icon={faTimes} />
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="cart_table_body_Product">
-                      <img src="" alt="" />
-                      <p>Track 1</p>
-                    </td>
-                    <td className="cart_table_body_licence">
-                      <p>Standard Licence</p>
-                    </td>
-                    <td className="cart_table_body_price">
-                      <p>€29.99</p>
-                    </td>
-                    <td className="cart_table_body_button">
-                      <button>
-                        <FontAwesomeIcon icon={faTimes} />
-                      </button>
-                    </td>
-                  </tr>
+                  {cartSlice.map((cart) => (
+                    <CartItemModel cart={cart} />
+                  ))}
                 </tbody>
               </table>
             </div>

@@ -12,6 +12,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const Home = ({ history }) => {
+  //Scroll To Top
+  window.scrollTo(0, 0);
+
+  // Variables
   const { setSearch } = useContext(TracksContext);
 
   const handleSearch = (e) => {

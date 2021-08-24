@@ -1,10 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
 import "../styles/header/header.scss";
+import React, { useEffect, useRef, useState, useContext } from "react";
 import Logo from "../media/logo.svg";
+import { UserContext } from "../contexts/UserContext";
 
 import { Link } from "react-router-dom";
 
 const Header = () => {
+  const { user } = useContext(UserContext);
   const [scrollYPos, setScrollYPos] = useState(0);
   const headerRef = useRef(null);
 
@@ -28,7 +30,6 @@ const Header = () => {
 
   useEffect(() => {
     if (scrollYPos > 0) {
-      console.log(scrollYPos);
       headerRef.current.style.backgroundColor = headerColor;
     } else {
       headerRef.current.style.backgroundColor = bgColor;
@@ -62,7 +63,11 @@ const Header = () => {
             <Link to="/cart">Cart</Link>
           </li>
           <li className="btn">
-            <a href="/signin">Sign In</a>
+            {user !== null ? (
+              <Link to="/profile">Profile</Link>
+            ) : (
+              <a href="/signin">Sign In</a>
+            )}
           </li>
         </ul>
       </nav>

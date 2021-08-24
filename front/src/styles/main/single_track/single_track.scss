@@ -5,65 +5,106 @@
   .content {
     padding-top: 180px;
 
-    .tracks_list {
+    .track_list_detail {
       width: 100%;
       max-width: 900px;
       margin: 0 auto;
-      .track_list_detail {
+      width: 100%;
+      .item {
+        display: grid;
+        gap: 80px;
         width: 100%;
-        .item {
-          width: 100%;
 
-          .item_info {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
+        .track_data {
+          display: flex;
+          justify-content: space-between;
 
+          .track_cover {
             .img {
+              position: relative;
               width: 200px;
               height: 200px;
-              position: relative;
+              margin-bottom: 30px;
+              cursor: pointer;
 
               img {
                 width: 100%;
                 height: 100%;
-                position: absolute;
-                z-index: 3;
+                object-fit: cover;
+                border: none;
               }
+
               .filter {
+                position: absolute;
+                top: 0;
+                left: 0;
                 width: 100%;
                 height: 100%;
-                position: absolute;
-                z-index: 4;
-                background-color: rgba($color: #000, $alpha: 0.4);
-                cursor: pointer;
+                background-color: rgba($color: #000, $alpha: 0.3);
+                display: grid;
+                align-items: center;
+                justify-content: center;
 
-                svg {
-                  position: absolute;
-                  top: 50%;
-                  left: 50%;
-                  transform: translate(-50%, -50%);
-                  font-size: 2.2rem;
+                button {
+                  @include button_interface;
                 }
               }
             }
-            .detail {
-              text-align: right;
-              display: grid;
-
-              li{
-                margin-bottom: 10px;
-              }.add_btn{
-                margin-top: 60px;
-
-                button{
+            .buttons {
+              display: flex;
+              column-gap: 20px;
+              li {
+                button {
                   @include button_interface;
                 }
               }
             }
           }
+          .track_info {
+            text-align: right;
+            display: grid;
+            gap: 10px;
 
-          .player_vizualiser {
+            button {
+              @include button_interface;
+            }
+          }
+        }
+        .visualizer {
+          width: 100%;
+          height: 120px;
+          background-color: $color-bg-tracks;
+
+          .track_visualizer {
+          }
+        }
+        .comments {
+          width: 100%;
+          text-align: center;
+          display: grid;
+
+          .track_comment_title {
+            margin-bottom: 30px;
+          }
+          .track_comment_list {
+            margin-bottom: 30px;
+            width: 100%;
+            max-width: 600px;
+          }
+          .track_comment_form {
+            .input {
+              margin-bottom: 30px;
+
+              textarea {
+                max-width: 600px;
+                resize: none;
+              }
+            }
+            .buttons {
+              button {
+                @include button_interface;
+              }
+            }
           }
         }
       }

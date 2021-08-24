@@ -10,8 +10,8 @@ const createToken = (id) => {
   });
 };
 
-module.exports.currentuser_get = async (req, res) => {
-  const token = req.cookies.jwt;
+module.exports.currentuser_post = async (req, res) => {
+  const { token } = req.body;
   if (token) {
     jwt.verify(token, secret, async (err, decodedToken) => {
       if (err) {
@@ -20,7 +20,14 @@ module.exports.currentuser_get = async (req, res) => {
         res.status(400).json({ isUser: false, user: res.locals.user });
       } else {
         let user = await User.findById(decodedToken.id);
-        res.locals.user = user.email;
+        res.locals.user = {
+          email: user.email,
+          username: user.username,
+          firstname: user.firstname,
+          lastname: user.lastname,
+          address: user.address,
+          country: user.country,
+        };
         res.status(200).json({ isUser: true, user: res.locals.user });
       }
     });
@@ -30,11 +37,107 @@ module.exports.currentuser_get = async (req, res) => {
   }
 };
 
+module.exports.verifypassword_post = async (req, res) => {
+  const { token, password } = req.body;
+  if (token) {
+    jwt.verify(token, secret, async (err, decodedToken) => {
+      if (err) {
+        console.log("error occured on verify");
+        res.locals.user = null;
+        res.status(400).json({ isUser: false, user: res.locals.user });
+      } else {
+        let user = await User.findById(decodedToken.id);
+        res.locals.user = {
+          password: user.password,
+        };
+        console.log(res.locals.user.password, password);
+        let isPasswordMatch = await User.verifyPassword(
+          res.locals.user.password,
+          password
+        );
+
+        if (!isPasswordMatch) {
+          res.status(400).json({
+            isUser: true,
+            isValid: isPasswordMatch,
+            message: "Password don't match",
+          });
+        }
+        res
+          .status(200)
+          .json({
+            isUser: true,
+            isValid: isPasswordMatch,
+            message: "Verify Successfully",
+          });
+      }
+    });
+  } else {
+    res.locals.user = null;
+    res.status(400).json({ isUser: false, user: res.locals.user });
+  }
+};
+
+module.exports.userupdate_put = async (req, res) => {
+  const { token, username, firstname, lastname, address, country } = req.body;
+  if (token) {
+    jwt.verify(token, secret, async (err, decodedToken) => {
+      if (err) {
+        console.log("error occured on verify");
+        res.locals.user = null;
+        res.status(400).json({ isUser: false, user: res.locals.user });
+      } else {
+        let query = {
+          username: username,
+          firstname: firstname,
+          lastname: lastname,
+          address: address,
+          country: country,
+        };
+        let user = await User.findByIdAndUpdate(decodedToken.id, query);
+        res
+          .status(200)
+          .json({ isUser: true, message: "Update Successfully !" });
+      }
+    });
+  } else {
+    res.locals.user = null;
+    res.status(400).json({ isUser: false, user: res.locals.user });
+  }
+};
+
+module.exports.updatepassword_put = async (req, res) => {
+  const { token, password } = req.body;
+  if (token) {
+    jwt.verify(token, secret, async (err, decodedToken) => {
+      if (err) {
+        console.log("error occured on verify");
+        res.locals.user = null;
+        res.status(400).json({ isUser: false, user: res.locals.user });
+      } else {
+        let newPass = await User.hashNewPassword(password);
+        let query = {
+          password: newPass,
+        };
+        let user = await User.findByIdAndUpdate(decodedToken.id, query);
+        res.status(200).json({
+          isUser: true,
+          message: "Update Successfully !",
+          password: user,
+        });
+      }
+    });
+  } else {
+    res.locals.user = null;
+    res.status(400).json({ isUser: false, user: res.locals.user });
+  }
+};
+
 module.exports.signup_post = async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, username } = req.body;
 
   try {
-    const user = await User.create({ email, password });
+    const user = await User.create({ email, password, username });
     const token = createToken(user._id);
     res.cookie("jwt", token, { httpOnly: true, maxAge: tokenDuration * 1000 });
     console.log("User Registered");
@@ -50,28 +153,16 @@ module.exports.signin_post = async (req, res) => {
   const { email, password } = req.body;
   try {
     const user = await User.signin(email, password);
-    console.log(user);
     const token = createToken(user._id);
-    res.cookie("jwt", token, { httpOnly: true, maxAge: tokenDuration * 1000 });
     console.log("Login successfully");
-    res.status(200).json({ message: "Login Successfully" });
+    res.status(200).json({ message: "Login Successfully", token: token });
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
 };
 
-module.exports.signout_get = async (req, res) => {
-  try {
-    res.cookie("jwt", "", { maxAge: 1 });
-    res.status(200).json({ message: "User Signout" });
-  } catch (err) {
-    console.log(err.message);
-    res.status(400).json({ message: err.message });
-  }
-};
-
-module.exports.deleteaccount_get = async (req, res) => {
-  const token = req.cookies.jwt;
+module.exports.deleteaccount_post = async (req, res) => {
+  const { token } = req.body;
 
   if (token) {
     jwt.verify(token, secret, async (err, decodedToken) => {

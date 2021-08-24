@@ -1,13 +1,13 @@
 @import "../../variables/colors";
 @import "../../variables/interfaces";
 
-.signin {
+.forgotten {
   width: 100%;
   height: 100%;
   display: flex;
   min-height: 100vh;
 
-  .signin_form {
+  .forgotten_form {
     width: 100%;
     max-width: 460px;
     position: relative;
@@ -39,8 +39,7 @@
         gap: 10px;
 
         input[type="email"],
-        input[type="password"],
-        input[type="text"] {
+        input[type="password"] {
           @include input_interface;
         }
       }
@@ -50,7 +49,6 @@
             display: flex;
             align-items: center;
             column-gap: 20px;
-            max-width: 190px;
             input[type="checkbox"] {
               transform: scale(1.4);
               border: none;

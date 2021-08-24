@@ -12,13 +12,26 @@ const UserSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    require: [true, "Please enter an password."],
+    require: [true, "Please enter a password."],
     minlength: [6, "Minimum password length is 6 characters"],
   },
   username: {
     type: String,
     unique: true,
+    require: [true, "Please enter a username."],
     minlength: [3, "Minimum password length is 3 characters"],
+  },
+  firstname: {
+    type: String,
+  },
+  lastname: {
+    type: String,
+  },
+  address: {
+    type: String,
+  },
+  country: {
+    type: String,
   },
 });
 
@@ -39,6 +52,20 @@ UserSchema.statics.signin = async function (email, password) {
     throw Error("Incorrect Password");
   }
   throw Error("Incorrect Email");
+};
+
+UserSchema.statics.verifyPassword = async function (bddPassword, password) {
+  const verify = await bcrypt.compare(password, bddPassword);
+  if (verify) {
+    return true;
+  }
+  return false;
+};
+
+UserSchema.statics.hashNewPassword = async function (password) {
+  const salt = await bcrypt.genSalt();
+  const newPassword = await bcrypt.hash(password, salt);
+  return newPassword;
 };
 
 const User = mongoose.model("user", UserSchema);

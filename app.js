@@ -59,7 +59,10 @@ db.once("open", async () => {
     Promise.all([
       Tracks.create({
         id: 1,
-        image: "https://i.imgur.com/WPGSZli.jpg",
+        image:
+          "https://res.cloudinary.com/iad-bdd-wetcse/image/upload/v1629469775/music_stream/images/image_tracks_1.jpg",
+        media:
+          "https://res.cloudinary.com/iad-bdd-wetcse/video/upload/v1629469874/music_stream/tracks/tracks_1.mp3",
         title: "Tampa",
         time: "2.56",
         bpm: "112",
@@ -67,7 +70,10 @@ db.once("open", async () => {
       }),
       Tracks.create({
         id: 2,
-        image: "https://i.imgur.com/WPGSZli.jpg",
+        image:
+          "https://res.cloudinary.com/iad-bdd-wetcse/image/upload/v1629469775/music_stream/images/image_tracks_1.jpg",
+        media:
+          "https://res.cloudinary.com/iad-bdd-wetcse/video/upload/v1629469874/music_stream/tracks/tracks_1.mp3",
         title: "Laugh now, Cry Later",
         time: "2.56",
         bpm: "112",
@@ -75,7 +81,10 @@ db.once("open", async () => {
       }),
       Tracks.create({
         id: 3,
-        image: "https://i.imgur.com/WPGSZli.jpg",
+        image:
+          "https://res.cloudinary.com/iad-bdd-wetcse/image/upload/v1629469775/music_stream/images/image_tracks_1.jpg",
+        media:
+          "https://res.cloudinary.com/iad-bdd-wetcse/video/upload/v1629469874/music_stream/tracks/tracks_1.mp3",
         title: "What's Next",
         time: "2.56",
         bpm: "112",
@@ -83,7 +92,10 @@ db.once("open", async () => {
       }),
       Tracks.create({
         id: 4,
-        image: "https://i.imgur.com/WPGSZli.jpg",
+        image:
+          "https://res.cloudinary.com/iad-bdd-wetcse/image/upload/v1629469775/music_stream/images/image_tracks_1.jpg",
+        media:
+          "https://res.cloudinary.com/iad-bdd-wetcse/video/upload/v1629469874/music_stream/tracks/tracks_1.mp3",
         title: "The Bigger Picture",
         time: "2.56",
         bpm: "112",
@@ -91,7 +103,10 @@ db.once("open", async () => {
       }),
       Tracks.create({
         id: 5,
-        image: "https://i.imgur.com/WPGSZli.jpg",
+        image:
+          "https://res.cloudinary.com/iad-bdd-wetcse/image/upload/v1629469775/music_stream/images/image_tracks_1.jpg",
+        media:
+          "https://res.cloudinary.com/iad-bdd-wetcse/video/upload/v1629469874/music_stream/tracks/tracks_1.mp3",
         title: "The Box",
         time: "2.56",
         bpm: "112",
@@ -99,7 +114,10 @@ db.once("open", async () => {
       }),
       Tracks.create({
         id: 6,
-        image: "https://i.imgur.com/WPGSZli.jpg",
+        image:
+          "https://res.cloudinary.com/iad-bdd-wetcse/image/upload/v1629469775/music_stream/images/image_tracks_1.jpg",
+        media:
+          "https://res.cloudinary.com/iad-bdd-wetcse/video/upload/v1629469874/music_stream/tracks/tracks_1.mp3",
         title: "Martin & Gina",
         time: "2.56",
         bpm: "112",
@@ -107,7 +125,10 @@ db.once("open", async () => {
       }),
       Tracks.create({
         id: 7,
-        image: "https://i.imgur.com/WPGSZli.jpg",
+        image:
+          "https://res.cloudinary.com/iad-bdd-wetcse/image/upload/v1629469775/music_stream/images/image_tracks_1.jpg",
+        media:
+          "https://res.cloudinary.com/iad-bdd-wetcse/video/upload/v1629469874/music_stream/tracks/tracks_1.mp3",
         title: "Goosebumps",
         time: "2.56",
         bpm: "112",

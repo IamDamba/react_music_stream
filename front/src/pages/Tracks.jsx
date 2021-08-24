@@ -9,6 +9,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const Tracks = () => {
+  //Scroll To Top
+  window.scrollTo(0, 0);
+
+  // Variables
   const { search, setSearch } = useContext(TracksContext);
   const dispatch = useDispatch();
 

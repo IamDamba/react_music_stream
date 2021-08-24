@@ -4,6 +4,10 @@ import "../styles/main/contact/contact.scss";
 const maxLength = 300;
 
 const Contact = () => {
+  //Scroll To Top
+  window.scrollTo(0, 0);
+
+  // Variables
   const [messageLength, setMessageLength] = useState(0);
 
   useEffect(() => {

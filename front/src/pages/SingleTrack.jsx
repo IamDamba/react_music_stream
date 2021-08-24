@@ -10,6 +10,10 @@ const SingleTrackModel = lazy(() =>
 );
 
 const SingleTrack = () => {
+  //Scroll To Top
+  window.scrollTo(0, 0);
+
+  // Variables
   const { track_id } = useParams();
 
   return (
@@ -18,12 +22,10 @@ const SingleTrack = () => {
         <section className="content_header">
           <h1>Single Track</h1>
         </section>
-        <section className="tracks_list">
-          <div className="track_list_detail">
-            <Suspense fallback={<p>Data is Loading...</p>}>
-              <SingleTrackModel id={track_id} />
-            </Suspense>
-          </div>
+        <section className="track_list_detail">
+          <Suspense fallback={<p>Data is Loading...</p>}>
+            <SingleTrackModel id={track_id} />
+          </Suspense>
         </section>
       </div>
     </main>
