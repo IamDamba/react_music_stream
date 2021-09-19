@@ -1,0 +1,41 @@
+[
+  {
+    "user_contents": {
+      "tracks": 349,
+      "albums": 0,
+      "soundkits": 1,
+      "services": 0,
+      "videos": 0,
+      "photos": 0,
+      "comments": 30,
+      "playlists": 0
+    }
+  },
+  {
+    "stats": {
+      "followers": 18099,
+      "plays": 1300533,
+      "tracks": 349,
+      "following": 27
+    }
+  },
+  {
+    "bulk_deals": [
+      {
+        "ID": 106042,
+        "minimum_track_purchase": 2,
+        "free_tracks": 1,
+        "created": "June 23, 2019 Sunday, 6:41:00 PM EDT",
+        "allowed_licenses": [697669, 697671, 697670, 697672],
+        "version": 1,
+        "created_timestamp": 0,
+        "allowed_licenses_text": [
+          "  Basic License",
+          "  Premium Plus License",
+          "  Premium License",
+          "  Unlimited License"
+        ]
+      }
+    ]
+  }
+]

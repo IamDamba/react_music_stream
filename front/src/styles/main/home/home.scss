@@ -1,0 +1,350 @@
+@import "../../variables/colors";
+@import "../../variables/interfaces";
+
+#home {
+  .content {
+    padding-top: 300px;
+    padding-bottom: 0;
+
+    @media screen {
+      @media (max-width: 600px) {
+        padding-top: 200px;
+
+        .banner {
+          z-index: 3;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 80%;
+
+          .img {
+            z-index: 3;
+            width: 100%;
+            height: 100%;
+            position: relative;
+
+            img {
+              z-index: 3;
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+            .filter {
+              z-index: 4;
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              background: linear-gradient(0deg, #161616 0%, #161616af 100%);
+            }
+          }
+        }
+        .content_header {
+          width: 100%;
+          max-width: 800px;
+          position: relative;
+          z-index: 5;
+          text-align: left;
+          margin-bottom: 100px;
+
+          .first {
+            margin-bottom: 30px;
+
+            h1 {
+              font-size: 1.8rem;
+              margin-bottom: 10px;
+              text-align: center;
+            }
+            h2 {
+              text-align: center;
+            }
+          }
+          .second {
+            text-align: center;
+
+            .input {
+              @include search_interface;
+            }
+            .tags {
+              display: flex;
+              column-gap: 20px;
+              align-items: center;
+              justify-content: center;
+
+              label {
+                font-weight: 700;
+              }
+              .list {
+                display: flex;
+                column-gap: 10px;
+
+                .item {
+                  button {
+                    @include button_interface;
+                    font-size: 0.9rem;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .home_tracks {
+          width: 100%;
+          padding: 0 8%;
+
+          .home_tracks_first {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto 30px auto;
+          }
+          .home_tracks_second {
+            @include table_interface;
+
+            thead {
+              .thead_time,
+              .thead_bpm {
+                display: none;
+              }
+            }
+            tbody {
+              .list_title {
+                display: none;
+              }
+            }
+          }
+        }
+        .home_licences {
+          margin-top: 60px;
+          position: relative;
+          width: 100%;
+          height: 500px;
+          display: grid;
+          align-items: center;
+
+          .img {
+            z-index: 3;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            img {
+              z-index: 3;
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+            .filter {
+              z-index: 4;
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              background: linear-gradient(
+                0deg,
+                #161616bd 0%,
+                #161616d2 25%,
+                #171717c9 50%,
+                #161616cc 70%,
+                #161616 100%
+              );
+            }
+          }
+          .home_licences_content {
+            display: grid;
+            gap: 50px;
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            margin: 0 auto;
+            position: relative;
+            z-index: 5;
+            padding: 08%;
+
+            .first {
+              display: grid;
+              gap: 10px;
+
+              h2 {
+                font-size: 1.8rem;
+                font-weight: 700;
+                text-transform: uppercase;
+              }
+              h3 {
+                font-size: 1rem;
+              }
+            }
+            .second {
+              a {
+                @include button_interface;
+              }
+            }
+          }
+        }
+      }
+      @media (min-width: 600px) {
+        .banner {
+          z-index: 3;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+
+          .img {
+            z-index: 3;
+            width: 100%;
+            height: 100%;
+            position: relative;
+
+            img {
+              z-index: 3;
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+            .filter {
+              z-index: 4;
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              background: linear-gradient(0deg, #161616 0%, #161616af 100%);
+            }
+          }
+        }
+        .content_header {
+          width: 100%;
+          max-width: 800px;
+          position: relative;
+          z-index: 5;
+          text-align: left;
+          margin-bottom: 200px;
+
+          .first {
+            margin-bottom: 30px;
+
+            h1 {
+              font-size: 2.3rem;
+              margin-bottom: 10px;
+            }
+          }
+          .second {
+            .input {
+              @include search_interface;
+            }
+            .tags {
+              display: flex;
+              column-gap: 20px;
+              align-items: center;
+
+              label {
+                font-weight: 700;
+              }
+              .list {
+                display: flex;
+                column-gap: 10px;
+
+                .item {
+                  button {
+                    @include button_interface;
+                    font-size: 0.9rem;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .home_tracks {
+          width: 100%;
+          padding: 0 8%;
+
+          .home_tracks_first {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto 30px auto;
+          }
+          .home_tracks_second {
+            @include table_interface;
+          }
+        }
+        .home_licences {
+          margin-top: 60px;
+          position: relative;
+          width: 100%;
+          height: 500px;
+          display: grid;
+          align-items: center;
+
+          .img {
+            z-index: 3;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            img {
+              z-index: 3;
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+            .filter {
+              z-index: 4;
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              background: linear-gradient(
+                0deg,
+                #161616bd 0%,
+                #161616d2 25%,
+                #171717c9 50%,
+                #161616cc 70%,
+                #161616 100%
+              );
+            }
+          }
+          .home_licences_content {
+            display: grid;
+            gap: 50px;
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            margin: 0 auto;
+            position: relative;
+            z-index: 5;
+
+            .first {
+              display: grid;
+              gap: 10px;
+
+              h2 {
+                font-size: 2rem;
+                font-weight: 700;
+                text-transform: uppercase;
+              }
+              h3 {
+                font-size: 1.2rem;
+              }
+            }
+            .second {
+              a {
+                @include button_interface;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
