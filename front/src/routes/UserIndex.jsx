@@ -8,9 +8,9 @@ const UserIndex = () => {
   return (
     <Router>
       <Switch>
-        <Route path="/signin" component={Signin} />
-        <Route path="/signup" component={Signup} />
-        <Route path="/forget-password" component={ForgetPassword} />
+        <Route exact path="/signin" component={Signin} />
+        <Route exact path="/signup" component={Signup} />
+        <Route exact path="/forget-password" component={ForgetPassword} />
       </Switch>
     </Router>
   );

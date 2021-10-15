@@ -50,15 +50,6 @@ const AllTracks = () => {
           </form>
         </section>
         <section className="tracks_list">
-          <div className="tracks_list_filter">
-            <div className="filters">
-              <select name="filter_sort" id="filter_sort">
-                <option value="">Sort</option>
-                <option value="title">Ascending</option>
-                <option value="time">Descending</option>
-              </select>
-            </div>
-          </div>
           <PaginatedTrackForm />
         </section>
       </div>

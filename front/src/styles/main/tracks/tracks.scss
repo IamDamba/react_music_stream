@@ -5,62 +5,167 @@
   .content {
     padding-top: 180px;
 
-    .content_header {
-      form {
-        display: flex;
-        padding: 30px;
-        justify-content: center;
+    @media screen {
+      @media (max-width: 600px) {
+        .content_header {
+          form {
+            display: flex;
+            padding: 30px;
+            justify-content: center;
 
-        .input {
-          @include search_interface;
-          width: 100%;
-          max-width: 400px;
-          input[type="search"] {
-            padding: 15px 8% 15px 16%;
-          }
-        }
-        .button {
-          button {
-            @include button_interface;
-            border: none;
-            &:hover {
-              color: $color-link;
+            .input {
+              display: flex;
+              align-items: center;
+              position: relative;
+              margin-bottom: 20px;
+
+              .search_icon {
+                color: $color-text-black;
+                font-size: 1.2rem;
+                background-color: $color-input;
+                padding: 11.5px;
+                border-top-left-radius: 10px;
+                border-bottom-left-radius: 10px;
+              }
+              input[type="search"] {
+                width: 100%;
+                max-width: 400px;
+                padding: 15px 30px;
+                color: $color-text-black;
+                background-color: $color-input;
+                border: none;
+                outline: none;
+                border-top-right-radius: 10px;
+                border-bottom-right-radius: 10px;
+              }
+            }
+            .button {
+              button {
+                @include button_interface;
+                border: none;
+                &:hover {
+                  color: $color-link;
+                }
+              }
             }
           }
         }
-      }
-    }
-    .tracks_list {
-      width: 100%;
-      padding: 0 8%;
-      margin-bottom: 30px;
+        .tracks_list {
+          width: 100%;
+          padding: 0 8%;
+          margin-bottom: 30px;
 
-      .tracks_list_filter {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 30px 0;
-        background-color: $color-bg-tracks;
+          .tracks_list_filter {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 0;
+            background-color: $color-bg-tracks;
 
-        .filters {
-          display: flex;
-          column-gap: 30px;
-          justify-content: space-evenly;
+            .filters {
+              display: flex;
+              column-gap: 30px;
+              justify-content: space-evenly;
 
-          select {
-            @include select_interface;
-            border: none;
+              select {
+                @include select_interface;
+                border: none;
+              }
+            }
+          }
+          .tracks_list_table {
+            @include table_interface;
+            table {
+              thead {
+                .thead_tags,
+                .thead_bpm {
+                  display: none;
+                }
+              }
+              tbody {
+                tr {
+                  vertical-align: baseline;
+
+                  .list_tags,
+                  .list_bpm {
+                    display: none;
+                  }
+                  .list_title {
+                    img {
+                      display: none;
+                    }
+                  }
+                }
+              }
+            }
+          }
+          .tracks_list_pagination {
+            @include pagination_interface;
           }
         }
       }
-      .tracks_list_table {
-        @include table_interface;
-      }
-      .tracks_list_pagination {
-        @include pagination_interface;
+      @media (min-width: 600px) {
+        .content_header {
+          form {
+            display: flex;
+            padding: 30px;
+            justify-content: center;
+
+            .input {
+              @include search_interface;
+              width: 100%;
+              max-width: 400px;
+              input[type="search"] {
+                padding: 15px 8% 15px 16%;
+              }
+            }
+            .button {
+              button {
+                @include button_interface;
+                border: none;
+                &:hover {
+                  color: $color-link;
+                }
+              }
+            }
+          }
+        }
+        .tracks_list {
+          width: 100%;
+          padding: 0 8%;
+          margin-bottom: 30px;
+
+          .tracks_list_filter {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 0;
+            background-color: $color-bg-tracks;
+
+            .filters {
+              display: flex;
+              column-gap: 30px;
+              justify-content: space-evenly;
+
+              select {
+                @include select_interface;
+                border: none;
+              }
+            }
+          }
+          .tracks_list_table {
+            @include table_interface;
+          }
+          .tracks_list_pagination {
+            @include pagination_interface;
+          }
+        }
       }
     }
   }

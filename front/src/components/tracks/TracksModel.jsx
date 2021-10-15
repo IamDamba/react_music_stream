@@ -29,7 +29,13 @@ const TracksModel = ({ track }) => {
     try {
       if (player_id !== track.id) {
         console.log("ok, je change la track");
-        dispatch(setMediaToReducer({ id: track.id, media: track.media }));
+        dispatch(
+          setMediaToReducer({
+            id: track.id,
+            media: track.media,
+            image: track.image,
+          })
+        );
       } else {
         console.log("La track est deja joué");
       }

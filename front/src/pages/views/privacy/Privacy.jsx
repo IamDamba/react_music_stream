@@ -1,14 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import "../../../styles/main/privacy/privacy.scss";
-import Accordion from "../../../components/Accordion";
+import Accordion from "../../../components/accordion/Accordion";
 
 const Privacy = () => {
-  //Scroll To Top
-  window.scrollTo(0, 0);
-
   // Variables
   const [active, setActive] = useState(0);
+  const [canScroll, setCanScroll] = useState(false);
+
+  //Function
+  useEffect(() => {
+    //Scroll To Top
+    window.scrollTo(0, 0);
+    setCanScroll(true);
+  }, [!canScroll]);
 
   return (
     <main className="privacy">

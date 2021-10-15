@@ -2,12 +2,16 @@ import "../../styles/header/header.scss";
 import React, { useRef } from "react";
 import Logo from "../../media/logo/logo.svg";
 
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   // Variables
   const hamRef = useRef(null);
   const NavRef = useRef(null);
+
+  const history = useHistory();
+  const { token } = useSelector((state) => state.userReducer);
 
   const handleHam = () => {
     if (hamRef.current.classList.contains("inactive")) {
@@ -39,13 +43,24 @@ const Header = () => {
     }
   };
 
-  window.addEventListener('resize', ()=>{
-    if(window.innerWidth >= 800){
+  const handleSigninLink = () => {
+    let a = document.createElement("a");
+    a.href = "/signin";
+    a.click();
+  };
+
+  const handleProfileLink = () => {
+    let a = document.createElement("a");
+    a.href = "/profile";
+    a.click();
+  };
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth >= 800) {
       console.log("desktop");
-    }else{
-      
+    } else {
     }
-  })
+  });
 
   return (
     <header>
@@ -81,9 +96,15 @@ const Header = () => {
               Cart
             </Link>
           </li>
-          <li className="btn">
-            <a href="/signin">Sign In</a>
-          </li>
+          {token !== null ? (
+            <li className="btn" onClick={handleProfileLink}>
+              <a href="/profile">Profile</a>
+            </li>
+          ) : (
+            <li className="btn" onClick={handleSigninLink}>
+              <a href="/signin">Sign In</a>
+            </li>
+          )}
         </ul>
       </nav>
     </header>

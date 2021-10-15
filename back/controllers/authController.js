@@ -1,13 +1,12 @@
 const User = require("../models/Users");
+const Invoices = require("../models/Invoices");
 const jwt = require("jsonwebtoken");
 const secret = process.env.SECRET_TOKEN;
 
 const tokenDuration = 3 * 24 * 60 * 60;
 
 const createToken = (id) => {
-  return jwt.sign({ id }, secret, {
-    expiresIn: tokenDuration,
-  });
+  return jwt.sign({ id }, secret, {});
 };
 
 module.exports.currentuser_post = async (req, res) => {
@@ -63,13 +62,11 @@ module.exports.verifypassword_post = async (req, res) => {
             message: "Password don't match",
           });
         }
-        res
-          .status(200)
-          .json({
-            isUser: true,
-            isValid: isPasswordMatch,
-            message: "Verify Successfully",
-          });
+        res.status(200).json({
+          isUser: true,
+          isValid: isPasswordMatch,
+          message: "Verify Successfully",
+        });
       }
     });
   } else {
@@ -79,7 +76,7 @@ module.exports.verifypassword_post = async (req, res) => {
 };
 
 module.exports.userupdate_put = async (req, res) => {
-  const { token, username, firstname, lastname, address, country } = req.body;
+  const { token, username, email } = req.body;
   if (token) {
     jwt.verify(token, secret, async (err, decodedToken) => {
       if (err) {
@@ -89,10 +86,7 @@ module.exports.userupdate_put = async (req, res) => {
       } else {
         let query = {
           username: username,
-          firstname: firstname,
-          lastname: lastname,
-          address: address,
-          country: country,
+          email: email,
         };
         let user = await User.findByIdAndUpdate(decodedToken.id, query);
         res
@@ -143,9 +137,8 @@ module.exports.signup_post = async (req, res) => {
     console.log("User Registered");
     res.status(201).json({ message: "User Registered" });
   } catch (err) {
-    const errors = handleError(err);
-    console.log({ errors });
-    res.status(400).json({ errors });
+    console.log({ err });
+    res.status(400).json({ err });
   }
 };
 
@@ -186,5 +179,36 @@ module.exports.deleteaccount_post = async (req, res) => {
     res
       .status(400)
       .json({ message: "Token doesn't exist", user: res.locals.user });
+  }
+};
+
+module.exports.userorders_post = async (req, res) => {
+  const { token } = req.body;
+  let _orders = [];
+
+  if (token) {
+    jwt.verify(token, secret, async (err, decodedToken) => {
+      if (err) {
+        console.log("error occured on verify");
+        res.locals.user = null;
+        res.status(400).json({ isUser: false, user: res.locals.user });
+      } else {
+        let user = await User.findById(decodedToken.id);
+        await Invoices.find({ user_id: user._id }, (err, docs) => {
+          if (err) {
+            console.log("error occured on orders fetching");
+            res
+              .status(400)
+              .json({ message: "error occured on orders fetching" });
+          } else {
+            _orders = docs;
+            res.status(200).json({ results: _orders });
+          }
+        });
+      }
+    });
+  } else {
+    res.locals.user = null;
+    res.status(400).json({ isUser: false, user: res.locals.user });
   }
 };

@@ -2,10 +2,8 @@
 
 import React from "react";
 
-export const validField = /[0-9!@#$%^&*(),.?":{}|<>\[\]=]/g;
-export const validMessage = /[!@#$%^&*(),?":{}|<>\[\]=]/g;
-export const validEmail = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
+const emailPattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$/g;
+const namePattern = /^[A-Z a-z]+$/g;
+const messagePattern = /^[\sA-Za-z0-9.,-/:;]+$/g;
 
-export const validPassword = () => {
-  new RegExp("^(?=.*?[A-Za-z])(?=.*?[0-9]).{6,}$");
-};
+export { emailPattern, namePattern, messagePattern };

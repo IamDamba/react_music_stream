@@ -3,12 +3,35 @@ import React, { useRef, useState } from "react";
 import axios from "axios";
 
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setTokenToReducer } from "../../../reducer/slices/userSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 const Signin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const dispatch = useDispatch();
+
+  const handleSignin = async (e) => {
+    let a = document.createElement("a");
+    a.href = "/";
+
+    e.preventDefault();
+    await axios
+      .post("/api/signin", {
+        email: e.target.email.value,
+        password: e.target.password.value,
+      })
+      .then((res) => {
+        dispatch(setTokenToReducer(res.data.token));
+        a.click();
+      })
+      .catch((err) => {
+        console.log("Error signin");
+      });
+  };
 
   return (
     <main className="signin">
@@ -19,7 +42,7 @@ const Signin = () => {
           </a>
         </div>
         <h1>Sign In</h1>
-        <form>
+        <form onSubmit={handleSignin.bind(this)}>
           <div className="input">
             <input
               type="email"
@@ -60,7 +83,7 @@ const Signin = () => {
               Doesn't have an account ? <Link to="/signup">Sign up here</Link>
             </label>
             <label>
-              <Link to="/forgotten">Forgotten password ? </Link>
+              <Link to="/forget-password">Forgotten password ? </Link>
             </label>
           </div>
         </form>

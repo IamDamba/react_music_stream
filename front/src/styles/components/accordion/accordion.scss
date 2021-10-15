@@ -87,8 +87,9 @@
 
       p {
         line-height: 1.6;
-        letter-spacing: .1rem;
+        letter-spacing: 0.1rem;
         font-size: 0.9rem;
+        white-space: pre-line;
       }
     }
     .accordion_item_body_text.hide {

@@ -64,7 +64,30 @@
             text-align: center;
 
             .input {
-              @include search_interface;
+              display: flex;
+              align-items: center;
+              position: relative;
+              margin-bottom: 20px;
+
+              .search_icon {
+                color: $color-text-black;
+                font-size: 1.2rem;
+                background-color: $color-input;
+                padding: 11px;
+                border-top-left-radius: 10px;
+                border-bottom-left-radius: 10px;
+              }
+              input[type="search"] {
+                width: 100%;
+                max-width: 400px;
+                padding: 15px 30px;
+                color: $color-text-black;
+                background-color: $color-input;
+                border: none;
+                outline: none;
+                border-top-right-radius: 10px;
+                border-bottom-right-radius: 10px;
+              }
             }
             .tags {
               display: flex;
@@ -105,14 +128,29 @@
             @include table_interface;
 
             thead {
-              .thead_time,
-              .thead_bpm {
+              .thead_bpm,
+              .thead_tags {
                 display: none;
               }
             }
             tbody {
-              .list_title {
-                display: none;
+              tr {
+                vertical-align: baseline;
+
+                .list_bpm,
+                .list_tags {
+                  display: none;
+                }
+                .list_title {
+                  display: grid;
+                  max-width: 90px;
+                  img {
+                    display: none;
+                  }
+                  p {
+                    align-items: center;
+                  }
+                }
               }
             }
           }

@@ -9,6 +9,8 @@ import store from "./reducer/store";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import UserIndex from "./routes/UserIndex";
+import AdminIndex from "./routes/AdminIndex";
+import Error404 from "./pages/views/error404/Error404";
 
 // ||||||||||||||||||||||| Functions |||||||||||||||||||||||||
 
@@ -28,14 +30,18 @@ ReactDOM.render(
         <Route exact path="/terms" component={App} />
         <Route exact path="/privacy" component={App} />
         <Route exact path="/profile" component={App} />
+        <Route exact path="/checkout/success/:transaction_id" component={App} />
 
         {/* User Router */}
         <Route exact path="/signin" component={UserIndex} />
         <Route exact path="/signup" component={UserIndex} />
-        <Route exact path="/forgotten" component={UserIndex} />
+        <Route exact path="/forget-password" component={UserIndex} />
 
-        {/* All Other Route
-          <Route path="*" component={Error404} /> */}
+        {/* Admin Router */}
+        <Route exact path="/member" component={AdminIndex} />
+
+        {/*All Other Route*/}
+        <Route path="*" component={Error404} />
       </Switch>
     </Router>
   </Provider>,

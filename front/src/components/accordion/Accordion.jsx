@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../styles/components/accordion/accordion.scss";
+import "../../styles/components/accordion/accordion.scss";
 
 const Accordion = ({ title, text, active, setActive, id }) => {
   const SetActivation = () => {

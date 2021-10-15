@@ -21,18 +21,6 @@ const UserSchema = new mongoose.Schema({
     require: [true, "Please enter a username."],
     minlength: [3, "Minimum password length is 3 characters"],
   },
-  firstname: {
-    type: String,
-  },
-  lastname: {
-    type: String,
-  },
-  address: {
-    type: String,
-  },
-  country: {
-    type: String,
-  },
 });
 
 UserSchema.pre("save", async function (next) {

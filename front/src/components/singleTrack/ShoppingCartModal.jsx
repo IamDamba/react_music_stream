@@ -28,14 +28,24 @@ const ShoppingCartModal = () => {
 
   const handlAddCartItem = (e) => {
     e.preventDefault();
-    console.log(e.target.value.price);
+    console.log(e.target.value);
 
-    dispatch(
-      addItemToReducerList({
-        licensing: e.target.value.licensing,
-        price: e.target.value.price,
-      })
-    );
+    if (e.target.value == "Non-Exclusive") {
+      dispatch(
+        addItemToReducerList({
+          licensing: e.target.value,
+          price: "24.99",
+        })
+      );
+    }
+    if (e.target.value == "Exclusive") {
+      dispatch(
+        addItemToReducerList({
+          licensing: e.target.value,
+          price: "44.99",
+        })
+      );
+    }
     dispatch(resetCartItemToReducer());
 
     if (document.body.style.overflow === "hidden") {
@@ -55,18 +65,12 @@ const ShoppingCartModal = () => {
         </div>
         <form className="content_body">
           <div className="input">
-            <button
-              value={{ licensing: "Non-Exclusive", price: "24.99" }}
-              onClick={handlAddCartItem.bind(this)}
-            >
+            <button value="Non-Exclusive" onClick={handlAddCartItem.bind(this)}>
               Non-Exclusive - €24.99
             </button>
           </div>
           <div className="input">
-            <button
-              value={{ licensing: "Exclusive", price: "44.99" }}
-              onClick={handlAddCartItem.bind(this)}
-            >
+            <button value="Exclusive" onClick={handlAddCartItem.bind(this)}>
               Exclusive - €44.99
             </button>
           </div>

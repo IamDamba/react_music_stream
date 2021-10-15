@@ -1,15 +1,80 @@
-import React from "react";
-import "../../styles/footer/footer.scss";
-import Logo from "../../media/logo/logo.svg";
+// ||||||||||||||||||||||| Dependencies |||||||||||||||||||||||||
 
-import { Link, withRouter, useHistory } from "react-router-dom";
+import "../../styles/footer/footer.scss";
+import React, { useState } from "react";
+import axios from "axios";
+import Logo from "../../media/logo/logo.svg";
+import warningIcon from "../../media/toast/warningIcon.svg";
+import errorIcon from "../../media/toast/errorIcon.svg";
+import checkIcon from "../../media/toast/checkIcon.svg";
+
+import { Link, useHistory } from "react-router-dom";
+import { emailPattern } from "../../components/regex/Regex";
+import { setToastItemToReducer } from "../../reducer/slices/toastSlice";
+import { useDispatch, useSelector } from "react-redux";
+
+// ||||||||||||||||||||||| Footer |||||||||||||||||||||||||
 
 const Footer = () => {
+  //Hooks
+  const [email, setEmail] = useState("");
   const history = useHistory();
 
-  const handleForm = (e) => {
+  //Redux
+  const { toast_list, warning_color, error_color, check_color } = useSelector(
+    (state) => state.toastReducer
+  );
+  const dispatch = useDispatch();
+
+  //Functions
+  const handleForm = async (e) => {
     e.preventDefault();
-    history.push("/newsletter");
+    console.log(email);
+
+    if (!email.match(emailPattern) === true) {
+      console.log("fail");
+      const toast_item = {
+        id: toast_list.length + 1,
+        title: "Warning",
+        description: "Email is not valid.",
+        backgroundColor: warning_color,
+        icon: warningIcon,
+      };
+
+      dispatch(setToastItemToReducer(toast_item));
+      console.log("Error in email");
+      return;
+    } else {
+      await axios
+        .post("/api/newsletter", {
+          email: email,
+        })
+        .then((res) => {
+          const toast_item = {
+            id: toast_list.length + 1,
+            title: "Success",
+            description: res.data.message,
+            backgroundColor: check_color,
+            icon: checkIcon,
+          };
+          dispatch(setToastItemToReducer(toast_item));
+
+          setEmail("");
+          history.push("/newsletter");
+        })
+        .catch((err) => {
+          console.log("here");
+          const toast_item = {
+            id: toast_list.length + 1,
+            title: "Error",
+            description: err.response.data.message,
+            backgroundColor: error_color,
+            icon: errorIcon,
+          };
+
+          dispatch(setToastItemToReducer(toast_item));
+        });
+    }
   };
 
   return (
@@ -24,7 +89,14 @@ const Footer = () => {
         </div>
         <form className="newsletter_body">
           <div className="input">
-            <input type="email" name="email" id="email" />
+            <input
+              type="email"
+              name="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter email here"
+            />
           </div>
           <div className="button">
             <button type="submit" onClick={handleForm.bind(this)}>
@@ -85,7 +157,7 @@ const Footer = () => {
         <div className="bottom_second">
           <p>
             © Copyright. Music Stream 2021. All Right Reserved.{" "}
-            <a href="#" target="_blank">
+            <a href="https://github.com/IamDamba" target="_blank">
               By IamDamba
             </a>
           </p>

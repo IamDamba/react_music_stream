@@ -64,11 +64,11 @@ const PaginatedTrackForm = () => {
         <table>
           <thead>
             <tr>
-              <th>Title</th>
-              <th>Time</th>
-              <th>Bpm</th>
-              <th>Tags</th>
-              <th></th>
+              <th className="thead_title">Title</th>
+              <th className="thead_time">Time</th>
+              <th className="thead_bpm">Bpm</th>
+              <th className="thead_tags">Tags</th>
+              <th className="thead_link"></th>
             </tr>
           </thead>
           <tbody>

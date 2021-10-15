@@ -2,39 +2,37 @@
 
 const User = require("../models/Users");
 const jwt = require("jsonwebtoken");
+const Invoices = require("../models/Invoices");
+const paypal = require("paypal-rest-sdk");
+const nodemailer = require("nodemailer");
+
+let userid = "";
+let userEmail = "";
+let tracklist = [];
+
 const jwt_secret = process.env.SECRET_TOKEN;
 const tokenDuration = 3 * 24 * 60 * 60;
-let userid = "";
-
-const Invoices = require("../models/Invoices");
-
-const paypal = require("paypal-rest-sdk");
 const clientId = process.env.PAYPAL_ID;
 const secret = process.env.PAYPAL_SECRET;
-const cart = [
-  {
-    id: 1,
-    name: "Track 1",
-    img: "img 1",
-    price: 29.99,
-  },
-  {
-    id: 2,
-    name: "Track 2",
-    img: "img 2",
-    price: 29.99,
-  },
-  {
-    id: 3,
-    name: "Track 3",
-    img: "img 3",
-    price: 29.99,
-  },
-];
-let items = {
-  data: [],
-  total: 0,
+const execute_payment_json = {
+  payer_id: null,
+  transactions: [
+    {
+      amount: {
+        currency: "EUR",
+        total: 0,
+      },
+    },
+  ],
 };
+const transporter = nodemailer.createTransport({
+  host: "smtp.ethereal.email",
+  port: "587",
+  auth: {
+    user: "hortense.cummings65@ethereal.email",
+    pass: "Wc8PQ7svBURP6c26WZ",
+  },
+});
 
 // |||||||||||||||||||||||| Function ||||||||||||||||||||||||||
 
@@ -44,55 +42,47 @@ const createToken = (id) => {
   });
 };
 
-for (let track in cart) {
-  let item = {
-    name: cart[track].name,
-    sku: cart[track].id.toString(),
-    price: cart[track].price.toString(),
-    currency: "EUR",
-    quantity: 1,
-  };
-  items.data.push(item);
-  items.total += cart[track].price;
-}
-
 paypal.configure({
   mode: "sandbox", //sandbox or live
   client_id: clientId,
   client_secret: secret,
 });
 
-const SetPayment = (req, res) => {
+const SetPayment = (req, res, data, total) => {
+  let items = data;
+  console.log(items);
+  console.log(total);
   const create_payment_json = {
     intent: "sale",
     payer: {
       payment_method: "paypal",
     },
     redirect_urls: {
-      return_url: "http://localhost:3001/api/purchase/payment/paypal/success",
-      cancel_url: "http://localhost:3001/api/purchase/payment/paypal/cancel",
+      return_url: "http://localhost:3001/api/checkout/success",
+      cancel_url: "http://localhost:3001/api/checkout/cancel",
     },
     transactions: [
       {
         item_list: {
-          items: items.data,
+          items: items,
         },
         amount: {
           currency: "EUR",
-          total: items.total.toString(),
+          total: total.toString(),
         },
-        description: "Hat for the best team ever",
+        description: "Track purchase",
       },
     ],
   };
+  execute_payment_json.transactions[0].amount.total = total;
 
   paypal.payment.create(create_payment_json, (err, payment) => {
     if (err) {
-      throw err;
+      console.log(err.response.details);
+      res.status(400).json({ message: err.details });
     } else {
       for (let i = 0; i < payment.links.length; i++) {
         if (payment.links[i].rel === "approval_url") {
-          // res.redirect(payment.links[i].href);
           res.status(200).json({ redirect: payment.links[i].href });
         }
       }
@@ -102,23 +92,25 @@ const SetPayment = (req, res) => {
 
 // |||||||||||||||||||||||| Routes ||||||||||||||||||||||||||
 
-module.exports.paymentPaypal_post = async (req, res) => {
-  const token = req.cookies.jwt;
+module.exports.checkout_post = async (req, res) => {
+  const { token, data, total, track_list } = req.body;
   if (token) {
     jwt.verify(token, jwt_secret, async (err, decodedToken) => {
       if (err) {
         console.log("Error occured on verify");
+        console.log(err);
         res.locals.user = null;
         res.status(400).json({
-          isUser: false,
           user: res.locals.user,
           message: "Error occured on verify",
         });
       } else {
         let user = await User.findById(decodedToken.id);
+        userEmail = user.email;
         userid = user._id;
+        tracklist = track_list;
         console.log(user);
-        SetPayment(req, res);
+        SetPayment(req, res, data, total);
       }
     });
   } else {
@@ -131,28 +123,13 @@ module.exports.paymentPaypal_post = async (req, res) => {
     });
   }
 };
-module.exports.paypalSuccess_get = async (req, res) => {
+module.exports.checkoutSuccess_get = async (req, res) => {
   try {
-    let transactionDetail = undefined;
+    let transactionDetail = null;
 
-    console.log(req.query);
     const paymentId = req.query.paymentId;
     const payerId = req.query.PayerID;
-
-    console.log("payer id" + payerId);
-    console.log("paymentId" + paymentId);
-
-    const execute_payment_json = {
-      payer_id: payerId,
-      transactions: [
-        {
-          amount: {
-            currency: "EUR",
-            total: items.total.toString(),
-          },
-        },
-      ],
-    };
+    execute_payment_json.payer_id = payerId;
 
     paypal.payment.execute(
       paymentId,
@@ -200,7 +177,7 @@ module.exports.paypalSuccess_get = async (req, res) => {
                 payment.transactions[0].related_resources[0].sale.create_time,
             },
           };
-          console.log('user : ' + userid);
+          console.log("user : " + userid);
           Promise.all([
             Invoices.create({
               id: transactionDetail.sale.id,
@@ -218,18 +195,49 @@ module.exports.paypalSuccess_get = async (req, res) => {
               create_time: transactionDetail.sale.create_time,
             }),
           ])
-            .then((result) => {
+            .then(async (result) => {
+              let user = await User.find({ id: userid });
+              let act_date = `${new Date().getDate()}/${new Date().getMonth()}/${new Date().getFullYear()}`;
+              //tracklist
+              for (let index in tracklist) {
+                let title = tracklist[index].title.replace(/[\s']/g, "_");
+                console.log(title);
+                let message = () => {
+                  return `
+                  <div>
+                    <p>
+                      Thank you for your purshase, here is the link for download
+                      the track :
+                    </p>
+                    <a
+                      href="https://res.cloudinary.com/iad-bdd-wetcse/video/upload/v1633854535/music_stream/downloads/${tracklist[index].license}/${tracklist[index].id}/${title}.mp3"
+                      target="_blank">Link Here</a>
+                  </div>`;
+                };
+                let mailOptions = {
+                  from: "Music Stream Services - <hortense.cummings65@ethereal.email>",
+                  to: userEmail,
+                  subject: `Purshase - ${act_date}`,
+                  html: message(),
+                };
+                transporter.sendMail(mailOptions, function (error, info) {
+                  if (error) {
+                    console.log("Error occured:" + error);
+                  } else {
+                    console.log("Email sent: " + info.response);
+                  }
+                });
+              }
               console.log(result);
-              res.status(200).json({
-                message: "Invoice created",
-                content: transactionDetail,
-              });
+              res
+                .status(200)
+                .redirect(
+                  `http://localhost:3000/checkout/success/${transactionDetail.sale.id}`
+                );
             })
             .catch((err) => {
               console.log(err);
-              res.status(400).json({
-                message: err
-              });
+              res.status(200).redirect("http://localhost:3000/cart");
             });
         }
       }
@@ -238,10 +246,25 @@ module.exports.paypalSuccess_get = async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 };
-module.exports.paypalCancel_get = async (req, res) => {
+module.exports.checkoutCancel_get = async (req, res) => {
   try {
+    tracklist = [];
     console.log("Operation annuler");
-    res.status(200).json({ message: "Operation Annuler" });
+    res.redirect("http://localhost:3000/cart");
+  } catch (error) {
+    console.log(error);
+  }
+};
+module.exports.matching_id_post = async (req, res) => {
+  let { transaction_id } = req.body;
+  try {
+    let _invoice = Invoices.find({ id: transaction_id });
+
+    if (_invoice !== null) {
+      res.status(200).json({ result: true });
+    } else {
+      res.status(200).json({ result: false });
+    }
   } catch (error) {
     console.log(error);
   }

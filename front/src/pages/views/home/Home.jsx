@@ -51,24 +51,26 @@ const Home = () => {
             <h2>Search for the beat that feat you</h2>
           </div>
           <div className="second">
-            <form className="input" onSubmit={handleSearch.bind(this)}>
-              <label htmlFor="search" className="search_icon">
-                <FontAwesomeIcon icon={faSearch} />
-              </label>
-              <input
-                type="search"
-                name="search"
-                id="search"
-                placeholder='Try search for tags "Drake" or "Lil Baby"'
-              />
-            </form>
-            <div className="tags">
-              <label>Trending:</label>
-              <div className="list">
-                <TagModel value="Lil Baby" />
-                <TagModel value="Drake" />
+            <form onSubmit={handleSearch.bind(this)}>
+              <div className="input">
+                <label htmlFor="search" className="search_icon">
+                  <FontAwesomeIcon icon={faSearch} />
+                </label>
+                <input
+                  type="search"
+                  name="search"
+                  id="search"
+                  placeholder='Try search for tags "Drake" or "Lil Baby"'
+                />
               </div>
-            </div>
+              <div className="tags">
+                <label>Trending:</label>
+                <div className="list">
+                  <TagModel value="Lil Baby" />
+                  <TagModel value="Drake" />
+                </div>
+              </div>
+            </form>
           </div>
         </div>
         <section className="home_tracks">

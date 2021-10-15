@@ -23,11 +23,11 @@ const SingleTrack = () => {
         </section>
         <section className="track_list_detail">
           <Suspense fallback={<p>Data is Loading...</p>}>
-            <SingleTrackModel id={track_id} />
+            <SingleTrackModel id={parseInt(track_id)} />
           </Suspense>
         </section>
       </div>
-      <ShoppingCartModal/>
+      <ShoppingCartModal />
     </main>
   );
 };

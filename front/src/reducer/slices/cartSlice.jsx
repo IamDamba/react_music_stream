@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const cartSlice = createSlice({
   name: "cartSlice",
   initialState: {
-    cart_list: [],
+    cart_list: JSON.parse(localStorage.getItem("Cart")) || [],
     cart_item: {
       id: null,
       image: null,
@@ -11,8 +11,16 @@ const cartSlice = createSlice({
       licensing: null,
       price: null,
     },
+    cart_text: "Add to cart",
   },
   reducers: {
+    setCartTextFromReducer: (state, action) => {
+      if (action.payload.surrogate !== action.payload.id) {
+        state.cart_text = "Add to cart";
+      } else {
+        state.cart_text = "Already in cart";
+      }
+    },
     setCartItemToReducer: (state, action) => {
       state.cart_item.id = action.payload.id;
       state.cart_item.image = action.payload.image;
@@ -27,6 +35,14 @@ const cartSlice = createSlice({
     },
     resetCartListToReducer: (state) => {
       state.cart_list = [];
+      localStorage.removeItem("Cart");
+    },
+    removeCartListItemToReducer: (state, action) => {
+      state.cart_list.splice(
+        state.cart_list.findIndex((e) => e.id === action.payload),
+        1
+      );
+      localStorage.setItem("Cart", state.cart_list);
     },
     addItemToReducerList: (state, action) => {
       state.cart_list.push({
@@ -36,6 +52,8 @@ const cartSlice = createSlice({
         licensing: action.payload.licensing,
         price: action.payload.price,
       });
+      let listString = JSON.stringify(state.cart_list);
+      localStorage.setItem("Cart", listString);
     },
   },
 });
@@ -45,5 +63,7 @@ export const {
   resetCartItemToReducer,
   addItemToReducerList,
   resetCartListToReducer,
+  removeCartListItemToReducer,
+  setCartTextFromReducer,
 } = cartSlice.actions;
 export default cartSlice.reducer;
