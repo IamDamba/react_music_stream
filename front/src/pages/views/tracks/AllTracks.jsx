@@ -33,7 +33,7 @@ const AllTracks = () => {
       <div className="content">
         <section className="content_header">
           <h1>All Tracks</h1>
-          <form>
+          <form onSubmit={(e) => e.preventDefault()}>
             <div className="input">
               <label htmlFor="search" className="search_icon">
                 <FontAwesomeIcon icon={faSearch} />
@@ -45,6 +45,7 @@ const AllTracks = () => {
                 placeholder='Try search for tags "Drake" or "Lil Baby"'
                 value={value}
                 onChange={handleSearch.bind(this)}
+                required
               />
             </div>
           </form>

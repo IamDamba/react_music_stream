@@ -2,7 +2,9 @@
 
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
+import warningIcon from "../../media/toast/warningIcon.svg";
 
+import { emailPattern, namePattern, messagePattern } from "../regex/Regex";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { useSelector, useDispatch } from "react-redux";
@@ -15,11 +17,13 @@ import {
   setCartItemToReducer,
   setCartTextFromReducer,
 } from "../../reducer/slices/cartSlice";
+import { setToastItemToReducer } from "../../reducer/slices/toastSlice";
 
 // ||||||||||||||||||||||| SingleTrackModel |||||||||||||||||||||||||
 
 const SingleTrackModel = ({ id }) => {
   const [listenTextBtn, setListenTextBtn] = useState("Listen");
+  const [message, setMessage] = useState("");
   const [track, setTrack] = useState({});
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -31,6 +35,9 @@ const SingleTrackModel = ({ id }) => {
   );
   const { player_id } = useSelector((state) => state.playerReducer);
   const { cart_list, cart_text } = useSelector((state) => state.cartReducer);
+  const { toast_list, warning_color } = useSelector(
+    (state) => state.toastReducer
+  );
   const dispatch = useDispatch();
 
   const dataFetch = async () => {
@@ -109,18 +116,47 @@ const SingleTrackModel = ({ id }) => {
     }
   };
   const handleSubmitComment = async () => {
-    await axios
-      .post("/api/tracks/comments/create", {
-        token: token,
-        id: id,
-        message: messageRef.current.value,
-      })
-      .then((res) => {
-        messageRef.current.value = "";
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    if (message.length < 0) {
+      const toast_item = {
+        id: toast_list.length + 1,
+        title: "Warning",
+        description: "message is empty.",
+        backgroundColor: warning_color,
+        icon: warningIcon,
+      };
+      dispatch(setToastItemToReducer(toast_item));
+    } else {
+      if (!message.match(messagePattern) === true) {
+        const toast_item = {
+          id: toast_list.length + 1,
+          title: "Warning",
+          description: "Message has been write wrong",
+          backgroundColor: warning_color,
+          icon: warningIcon,
+        };
+        dispatch(setToastItemToReducer(toast_item));
+      } else {
+        await axios
+          .post("/api/tracks/comments/create", {
+            token: token,
+            id: id,
+            message: message,
+          })
+          .then((res) => {
+            messageRef.current.value = "";
+          })
+          .catch((err) => {
+            const toast_item = {
+              id: toast_list.length + 1,
+              title: "Warning",
+              description: err.response.data.message,
+              backgroundColor: warning_color,
+              icon: warningIcon,
+            };
+            dispatch(setToastItemToReducer(toast_item));
+          });
+      }
+    }
   };
 
   useEffect(() => {
@@ -218,7 +254,8 @@ const SingleTrackModel = ({ id }) => {
                 id=""
                 cols="30"
                 rows="10"
-                ref={messageRef}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
                 placeholder="Enter comment here"
               ></textarea>
             </div>

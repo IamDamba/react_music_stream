@@ -126,7 +126,7 @@ const Player = () => {
               name="slider"
               id="slider"
               min="0"
-              max={player_value !== null && player_audio.duration}
+              max={player_value !== null ? player_audio.duration : "0"}
               value={player_value !== null && player_audio.currentTime}
               onChange={(e) => {
                 if (player_value !== null) {

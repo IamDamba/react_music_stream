@@ -15,6 +15,7 @@ const authRoute = require("./back/routes/authRoute");
 const tracksRoute = require("./back/routes/tracksRoute");
 const paymentRoute = require("./back/routes/paymentRoute");
 const contactRoute = require("./back/routes/contactRoute");
+const memberRoute = require("./back/routes/memberRoute");
 
 const dbURI = process.env.DB_URI;
 const port = process.env.PORT;
@@ -33,6 +34,7 @@ app.use(authRoute);
 app.use(tracksRoute);
 app.use(paymentRoute);
 app.use(contactRoute);
+app.use(memberRoute);
 
 // ||||||||||||||||||||||||| Listen |||||||||||||||||||||||||||
 

@@ -96,7 +96,7 @@ const Home = () => {
               </h3>
             </div>
             <div className="second">
-              <Link to="/">See More</Link>
+              <Link to="/licencing">Licences</Link>
             </div>
           </div>
         </section>

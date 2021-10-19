@@ -1,5 +1,8 @@
+// ||||||||||||||||||||||| Dependencies |||||||||||||||||||||||||
+
 import "../../../styles/main/signup/signup.scss";
 import React, { useState } from "react";
+import warningIcon from "../../../media/toast/warningIcon.svg";
 import axios from "axios";
 
 import { Link } from "react-router-dom";
@@ -7,16 +10,23 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 import { setTokenToReducer } from "../../../reducer/slices/userSlice";
-import { useDispatch } from "react-redux";
+import { setToastItemToReducer } from "../../../reducer/slices/toastSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const Signup = () => {
+  // Hooks
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
+  // Redux
+  const { toast_list, warning_color } = useSelector(
+    (state) => state.toastReducer
+  );
   const dispatch = useDispatch();
 
+  // Functions
   const handleSubmitForm = async (e) => {
     let linkRedirection = document.createElement("a");
     linkRedirection.href = "/";
@@ -34,10 +44,26 @@ const Signup = () => {
           dispatch(setTokenToReducer(res.data.token));
         })
         .catch((err) => {
-          console.log(err.message);
+          const toast_item = {
+            id: toast_list.length + 1,
+            title: "Warning",
+            description: err.response.data.message,
+            backgroundColor: warning_color,
+            icon: warningIcon,
+          };
+
+          dispatch(setToastItemToReducer(toast_item));
         });
     } else {
-      console.log("nope");
+      const toast_item = {
+        id: toast_list.length + 1,
+        title: "Warning",
+        description: "Password don't match.",
+        backgroundColor: warning_color,
+        icon: warningIcon,
+      };
+
+      dispatch(setToastItemToReducer(toast_item));
     }
   };
 

@@ -1,19 +1,29 @@
+// ||||||||||||||||||||||| Dependencies |||||||||||||||||||||||||
+
 import "../../../styles/main/signin/signin.scss";
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
+import warningIcon from "../../../media/toast/warningIcon.svg";
 import axios from "axios";
 
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import { setTokenToReducer } from "../../../reducer/slices/userSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { setToastItemToReducer } from "../../../reducer/slices/toastSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const Signin = () => {
+  // hooks
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  // redux
+  const { toast_list, warning_color } = useSelector(
+    (state) => state.toastReducer
+  );
   const dispatch = useDispatch();
 
+  // Functions
   const handleSignin = async (e) => {
     let a = document.createElement("a");
     a.href = "/";
@@ -29,7 +39,15 @@ const Signin = () => {
         a.click();
       })
       .catch((err) => {
-        console.log("Error signin");
+        const toast_item = {
+          id: toast_list.length + 1,
+          title: "Warning",
+          description: err.response.data.message,
+          backgroundColor: warning_color,
+          icon: warningIcon,
+        };
+
+        dispatch(setToastItemToReducer(toast_item));
       });
   };
 

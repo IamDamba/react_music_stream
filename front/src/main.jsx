@@ -36,9 +36,11 @@ ReactDOM.render(
         <Route exact path="/signin" component={UserIndex} />
         <Route exact path="/signup" component={UserIndex} />
         <Route exact path="/forget-password" component={UserIndex} />
+        <Route exact path="/:email/resetpassword" component={UserIndex} />
 
         {/* Admin Router */}
-        <Route exact path="/member" component={AdminIndex} />
+        <Route exact path="/member/signin" component={AdminIndex} />
+        <Route exact path="/member/log/dashboard" component={AdminIndex} />
 
         {/*All Other Route*/}
         <Route path="*" component={Error404} />

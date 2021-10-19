@@ -4,6 +4,7 @@ import tracksReducer from "./slices/tracksSlices";
 import playerReducer from "./slices/playerSlice";
 import cartReducer from "./slices/cartSlice";
 import userReducer from "./slices/userSlice";
+import memberReducer from "./slices/memberSlice";
 import toastReducer from "./slices/toastSlice";
 
 const store = configureStore({
@@ -13,6 +14,7 @@ const store = configureStore({
     playerReducer: playerReducer,
     cartReducer: cartReducer,
     userReducer: userReducer,
+    memberReducer: memberReducer,
     toastReducer: toastReducer,
   },
 });

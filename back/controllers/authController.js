@@ -1,13 +1,14 @@
+// Dependencies
+
 const User = require("../models/Users");
 const Invoices = require("../models/Invoices");
 const jwt = require("jsonwebtoken");
 const secret = process.env.SECRET_TOKEN;
-
-const tokenDuration = 3 * 24 * 60 * 60;
-
 const createToken = (id) => {
   return jwt.sign({ id }, secret, {});
 };
+
+// Router
 
 module.exports.currentuser_post = async (req, res) => {
   const { token } = req.body;
@@ -35,7 +36,6 @@ module.exports.currentuser_post = async (req, res) => {
     res.status(400).json({ isUser: false, user: res.locals.user });
   }
 };
-
 module.exports.verifypassword_post = async (req, res) => {
   const { token, password } = req.body;
   if (token) {
@@ -74,7 +74,6 @@ module.exports.verifypassword_post = async (req, res) => {
     res.status(400).json({ isUser: false, user: res.locals.user });
   }
 };
-
 module.exports.userupdate_put = async (req, res) => {
   const { token, username, email } = req.body;
   if (token) {
@@ -99,7 +98,6 @@ module.exports.userupdate_put = async (req, res) => {
     res.status(400).json({ isUser: false, user: res.locals.user });
   }
 };
-
 module.exports.updatepassword_put = async (req, res) => {
   const { token, password } = req.body;
   if (token) {
@@ -126,7 +124,6 @@ module.exports.updatepassword_put = async (req, res) => {
     res.status(400).json({ isUser: false, user: res.locals.user });
   }
 };
-
 module.exports.signup_post = async (req, res) => {
   const { email, password, username } = req.body;
 
@@ -141,7 +138,6 @@ module.exports.signup_post = async (req, res) => {
     res.status(400).json({ err });
   }
 };
-
 module.exports.signin_post = async (req, res) => {
   const { email, password } = req.body;
   try {
@@ -153,7 +149,6 @@ module.exports.signin_post = async (req, res) => {
     res.status(400).json({ message: err.message });
   }
 };
-
 module.exports.deleteaccount_post = async (req, res) => {
   const { token } = req.body;
 
@@ -181,7 +176,6 @@ module.exports.deleteaccount_post = async (req, res) => {
       .json({ message: "Token doesn't exist", user: res.locals.user });
   }
 };
-
 module.exports.userorders_post = async (req, res) => {
   const { token } = req.body;
   let _orders = [];
@@ -211,4 +205,44 @@ module.exports.userorders_post = async (req, res) => {
     res.locals.user = null;
     res.status(400).json({ isUser: false, user: res.locals.user });
   }
+};
+module.exports.forgottenpassword_post = async (req, res) => {
+  const { email } = req.body;
+
+  await User.find({ email: email }, (err, data) => {
+    if (err) {
+      console.log(err);
+      res.status(400).json({ message: "Error occured." });
+    } else {
+      if (data.length > 0) {
+        res.status(200).json({
+          message: "Email has been send.",
+          link: process.env.HOME_URL + `/${data[0].email}/resetpassword`,
+        });
+      } else {
+        res.status(400).json({ message: "Error occured." });
+      }
+    }
+  });
+};
+module.exports.resetpassword_post = async (req, res) => {
+  const { email, password } = req.body;
+  const newPass = await User.hashNewPassword(password);
+  console.log(newPass);
+  await User.findOneAndUpdate(
+    { email: email },
+    { password: newPass },
+    (err, data) => {
+      if (err) {
+        console.log(err);
+        res.status(400).json({ message: "Error Occured." });
+      } else {
+        res
+          .status(200)
+          .json({
+            message: "Password has been changed. Wait 3 sec for redirection",
+          });
+      }
+    }
+  );
 };

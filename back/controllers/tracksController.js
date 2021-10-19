@@ -62,7 +62,7 @@ module.exports.createcomments_post = async (req, res) => {
       if (err) {
         console.log("error occured on verify");
         res.locals.user = null;
-        res.status(400).json({ isUser: false, user: res.locals.user });
+        res.status(400).json({ message: err });
       } else {
         let user = await User.findById(decodedToken.id);
 
@@ -85,6 +85,8 @@ module.exports.createcomments_post = async (req, res) => {
     });
   } else {
     res.locals.user = null;
-    res.status(400).json({ isUser: false, user: res.locals.user });
+    res
+      .status(400)
+      .json({ message: "Message not sent. Sign In before please." });
   }
 };

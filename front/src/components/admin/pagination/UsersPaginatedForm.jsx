@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import TrackModel from "./TracksModel";
 import axios from "axios";
 import ReactPaginate from "react-paginate";
 
@@ -7,20 +6,18 @@ import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
-const PaginatedTrackForm = () => {
+const UsersPaginatedForm = () => {
   const [data, setData] = useState([]);
   const [currentData, setCurrentData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [limit] = useState(6);
+  const [limit] = useState(10);
   const [isData, setIsData] = useState(false);
 
-  const search = useSelector((state) => state.searchReducer.value);
-
-  const FetchTracks = async () => {
+  const FetchUsers = async () => {
     let offset = limit * currentPage - limit;
 
     await axios
-      .get(`/api/tracks/list?search=${search}`)
+      .get(`/api/member/users?search=${search}`)
       .then((res) => {
         let result = res.data.result;
 
@@ -41,29 +38,15 @@ const PaginatedTrackForm = () => {
     setCurrentPage(selected + 1);
   };
 
-  useEffect(() => {
-    FetchTracks();
-  }, [search.length]);
-
-  useEffect(() => {
-    data.length > 0 ? setIsData(true) : setIsData(false);
-    let offset = limit * currentPage - limit;
-    setCurrentData(data.slice(offset, limit * currentPage));
-  }, [currentPage]);
-
-  const pageCount = Math.ceil(data.length / limit);
-
   return (
     <>
-      <div className="tracks_list_table">
+      <div className="users_list_table">
         <table>
           <thead>
             <tr>
-              <th className="thead_title">Title</th>
-              <th className="thead_time">Time</th>
-              <th className="thead_bpm">Bpm</th>
-              <th className="thead_tags">Tags</th>
-              <th className="thead_link"></th>
+              <th className="thead_id">ID</th>
+              <th className="thead_username">Username</th>
+              <th className="thead_email">Email</th>
             </tr>
           </thead>
           <tbody>
@@ -78,7 +61,7 @@ const PaginatedTrackForm = () => {
           </tbody>
         </table>
       </div>
-      <div className="tracks_list_pagination">
+      <div className="users_list_pagination">
         <ReactPaginate
           previousLabel={<FontAwesomeIcon icon={faArrowLeft} />}
           nextLabel={<FontAwesomeIcon icon={faArrowRight} />}
@@ -96,4 +79,4 @@ const PaginatedTrackForm = () => {
   );
 };
 
-export default PaginatedTrackForm;
+export default UsersPaginatedForm;

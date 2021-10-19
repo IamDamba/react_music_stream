@@ -25,6 +25,7 @@ const Cart = () => {
   const { token } = useSelector((state) => state.userReducer);
 
   const handleRemoveItem = (e) => {
+    console.log(cart_list);
     console.log(e);
     dispatch(removeCartListItemToReducer(e));
   };

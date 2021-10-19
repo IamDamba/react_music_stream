@@ -104,6 +104,7 @@
           }
           .tracks_list_pagination {
             @include pagination_interface;
+            
           }
         }
       }

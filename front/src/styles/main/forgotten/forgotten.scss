@@ -7,102 +7,183 @@
   display: flex;
   min-height: 100vh;
 
-  .forgotten_form {
-    width: 100%;
-    max-width: 460px;
-    position: relative;
-    background-color: $color-header;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    row-gap: 30px;
-    padding: 30px;
-
-    .return_link {
-      position: absolute;
-      top: 8%;
-      left: 30px;
-      text-decoration: underline;
-      font-weight: 600;
-    }
-    h1 {
-      text-align: center;
-    }
-    form {
-      display: grid;
-      width: 100%;
-
-      .input {
-        display: grid;
+  @media screen {
+    @media (max-width: 900px) {
+      .forgotten_form {
         width: 100%;
-        margin-bottom: 30px;
-        gap: 10px;
+        position: relative;
+        background-color: $color-header;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        row-gap: 30px;
+        padding: 30px;
 
-        input[type="email"],
-        input[type="password"] {
-          @include input_interface;
+        .return_link {
+          position: absolute;
+          top: 8%;
+          left: 30px;
+          text-decoration: underline;
+          font-weight: 600;
         }
-      }
-      .input.password {
-        .checkbox {
-          label {
-            display: flex;
-            align-items: center;
-            column-gap: 20px;
-            input[type="checkbox"] {
-              transform: scale(1.4);
-              border: none;
+        h1 {
+          text-align: center;
+        }
+        form {
+          display: grid;
+          width: 100%;
+
+          .input {
+            display: grid;
+            width: 100%;
+            margin-bottom: 30px;
+            gap: 10px;
+            justify-items: center;
+
+            input[type="email"],
+            input[type="password"] {
+              @include input_interface;
+            }
+          }
+          .input.password {
+            .checkbox {
+              label {
+                display: flex;
+                align-items: center;
+                column-gap: 20px;
+                input[type="checkbox"] {
+                  transform: scale(1.4);
+                  border: none;
+                }
+              }
+            }
+          }
+          .other_button {
+            display: grid;
+            text-align: center;
+            gap: 20px;
+
+            .send_button {
+              button {
+                @include button_interface;
+                border: none;
+                &:hover {
+                  color: $color-link;
+                }
+              }
+            }
+            label {
+              a {
+                text-decoration: underline;
+                font-weight: 600;
+              }
             }
           }
         }
       }
-      .other_button {
-        display: grid;
-        text-align: center;
-        gap: 20px;
+      .banner {
+        display: none;
+      }
+    }
+    @media (min-width: 900px) {
+      .forgotten_form {
+        width: 100%;
+        max-width: 460px;
+        position: relative;
+        background-color: $color-header;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        row-gap: 30px;
+        padding: 30px;
 
-        .send_button {
-          button {
-            @include button_interface;
-            border: none;
-            &:hover {
-              color: $color-link;
+        .return_link {
+          position: absolute;
+          top: 8%;
+          left: 30px;
+          text-decoration: underline;
+          font-weight: 600;
+        }
+        h1 {
+          text-align: center;
+        }
+        form {
+          display: grid;
+          width: 100%;
+
+          .input {
+            display: grid;
+            width: 100%;
+            margin-bottom: 30px;
+            gap: 10px;
+
+            input[type="email"],
+            input[type="password"] {
+              @include input_interface;
+            }
+          }
+          .input.password {
+            .checkbox {
+              label {
+                display: flex;
+                align-items: center;
+                column-gap: 20px;
+                input[type="checkbox"] {
+                  transform: scale(1.4);
+                  border: none;
+                }
+              }
+            }
+          }
+          .other_button {
+            display: grid;
+            text-align: center;
+            gap: 20px;
+
+            .send_button {
+              button {
+                @include button_interface;
+                border: none;
+                &:hover {
+                  color: $color-link;
+                }
+              }
+            }
+            label {
+              a {
+                text-decoration: underline;
+                font-weight: 600;
+              }
             }
           }
         }
-        label {
-          a {
-            text-decoration: underline;
-            font-weight: 600;
-          }
+      }
+      .banner {
+        flex: 1;
+        position: relative;
+
+        .img {
+          z-index: 4;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-image: url("../../../media/signin/signin.jpg");
+          background-position: center center;
+          background-size: cover;
+          background-repeat: no-repeat;
+        }
+        .filter {
+          width: 100%;
+          height: 100%;
+          z-index: 5;
+          position: absolute;
+          top: 0;
+          left: 0;
+          background-color: rgba($color: #000000, $alpha: 0.4);
         }
       }
-    }
-  }
-  .banner {
-    flex: 1;
-    position: relative;
-
-    .img {
-      z-index: 4;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url("../../../media/signin/signin.jpg");
-      background-position: center center;
-      background-size: cover;
-      background-repeat: no-repeat;
-    }
-    .filter {
-      width: 100%;
-      height: 100%;
-      z-index: 5;
-      position: absolute;
-      top: 0;
-      left: 0;
-      background-color: rgba($color: #000000, $alpha: 0.4);
     }
   }
 }

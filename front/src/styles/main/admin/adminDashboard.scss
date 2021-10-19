@@ -1,0 +1,104 @@
+@import "../../variables/colors";
+@import "../../variables/interfaces";
+
+.admin_dashboard {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+
+  @media screen {
+    @media (max-width: 1024px) {
+      display: grid;
+      justify-content: center;
+
+      .desktop {
+        display: none;
+      }
+      .mobile {
+        padding-top: 180px;
+        text-align: center;
+
+        .error404_body {
+          p {
+            text-align: center;
+            padding: 30px;
+          }
+        }
+      }
+    }
+    @media (min-width: 1024px) {
+      .desktop {
+        display: flex;
+        width: 100%;
+
+        header {
+          .logo {
+            img {
+              width: 150px;
+            }
+          }
+          .second {
+            display: flex;
+            column-gap: 30px;
+            align-items: center;
+
+            .welcome {
+              p {
+                font-weight: 600;
+              }
+            }
+            button {
+              @include button_interface;
+            }
+          }
+        }
+        .admin_menu {
+          position: absolute;
+          top: 50%;
+          left: 8%;
+          transform: translate(0, -50%);
+          opacity: 0.8;
+          transition: all 0.3s;
+
+          ul {
+            display: grid;
+            gap: 20px;
+            background-color: #242424;
+            border-radius: 30px;
+            padding: 30px 15px;
+
+            li {
+              button {
+                @include button_interface;
+              }
+            }
+          }
+          &:hover {
+            opacity: 1;
+          }
+        }
+        .content {
+          display: flex;
+          width: 100%;
+
+          .banner {
+            width: 100%;
+            padding: 0px 20%;
+            display: grid;
+
+            .banner_users,
+            .banner_tracks,
+            .banner_comments {
+              background-color: $color-bg-tracks;
+            }
+          }
+        }
+      }
+      .mobile {
+        display: none;
+      }
+    }
+  }
+}

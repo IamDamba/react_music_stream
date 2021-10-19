@@ -1,6 +1,4 @@
-// ||||||||||||||||||||||| Dependencies |||||||||||||||||||||||||
-
-import "../../../styles/main/forgotten/forgotten.scss";
+import "../../../styles/main/resetpassword/resetpassword.scss";
 import React, { useState } from "react";
 import checkIcon from "../../../media/toast/checkIcon.svg";
 import warningIcon from "../../../media/toast/warningIcon.svg";
@@ -11,16 +9,16 @@ import {
   namePattern,
   messagePattern,
 } from "../../../components/regex/Regex";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { setToastItemToReducer } from "../../../reducer/slices/toastSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-// ||||||||||||||||||||||| Forget Password |||||||||||||||||||||||||
-
-const ForgetPassword = () => {
-  const [email, setEmail] = useState("");
+const ResetPassword = () => {
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const { email } = useParams();
 
   //redux
   const { toast_list, check_color, warning_color } = useSelector(
@@ -28,25 +26,17 @@ const ForgetPassword = () => {
   );
   const dispatch = useDispatch();
 
-  const handleSendEmail = async (e) => {
+  const handleValidPassword = async (e) => {
     e.preventDefault();
 
-    if (!email.match(emailPattern) === true) {
-      const toast_item = {
-        id: toast_list.length + 1,
-        title: "Warning",
-        description: "Email is not correct.",
-        backgroundColor: warning_color,
-        icon: warningIcon,
-      };
-
-      dispatch(setToastItemToReducer(toast_item));
-    } else {
+    if (password === confirmPassword) {
       await axios
-        .post("/api/forgottenpassword", {
+        .post("/api/resetpassword", {
           email: email,
+          password: password,
         })
         .then((res) => {
+          let a = document.createElement("a");
           const toast_item = {
             id: toast_list.length + 1,
             title: "Success",
@@ -56,7 +46,8 @@ const ForgetPassword = () => {
           };
 
           dispatch(setToastItemToReducer(toast_item));
-          console.log(res.data.link);
+          a.href = "http://localhost:3000";
+          setTimeout(() => a.click(), 3000);
         })
         .catch((err) => {
           const toast_item = {
@@ -69,34 +60,56 @@ const ForgetPassword = () => {
 
           dispatch(setToastItemToReducer(toast_item));
         });
+    } else {
+      const toast_item = {
+        id: toast_list.length + 1,
+        title: "Warning",
+        description: "Password don't match.",
+        backgroundColor: warning_color,
+        icon: warningIcon,
+      };
+
+      dispatch(setToastItemToReducer(toast_item));
     }
   };
 
   return (
-    <main className="forgotten">
-      <div className="forgotten_form">
+    <main className="reset_password">
+      <div className="reset_password_form">
         <div className="return_link">
           <Link to="/signin">
             <FontAwesomeIcon icon={faArrowLeft} /> Return to signin
           </Link>
         </div>
-        <h1>Forgot Password</h1>
-        <form onSubmit={handleSendEmail.bind(this)}>
+        <h1>Reset Password</h1>
+        <form onSubmit={handleValidPassword.bind(this)}>
           <div className="input">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="password">Password</label>
             <input
-              type="email"
-              name="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter Email here"
+              type="password"
+              name="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Enter Password here"
+              required
+            />
+          </div>
+          <div className="input">
+            <label htmlFor="confirmpassword">Confirm Password</label>
+            <input
+              type="password"
+              name="confirmpassword"
+              id="confirmpassword"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              placeholder="Please Confirm Password here"
               required
             />
           </div>
           <div className="other_button">
             <div className="send_button">
-              <button type="submit">Reset Password</button>
+              <button type="submit">Valid Password</button>
             </div>
           </div>
         </form>
@@ -109,4 +122,4 @@ const ForgetPassword = () => {
   );
 };
 
-export default ForgetPassword;
+export default ResetPassword;

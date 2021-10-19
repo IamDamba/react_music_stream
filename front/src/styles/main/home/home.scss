@@ -220,6 +220,7 @@
             .second {
               a {
                 @include button_interface;
+                color: $color-text-black;
               }
             }
           }
@@ -378,6 +379,7 @@
             .second {
               a {
                 @include button_interface;
+                color: $color-text-black;
               }
             }
           }
