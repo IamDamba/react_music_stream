@@ -88,10 +88,204 @@
             padding: 0px 20%;
             display: grid;
 
-            .banner_users,
-            .banner_tracks,
-            .banner_comments {
+            .banner_content {
               background-color: $color-bg-tracks;
+              padding: 30px 50px;
+
+              .banner_users,
+              .banner_tracks,
+              .banner_comments {
+                .search_form {
+                  display: flex;
+                  justify-content: center;
+                  margin-bottom: 30px;
+
+                  .input {
+                    @include search_interface;
+                    width: 100%;
+                    max-width: 400px;
+
+                    input[type="search"] {
+                      padding: 15px 8% 15px 16%;
+                    }
+                  }
+                }
+              }
+
+              .banner_users {
+                .users_list_table {
+                  @include table_interface;
+                  overflow-y: scroll;
+                }
+                .users_list_pagination {
+                  @include pagination_interface;
+                }
+              }
+              .banner_comments {
+                .list_message {
+                  p {
+                    max-width: 120px;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                  }
+                }
+                .comments_list_table {
+                  @include table_interface;
+                  overflow-y: scroll;
+                }
+                .comments_list_pagination {
+                  @include pagination_interface;
+                }
+              }
+              .banner_tracks {
+                .search_form {
+                  align-items: baseline;
+                  justify-content: space-around;
+
+                  .button {
+                    button {
+                      @include button_interface;
+                    }
+                  }
+                }
+                .list_message {
+                  p {
+                    max-width: 120px;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                  }
+                }
+                .tracks_list_table {
+                  @include table_interface;
+                  overflow-y: scroll;
+
+                  tbody {
+                    tr {
+                      vertical-align: baseline;
+                    }
+                  }
+                }
+                .tracks_list_pagination {
+                  @include pagination_interface;
+                }
+              }
+              .modal {
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 5;
+                display: none;
+                width: 100vw;
+                height: 100vh;
+                background-color: rgba($color: $color-text-black, $alpha: 0.6);
+
+                align-items: center;
+                justify-content: center;
+
+                .modal_content {
+                  width: 100%;
+                  max-width: 500px;
+                  padding: 30px;
+                  text-align: center;
+
+                  .modal_content_title {
+                    padding: 20px 60px;
+                    background-color: $color-header;
+                  }
+                  form {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    column-gap: 30px;
+                    padding: 30px 60px;
+                    background-color: $color-modal;
+
+                    .button {
+                      button {
+                        @include button_interface;
+                      }
+                    }
+                  }
+                }
+              }
+              .add_form_modal {
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 5;
+                display: none;
+                width: 100vw;
+                height: 100vh;
+                background-color: rgba($color: $color-text-black, $alpha: 0.6);
+
+                align-items: center;
+                justify-content: center;
+
+                .modal_content {
+                  width: 100%;
+                  max-width: 500px;
+                  padding: 30px;
+                  text-align: center;
+
+                  .modal_content_title {
+                    padding: 20px 60px;
+                    background-color: $color-header;
+                  }
+                  form {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    column-gap: 30px;
+                    padding: 30px 60px;
+                    background-color: $color-modal;
+
+                    .button {
+                      button {
+                        @include button_interface;
+                      }
+                    }
+                  }
+                }
+              }
+              .update_form_modal {
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 5;
+                display: none;
+                width: 100vw;
+                height: 100vh;
+                background-color: rgba($color: $color-text-black, $alpha: 0.6);
+
+                align-items: center;
+                justify-content: center;
+
+                .modal_content {
+                  width: 100%;
+                  max-width: 500px;
+                  padding: 30px;
+                  text-align: center;
+
+                  .modal_content_title {
+                    padding: 20px 60px;
+                    background-color: $color-header;
+                  }
+                  form {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    column-gap: 30px;
+                    padding: 30px 60px;
+                    background-color: $color-modal;
+
+                    .button {
+                      button {
+                        @include button_interface;
+                      }
+                    }
+                  }
+                }
+              }
             }
           }
         }

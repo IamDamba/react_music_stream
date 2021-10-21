@@ -32,9 +32,13 @@ const playerSlice = createSlice({
         state.player_audio.pause();
       }
     },
+    setAudioEndToReducer: (state) => {
+      state.player_audio.currentTime = 0;
+      state.player_audio.pause();
+    },
   },
 });
 
-export const { setMediaToReducer, setPlayPauseToPlayerAudioFromReducer } =
+export const { setMediaToReducer, setPlayPauseToPlayerAudioFromReducer, setAudioEndToReducer } =
   playerSlice.actions;
 export default playerSlice.reducer;

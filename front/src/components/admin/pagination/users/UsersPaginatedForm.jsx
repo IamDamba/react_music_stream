@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import UserTableModel from "./UserTableModel";
 import axios from "axios";
 import ReactPaginate from "react-paginate";
 
@@ -10,18 +11,20 @@ const UsersPaginatedForm = () => {
   const [data, setData] = useState([]);
   const [currentData, setCurrentData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [limit] = useState(10);
+  const [limit] = useState(5);
   const [isData, setIsData] = useState(false);
+
+  const { search_users } = useSelector((state) => state.memberReducer);
 
   const FetchUsers = async () => {
     let offset = limit * currentPage - limit;
 
     await axios
-      .get(`/api/member/users?search=${search}`)
+      .get(`/api/member/users?search=${search_users}`)
       .then((res) => {
         let result = res.data.result;
 
-        if (search.length > 0) {
+        if (search_users.length > 0) {
           setIsData(true);
           setData(result);
           setCurrentData(result.slice(0, limit * currentPage));
@@ -38,6 +41,18 @@ const UsersPaginatedForm = () => {
     setCurrentPage(selected + 1);
   };
 
+  useEffect(() => {
+    FetchUsers();
+  }, [search_users.length]);
+
+  useEffect(() => {
+    data.length > 0 ? setIsData(true) : setIsData(false);
+    let offset = limit * currentPage - limit;
+    setCurrentData(data.slice(offset, limit * currentPage));
+  }, [currentPage]);
+
+  const pageCount = Math.ceil(data.length / limit);
+
   return (
     <>
       <div className="users_list_table">
@@ -47,13 +62,14 @@ const UsersPaginatedForm = () => {
               <th className="thead_id">ID</th>
               <th className="thead_username">Username</th>
               <th className="thead_email">Email</th>
+              <th className="thead_link"></th>
             </tr>
           </thead>
           <tbody>
             <tr></tr>
             {isData !== false ? (
-              currentData.map((track, key) => (
-                <TrackModel key={key} track={track} />
+              currentData.map((user, key) => (
+                <UserTableModel key={key} data={user} />
               ))
             ) : (
               <p>No data was found.</p>

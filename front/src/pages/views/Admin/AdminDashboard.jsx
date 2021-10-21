@@ -1,3 +1,5 @@
+// ||||||||||||||||||||||| Dependencies |||||||||||||||||||||||||
+
 import "../../../styles/main/admin/adminDashboard.scss";
 import React, { useEffect, useState } from "react";
 import Logo from "../../../media/logo/logo.svg";
@@ -14,36 +16,45 @@ import {
   faSignOutAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link, useHistory, Prompt } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { resetMemberFromReducer } from "../../../reducer/slices/memberSlice";
+
+// ||||||||||||||||||||||| Admin Dashboard |||||||||||||||||||||||||
 
 const AdminDashboard = () => {
+  // Hooks
   const [canLeave, setCanLeave] = useState(false);
   const [bannerValue, setBannerValue] = useState(1);
-  const [banner, setBanner] = useState(BannerUsers);
 
+  // Redux
+  const dispatch = useDispatch();
+
+  // Functons
   const handlebannerId = (e) => {
     setBannerValue(e);
   };
   const handleShowBanner = () => {
-    switch (bannerValue) {
-      case 1:
-        setBanner(BannerUsers);
-        break;
-      case 2:
-        setBanner(BannerTracks);
-        break;
-      case 3:
-        setBanner(BannerComments);
-        break;
+    try {
+      switch (bannerValue) {
+        case 1:
+          return <BannerUsers />;
+        case 2:
+          return <BannerTracks />;
+        case 3:
+          return <BannerComments />;
+          break;
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
+  const handleSignOut = () => {
+    let redirect = document.createElement("a");
+    redirect.href = "/";
+    dispatch(resetMemberFromReducer());
+    redirect.click();
+  };
 
-  useEffect(() => {
-    console.log("rr");
-    window.addEventListener("beforeunload", (event) => {
-      event.returnValue = `Are you sure you want to leave?`;
-      console.log(event);
-    });
-  }, [!canLeave]);
   useEffect(() => {
     handleShowBanner();
   }, [bannerValue]);
@@ -73,7 +84,7 @@ const AdminDashboard = () => {
               <p>Welcom back, user !</p>
             </div>
             <div className="button">
-              <button>
+              <button onClick={handleSignOut}>
                 <FontAwesomeIcon icon={faSignOutAlt} />
               </button>
             </div>
@@ -99,7 +110,9 @@ const AdminDashboard = () => {
           </ul>
         </aside>
         <section className="content">
-          <div className="banner">{banner}</div>
+          <div className="banner">
+            <div className="banner_content">{handleShowBanner()}</div>
+          </div>
         </section>
       </div>
     </main>
