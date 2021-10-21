@@ -42,7 +42,10 @@ const cartSlice = createSlice({
         state.cart_list.findIndex((e) => e.id === action.payload),
         1
       );
-      localStorage.setItem("Cart", state.cart_list);
+      localStorage.setItem("Cart", JSON.stringify(state.cart_list));
+      if (state.cart_list.length <= 0) {
+        localStorage.removeItem("Cart");
+      }
     },
     addItemToReducerList: (state, action) => {
       state.cart_list.push({

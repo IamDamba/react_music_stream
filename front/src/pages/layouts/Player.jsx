@@ -14,16 +14,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  setPlayPauseToPlayerAudioFromReducer,
-  setAudioEndToReducer,
-} from "../../reducer/slices/playerSlice";
+import { setPlayPauseToPlayerAudioFromReducer } from "../../reducer/slices/playerSlice";
 
 // ||||||||||||||||||||||| Player |||||||||||||||||||||||||
 
 const Player = () => {
   // Hooks
-  const [playerDurationValue, setPlayerDurationValue] = useState(0);
   const [maxTimeText, setMaxTimeText] = useState("0:00");
   const [currentTimeText, setCurrentTimeText] = useState("0:00");
   const [buttonIcon, setButtonIcon] = useState(faHeadphonesAlt);
@@ -98,7 +94,6 @@ const Player = () => {
   };
 
   useEffect(() => {
-    setPlayerDurationValue(player_audio.duration);
     handlePlayerAudioDuration();
     uploadPlayerAudioCurrentTime();
 
@@ -107,23 +102,15 @@ const Player = () => {
   }, [player_audio.src]);
   useEffect(() => {
     if (player_value !== null) {
-      if (player_audio.currentTime === playerDurationValue - 20) {
-        player_audio.currentTime = 0;
-        dispatch(setAudioEndToReducer());
-      }
       player_audio.addEventListener("ended", () => {
         player_audio.currentTime = 0;
-        console.log("ended");
-        dispatch(setAudioEndToReducer());
+        setPlayerIcon(faPlay);
       });
     }
-    console.log(player_audio.currentTime);
-    console.log(playerDurationValue);
   }, [player_audio.currentTime]);
 
   return (
     <section className="music_player">
-      <audio src="" style={{ display: "none" }}></audio>
       <div className="content" ref={playerRef}>
         <div className="first">
           <div className="img">
@@ -152,7 +139,6 @@ const Player = () => {
               onChange={(e) => {
                 if (player_value !== null) {
                   uploadPlayerAudioCurrentTime();
-                  handlePlayerAudioDuration();
                   player_audio.currentTime = e.target.value;
                 }
               }}

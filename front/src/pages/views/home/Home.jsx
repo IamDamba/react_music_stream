@@ -96,7 +96,7 @@ const Home = () => {
               </h3>
             </div>
             <div className="second">
-              <Link to="/licencing">Licences</Link>
+              <Link to="/licences">Licences</Link>
             </div>
           </div>
         </section>

@@ -4,36 +4,46 @@ const User = require("../models/Users");
 const Invoices = require("../models/Invoices");
 const jwt = require("jsonwebtoken");
 const secret = process.env.SECRET_TOKEN;
+const home_url = process.env.PORT || 3000;
+const tokenDuration = 1 * 24 * 60 * 60 * 1000;
 const createToken = (id) => {
-  return jwt.sign({ id }, secret, {});
+  return jwt.sign({ id }, secret, {
+    expiresIn: tokenDuration,
+  });
 };
 
 // Router
 
 module.exports.currentuser_post = async (req, res) => {
-  const { token } = req.body;
-  if (token) {
-    jwt.verify(token, secret, async (err, decodedToken) => {
-      if (err) {
-        console.log("error occured on verify");
-        res.locals.user = null;
-        res.status(400).json({ isUser: false, user: res.locals.user });
-      } else {
-        let user = await User.findById(decodedToken.id);
-        res.locals.user = {
-          email: user.email,
-          username: user.username,
-          firstname: user.firstname,
-          lastname: user.lastname,
-          address: user.address,
-          country: user.country,
-        };
-        res.status(200).json({ isUser: true, user: res.locals.user });
-      }
-    });
-  } else {
+  const { token, tokenDuration } = req.body;
+
+  if (tokenDuration < Date.now()) {
     res.locals.user = null;
-    res.status(400).json({ isUser: false, user: res.locals.user });
+    res.status(200).json({ isUser: false });
+  } else {
+    if (token) {
+      jwt.verify(token, secret, async (err, decodedToken) => {
+        if (err) {
+          console.log("error occured on verify");
+          res.locals.user = null;
+          res.status(400).json({ isUser: false, user: res.locals.user });
+        } else {
+          let user = await User.findById(decodedToken.id);
+          res.locals.user = {
+            email: user.email,
+            username: user.username,
+            firstname: user.firstname,
+            lastname: user.lastname,
+            address: user.address,
+            country: user.country,
+          };
+          res.status(200).json({ isUser: true, user: res.locals.user });
+        }
+      });
+    } else {
+      res.locals.user = null;
+      res.status(400).json({ isUser: false, user: res.locals.user });
+    }
   }
 };
 module.exports.verifypassword_post = async (req, res) => {
@@ -130,9 +140,12 @@ module.exports.signup_post = async (req, res) => {
   try {
     const user = await User.create({ email, password, username });
     const token = createToken(user._id);
-    res.cookie("jwt", token, { httpOnly: true, maxAge: tokenDuration * 1000 });
-    console.log("User Registered");
-    res.status(201).json({ message: "User Registered" });
+    console.log("Login successfully");
+    res.status(200).json({
+      message: "Signup Successfully",
+      token: token,
+      tokenDuration: Date.now() + tokenDuration,
+    });
   } catch (err) {
     console.log({ err });
     res.status(400).json({ err });
@@ -144,7 +157,11 @@ module.exports.signin_post = async (req, res) => {
     const user = await User.signin(email, password);
     const token = createToken(user._id);
     console.log("Login successfully");
-    res.status(200).json({ message: "Login Successfully", token: token });
+    res.status(200).json({
+      message: "Login Successfully",
+      token: token,
+      tokenDuration: Date.now() + tokenDuration,
+    });
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
@@ -217,7 +234,7 @@ module.exports.forgottenpassword_post = async (req, res) => {
       if (data.length > 0) {
         res.status(200).json({
           message: "Email has been send.",
-          link: process.env.HOME_URL + `/${data[0].email}/resetpassword`,
+          link: home_url + `/${data[0].email}/resetpassword`,
         });
       } else {
         res.status(400).json({ message: "Error occured." });
@@ -237,11 +254,9 @@ module.exports.resetpassword_post = async (req, res) => {
         console.log(err);
         res.status(400).json({ message: "Error Occured." });
       } else {
-        res
-          .status(200)
-          .json({
-            message: "Password has been changed. Wait 3 sec for redirection",
-          });
+        res.status(200).json({
+          message: "Password has been changed. Wait 3 sec for redirection",
+        });
       }
     }
   );

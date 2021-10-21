@@ -1,6 +1,6 @@
 // ||||||||||||||||||||||| Dependencies |||||||||||||||||||||||||
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Header from "../pages/layouts/Header";
 import Footer from "../pages/layouts/Footer";
 import Player from "../pages/layouts/Player";
@@ -16,16 +16,35 @@ import AllTracks from "../pages/views/tracks/AllTracks";
 import SingleTrack from "../pages/views/tracks/SingleTrack";
 import Cart from "../pages/views/cart/Cart";
 import Error404 from "../pages/views/error404/Error404";
-
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { useSelector } from "react-redux";
 import Profile from "../pages/views/profile/Profile";
 import CheckoutSuccess from "../pages/views/checkout/CheckoutSuccess";
+
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { resetTokenToReducer } from "../reducer/slices/userSlice";
 
 // ||||||||||||||||||||||| App |||||||||||||||||||||||||
 
 const App = () => {
-  const { token } = useSelector((state) => state.userReducer);
+  // Hooks
+  const intervalRef = useRef(null);
+
+  // Redux
+  const { token, tokenDuration } = useSelector((state) => state.userReducer);
+  const dispatch = useDispatch();
+
+  // Functions
+  useEffect(() => {
+    if (tokenDuration !== null) {
+      const interval = setInterval(() => {
+        if (tokenDuration < Date.now()) {
+          dispatch(resetTokenToReducer());
+          window.location.reload();
+        }
+      }, 3000);
+      return () => clearInterval(interval);
+    }
+  }, []);
 
   return (
     <Router>

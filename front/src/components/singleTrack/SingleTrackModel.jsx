@@ -190,6 +190,8 @@ const SingleTrackModel = ({ id }) => {
     dispatch(setCartTextFromReducer({ surrogate: _itemCatch, id: id }));
   }, [cart_list]);
 
+  console.log(track_comments[0]);
+
   return !isLoaded ? (
     <p>Data is Loading...</p>
   ) : (
@@ -230,7 +232,7 @@ const SingleTrackModel = ({ id }) => {
         </div>
         <div className="track_comment_list">
           <ul className="comment_username">
-            {track_comments.length > 1 ? (
+            {track_comments.length > 0 ? (
               track_comments.map((comment) => (
                 <li className="comment_content">
                   <div className="username">

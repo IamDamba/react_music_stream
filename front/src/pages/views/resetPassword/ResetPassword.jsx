@@ -46,7 +46,7 @@ const ResetPassword = () => {
           };
 
           dispatch(setToastItemToReducer(toast_item));
-          a.href = "http://localhost:3000";
+          a.href = "/";
           setTimeout(() => a.click(), 3000);
         })
         .catch((err) => {

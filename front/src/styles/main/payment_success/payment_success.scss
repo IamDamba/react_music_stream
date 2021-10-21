@@ -12,6 +12,7 @@
       text-align: center;
       .button {
         a {
+          text-align: center;
           @include button_interface;
           border: none;
           &:hover {

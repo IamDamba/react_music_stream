@@ -5,6 +5,7 @@ import ResetPassword from "../pages/views/resetPassword/ResetPassword.jsx";
 import Signin from "../pages/views/signin/Signin";
 import Signup from "../pages/views/signup/Signup";
 import Toast from "../pages/layouts/Toast";
+import Error404 from "../pages/views/error404/Error404";
 
 const UserIndex = () => {
   return (

@@ -6,7 +6,10 @@ import warningIcon from "../../../media/toast/warningIcon.svg";
 import axios from "axios";
 
 import { Link } from "react-router-dom";
-import { setTokenToReducer } from "../../../reducer/slices/userSlice";
+import {
+  setTokenToReducer,
+  setTokenDurationToReducer,
+} from "../../../reducer/slices/userSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { setToastItemToReducer } from "../../../reducer/slices/toastSlice";
@@ -36,6 +39,7 @@ const Signin = () => {
       })
       .then((res) => {
         dispatch(setTokenToReducer(res.data.token));
+        dispatch(setTokenDurationToReducer(res.data.tokenDuration));
         a.click();
       })
       .catch((err) => {

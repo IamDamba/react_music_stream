@@ -9,6 +9,7 @@ const userSlice = createSlice({
     },
     orders: [],
     token: localStorage.getItem("user_token") || null,
+    tokenDuration: localStorage.getItem("user_token_duration") || null,
   },
   reducers: {
     setUserToReducer: (state, action) => {
@@ -21,9 +22,15 @@ const userSlice = createSlice({
       state.token = action.payload;
       localStorage.setItem("user_token", state.token);
     },
+    setTokenDurationToReducer: (state, action) => {
+      state.tokenDuration = action.payload;
+      localStorage.setItem("user_token_duration", state.tokenDuration);
+    },
     resetTokenToReducer: (state) => {
       state.token = null;
+      state.tokenDuration = null;
       localStorage.removeItem("user_token");
+      localStorage.removeItem("user_token_duration");
     },
   },
 });
@@ -33,5 +40,6 @@ export const {
   setOrdersToReducer,
   setTokenToReducer,
   resetTokenToReducer,
+  setTokenDurationToReducer,
 } = userSlice.actions;
 export default userSlice.reducer;

@@ -9,7 +9,10 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
-import { setTokenToReducer } from "../../../reducer/slices/userSlice";
+import {
+  setTokenToReducer,
+  setTokenDurationToReducer,
+} from "../../../reducer/slices/userSlice";
 import { setToastItemToReducer } from "../../../reducer/slices/toastSlice";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -40,8 +43,9 @@ const Signup = () => {
           username: username,
         })
         .then((res) => {
-          linkRedirection.click();
           dispatch(setTokenToReducer(res.data.token));
+          dispatch(setTokenDurationToReducer(res.data.tokenDuration));
+          linkRedirection.click();
         })
         .catch((err) => {
           const toast_item = {

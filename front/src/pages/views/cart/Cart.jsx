@@ -2,6 +2,9 @@
 
 import "../../../styles/main/cart/cart.scss";
 import React, { useEffect, useState } from "react";
+import checkIcon from "../../../media/toast/checkIcon.svg";
+import warningIcon from "../../../media/toast/warningIcon.svg";
+import axios from "axios";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
@@ -10,7 +13,7 @@ import {
   resetCartListToReducer,
   removeCartListItemToReducer,
 } from "../../../reducer/slices/cartSlice";
-import axios from "axios";
+import { setToastItemToReducer } from "../../../reducer/slices/toastSlice";
 
 // ||||||||||||||||||||||| SingleTrackModel |||||||||||||||||||||||||
 
@@ -23,11 +26,36 @@ const Cart = () => {
   const dispatch = useDispatch();
   const { cart_list } = useSelector((state) => state.cartReducer);
   const { token } = useSelector((state) => state.userReducer);
+  const { toast_list, warning_color, check_color } = useSelector(
+    (state) => state.toastReducer
+  );
 
   const handleRemoveItem = (e) => {
+    const toast_item = {
+      id: toast_list.length + 1,
+      title: "Check",
+      description: "Item has been removed.",
+      backgroundColor: check_color,
+      icon: checkIcon,
+    };
     console.log(cart_list);
     console.log(e);
+
     dispatch(removeCartListItemToReducer(e));
+    dispatch(setToastItemToReducer(toast_item));
+  };
+  const handleResetCart = () => {
+    if (cart_list.length > 0) {
+      const toast_item = {
+        id: toast_list.length + 1,
+        title: "Check",
+        description: "Cart has been reset.",
+        backgroundColor: check_color,
+        icon: checkIcon,
+      };
+      dispatch(resetCartListToReducer());
+      dispatch(setToastItemToReducer(toast_item));
+    }
   };
   const handleCheckout = async () => {
     let items = {
@@ -97,7 +125,15 @@ const Cart = () => {
           console.log(err.message);
         });
     } else {
-      console.log("Please signin before checkout.");
+      const toast_item = {
+        id: toast_list.length + 1,
+        title: "Warning",
+        description: "Please signin before checkout.",
+        backgroundColor: warning_color,
+        icon: warningIcon,
+      };
+
+      dispatch(setToastItemToReducer(toast_item));
     }
   };
 
@@ -158,9 +194,7 @@ const Cart = () => {
             </div>
             <div className="cart_total">
               <div className="delete_cart">
-                <p onClick={() => dispatch(resetCartListToReducer())}>
-                  Delete cart items
-                </p>
+                <p onClick={handleResetCart}>Delete cart items</p>
               </div>
               <div className="total">
                 <p>Total</p>

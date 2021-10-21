@@ -18,7 +18,7 @@ const contactRoute = require("./back/routes/contactRoute");
 const memberRoute = require("./back/routes/memberRoute");
 
 const dbURI = process.env.DB_URI;
-const port = process.env.PORT;
+const port = process.env.PORT || 3001;
 
 // ||||||||||||||||||||||||| MiddleWare |||||||||||||||||||||||||||
 
@@ -45,7 +45,7 @@ mongoose
     useCreateIndex: true,
   })
   .then((res) => {
-    app.listen(port || 3001, () => {
+    app.listen(port, () => {
       console.log(`Listen to port ${port}`);
     });
   })

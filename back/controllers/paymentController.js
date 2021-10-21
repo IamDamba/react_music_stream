@@ -5,6 +5,7 @@ const jwt = require("jsonwebtoken");
 const Invoices = require("../models/Invoices");
 const paypal = require("paypal-rest-sdk");
 const nodemailer = require("nodemailer");
+const home_url = process.env.PORT || "http://localhost:3001";
 
 let userid = "";
 let userEmail = "";
@@ -36,12 +37,6 @@ const transporter = nodemailer.createTransport({
 
 // |||||||||||||||||||||||| Function ||||||||||||||||||||||||||
 
-const createToken = (id) => {
-  return jwt.sign({ id }, jwt_secret, {
-    expiresIn: tokenDuration,
-  });
-};
-
 paypal.configure({
   mode: "sandbox", //sandbox or live
   client_id: clientId,
@@ -58,8 +53,8 @@ const SetPayment = (req, res, data, total) => {
       payment_method: "paypal",
     },
     redirect_urls: {
-      return_url: "http://localhost:3001/api/checkout/success",
-      cancel_url: "http://localhost:3001/api/checkout/cancel",
+      return_url: `${home_url}/api/checkout/success`,
+      cancel_url: `${home_url}/api/checkout/cancel`,
     },
     transactions: [
       {
@@ -75,6 +70,7 @@ const SetPayment = (req, res, data, total) => {
     ],
   };
   execute_payment_json.transactions[0].amount.total = total;
+  console.log(execute_payment_json.redirect_urls);
 
   paypal.payment.create(create_payment_json, (err, payment) => {
     if (err) {
@@ -232,12 +228,16 @@ module.exports.checkoutSuccess_get = async (req, res) => {
               res
                 .status(200)
                 .redirect(
-                  `http://localhost:3000/checkout/success/${transactionDetail.sale.id}`
+                  `${
+                    process.env.PORT || process.env.HOME_URL
+                  }/checkout/success/${transactionDetail.sale.id}`
                 );
             })
             .catch((err) => {
               console.log(err);
-              res.status(200).redirect("http://localhost:3000/cart");
+              res
+                .status(200)
+                .redirect(`${process.env.PORT || process.env.HOME_URL}/cart`);
             });
         }
       }
@@ -250,7 +250,7 @@ module.exports.checkoutCancel_get = async (req, res) => {
   try {
     tracklist = [];
     console.log("Operation annuler");
-    res.redirect("http://localhost:3000/cart");
+    res.redirect(`${process.env.PORT || process.env.HOME_URL}/cart`);
   } catch (error) {
     console.log(error);
   }

@@ -2,23 +2,23 @@
 
 const nodemailer = require("nodemailer");
 const Newsletters = require("../models/Newsletters");
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  host: "smtp.gmail.com",
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASSWORD,
+  },
+});
 
 // |||||||||||||||||||||||| Functions ||||||||||||||||||||||||||
 
 module.exports.contactform_post = async (req, res) => {
   const { name, email, message } = req.body;
-  const transporter = nodemailer.createTransport({
-    host: "smtp.ethereal.email",
-    port: "587",
-    auth: {
-      user: "hortense.cummings65@ethereal.email",
-      pass: "Wc8PQ7svBURP6c26WZ",
-    },
-  });
   const mailOptions = {
-    from: `Contact Message - ${email}`,
-    to: "hortense.cummings65@ethereal.email",
-    subject: `Message send by ${name}`,
+    from: `Contact Message`,
+    to: process.env.EMAIL_USER,
+    subject: `Message send by ${name} <${email}>`,
     text: message,
   };
   transporter.sendMail(mailOptions, function (error, info) {
@@ -33,15 +33,6 @@ module.exports.contactform_post = async (req, res) => {
 };
 module.exports.newsletter_post = async (req, res) => {
   const { email } = req.body;
-  const transporter = nodemailer.createTransport({
-    host: "smtp.ethereal.email",
-    port: "587",
-    auth: {
-      user: "hortense.cummings65@ethereal.email",
-      pass: "Wc8PQ7svBURP6c26WZ",
-    },
-  });
-
   const news_list = await Newsletters.find();
 
   await Newsletters.find({ email: email }, (err, result) => {
@@ -57,7 +48,7 @@ module.exports.newsletter_post = async (req, res) => {
         ])
           .then((response) => {
             const mailOptions = {
-              from: "Music Stream Team - hortense.cummings65@ethereal.email",
+              from: `Music Stream Team - ${process.env.EMAIL_USER}`,
               to: email,
               subject: "Newsletter registration",
               html: `<p>Thanks you for your registration to our newsletter !!</p> <p>if you want to quit our service, just click on the link down below</p><a href="http:localhost:3001/api/unsubscribe?email=${email}">Unsubscribe here</a>`,
@@ -88,14 +79,6 @@ module.exports.newsletter_post = async (req, res) => {
 };
 module.exports.unsubscribe_delete = async (req, res) => {
   const { email } = req.query;
-  const transporter = nodemailer.createTransport({
-    host: "smtp.ethereal.email",
-    port: "587",
-    auth: {
-      user: "hortense.cummings65@ethereal.email",
-      pass: "Wc8PQ7svBURP6c26WZ",
-    },
-  });
 
   console.log(email);
 
