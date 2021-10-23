@@ -12,6 +12,19 @@
       margin-top: 80px;
       display: grid;
       gap: 60px;
+
+      .accordion_item {
+        .accordion_item_header {
+          h3 {
+            margin-right: 30px;
+            @media screen {
+              @media (max-width: 500px) {
+                max-width: 220px;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

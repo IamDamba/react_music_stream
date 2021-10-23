@@ -157,7 +157,7 @@ const Footer = () => {
         <div className="bottom_second">
           <p>
             © Copyright. Music Stream 2021. All Right Reserved.{" "}
-            <a href="https://github.com/IamDamba" target="_blank">
+            <a href="https://iamdamba-v2-1.herokuapp.com" target="_blank">
               By IamDamba
             </a>
           </p>

@@ -229,7 +229,7 @@ module.exports.checkoutSuccess_get = async (req, res) => {
                 .status(200)
                 .redirect(
                   `${
-                    process.env.PORT || process.env.HOME_URL
+                    process.env.PORT || "http:localhost:3000"
                   }/checkout/success/${transactionDetail.sale.id}`
                 );
             })
@@ -237,7 +237,7 @@ module.exports.checkoutSuccess_get = async (req, res) => {
               console.log(err);
               res
                 .status(200)
-                .redirect(`${process.env.PORT || process.env.HOME_URL}/cart`);
+                .redirect(`${process.env.PORT || "http:localhost:3000"}/cart`);
             });
         }
       }
@@ -250,7 +250,7 @@ module.exports.checkoutCancel_get = async (req, res) => {
   try {
     tracklist = [];
     console.log("Operation annuler");
-    res.redirect(`${process.env.PORT || process.env.HOME_URL}/cart`);
+    res.redirect(`${process.env.PORT || "http:localhost:3000"}/cart`);
   } catch (error) {
     console.log(error);
   }
