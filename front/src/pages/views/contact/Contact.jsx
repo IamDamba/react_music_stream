@@ -146,7 +146,7 @@ const Contact = () => {
           };
 
           dispatch(setToastItemToReducer(toast_item));
-          console.log(err);
+          console.log(err.response.data.message);
         });
     }
   };
