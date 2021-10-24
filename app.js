@@ -39,7 +39,7 @@ app.use(paymentRoute);
 app.use(contactRoute);
 app.use(memberRoute);
 
-app.get("*", function (request, response) {
+app.get("/api/*", function (request, response) {
   response.sendFile(path.join(__dirname, "./front/build", "index.html"));
 });
 
