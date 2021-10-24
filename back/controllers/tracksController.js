@@ -25,7 +25,7 @@ module.exports.list_get = async (req, res) => {
   try {
     res.send(res.paginatedResults);
   } catch (err) {
-    res.status(500).json({ err: err.message });
+    res.status(400).json({ err: err.message });
   }
 };
 module.exports.id_get = async (req, res) => {
@@ -75,7 +75,7 @@ module.exports.createcomments_post = async (req, res) => {
         Promise.all([Comments.create(comment)])
           .then((response) => {
             console.log(response);
-            res.status(400).json({ message: "Comment Added" });
+            res.status(200).json({ message: "Comment Added" });
           })
           .catch((err) => {
             console.log(err);
