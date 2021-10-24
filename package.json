@@ -1,0 +1,34 @@
+{
+  "name": "react_music_stream",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "client": "cd front && yarn start",
+    "install-client": "cd front && yarn install",
+    "heroku-postbuild": "yarn run install-client && yarn build",
+    "build": "cd front && yarn build"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.6.10",
+    "mongoose": "^5.13.2",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.6.5",
+    "paypal-rest-sdk": "^1.8.1",
+    "validator": "^13.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12",
+    "react-app-rewired": "^2.1.8"
+  }
+}
