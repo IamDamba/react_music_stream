@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="295.49" height="48.406" viewBox="0 0 295.49 48.406">
+  <g id="logo" transform="translate(-22.51 -2.594)">
+    <g id="Groupe_296" data-name="Groupe 296">
+      <text id="Music_Stream" data-name="Music Stream" transform="translate(79 43)" fill="#fff" font-size="40" font-family="Impact"><tspan x="0" y="0">MUSIC STREAM</tspan></text>
+      <g id="Groupe_295" data-name="Groupe 295" transform="translate(-10.375 -10.375)">
+        <path id="Icon_ionic-md-headset" data-name="Icon ionic-md-headset" d="M26.991,3.668C16.008,3.668,4.5,12.514,4.5,23.8V39.681a6.717,6.717,0,0,0,6.631,6.807h6.631V28.242H8.924V23.8c0-8.776,9.519-15.591,18.067-15.591s17.66,6.8,17.66,15.591v4.445H35.813V46.478h6.631a6.71,6.71,0,0,0,6.631-6.807V23.8C49.075,12.514,37.974,3.668,26.991,3.668Z" transform="translate(28.385 9.301)" fill="#fafafa"/>
+        <path id="Icon_ionic-md-musical-note" data-name="Icon ionic-md-musical-note" d="M11.587,4.5V9.05a1.721,1.721,0,1,0,.861,1.488V6.224h1.726V4.5Z" transform="translate(40.454 43.527)" fill="#fafafa"/>
+        <path id="Icon_ionic-md-musical-note-2" data-name="Icon ionic-md-musical-note" d="M11.587,4.5V9.05a1.721,1.721,0,1,0,.861,1.488V6.224h1.726V4.5Z" transform="translate(46.743 41.527)" fill="#fafafa"/>
+        <path id="Icon_ionic-md-musical-note-3" data-name="Icon ionic-md-musical-note" d="M11.587,4.5V9.05a1.721,1.721,0,1,0,.861,1.488V6.224h1.726V4.5Z" transform="translate(39.454 33.309)" fill="#fafafa"/>
+        <path id="Icon_ionic-md-musical-note-4" data-name="Icon ionic-md-musical-note" d="M11.587,4.5V9.05a1.721,1.721,0,1,0,.861,1.488V6.224h1.726V4.5Z" transform="translate(46.743 31.309)" fill="#fafafa"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,188 @@
+@mixin button_interface {
+  padding: 10px 12px;
+  cursor: pointer;
+  background-color: $color-link;
+  font-weight: 600;
+  transition: all 0.3s;
+  border-radius: 10px;
+  border: none;
+
+  a {
+    color: white;
+  }
+  &:hover {
+    background-color: $color-text-black;
+    color: $color-link;
+
+    a {
+      color: $color-link;
+    }
+  }
+}
+
+@mixin select_interface {
+  $isSelect: 0;
+  padding: 10px 12px;
+  cursor: pointer;
+  background-color: $color-bg-tracks;
+  box-shadow: 0px 0px 4px rgba($color: rgb(185, 185, 185), $alpha: 0.2);
+  font-weight: 600;
+  transition: all 0.3s;
+  border-radius: 10px;
+  border: none;
+  color: $color-text-white;
+
+  &:hover {
+    background-color: $color-link;
+  }
+}
+
+@mixin link_interface {
+  color: $color-text-white;
+  font-weight: 600;
+  transition: all 0.3s;
+
+  &:hover {
+    color: $color-link;
+  }
+}
+
+@mixin input_interface {
+  width: 100%;
+  max-width: 400px;
+  padding: 15px 8%;
+  color: $color-text-black;
+  background-color: $color-input;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+}
+
+@mixin search_interface {
+  position: relative;
+  margin-bottom: 20px;
+
+  .search_icon {
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    transform: translate(0, -50%);
+    color: $color-text-black;
+    font-size: 1.2rem;
+  }
+  input[type="search"] {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px 8% 15px 60px;
+    color: $color-text-black;
+    background-color: $color-input;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+  }
+}
+
+@mixin table_interface {
+  background-color: $color-bg-tracks;
+  padding: 30px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+
+  table {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse; // 1
+    border-spacing: 30px;
+
+    tbody {
+      border-top: 3em solid transparent;
+
+      tr {
+        cursor: pointer;
+        transition: all 0.3s;
+        border-top: 2em solid $color-bg-tracks;
+        &:hover {
+          background-color: rgba($color: #fff, $alpha: 0.2);
+        }
+      }
+      .list_title {
+        display: flex;
+        column-gap: 10px;
+        align-items: center;
+
+        img {
+          width: 60px;
+          height: 60px;
+          object-fit: cover;
+        }
+      }
+      .list_tags {
+        button {
+          @include button_interface;
+          border: none;
+          &:hover {
+            color: $color-link;
+          }
+        }
+      }
+      .list_link {
+        button {
+          @include button_interface;
+          svg {
+            transition: all 0.3s;
+          }
+          &:hover {
+            &:hover {
+              color: $color-link;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin pagination_interface {
+  display: flex;
+  justify-content: center;
+  background-color: $color-bg-tracks;
+  padding: 30px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+
+  .pagination {
+    display: flex;
+    column-gap: 10px;
+
+    li {
+      transition: all 0.3s;
+      a {
+        @include button_interface;
+        font-size: 0.9rem;
+        border-radius: 0;
+
+        color: $color-text-black;
+      }
+    }
+    .active {
+      a {
+        @include button_interface;
+        font-size: 0.9rem;
+        border-radius: 0;
+        background-color: $color-text-black;
+        color: $color-text-white;
+      }
+    }
+    .disabled {
+      opacity: 0;
+      display: none;
+      a {
+        @include button_interface;
+        font-size: 0.9rem;
+        border-radius: 0;
+      }
+    }
+  }
+}
