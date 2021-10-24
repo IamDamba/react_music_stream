@@ -110,113 +110,114 @@
               }
             }
           }
-        }
-        .orders {
-          .second {
-            overflow-y: scroll;
-            max-height: 400px;
+          .orders {
+            .second {
+              overflow-y: scroll;
+              max-height: 400px;
 
-            @media screen {
-              @media (max-width: 600px) {
-                .list {
-                  width: 100%;
-                  text-align: left;
-                  border-collapse: collapse; // 1
-                  border-spacing: 30px;
+              @media screen {
+                @media (max-width: 600px) {
+                  .list {
+                    width: 100%;
+                    text-align: left;
+                    border-collapse: collapse; // 1
+                    border-spacing: 30px;
 
-                  thead {
-                    tr {
-                      .thead_total,
-                      .thead_state {
-                        display: none;
+                    thead {
+                      tr {
+                        .thead_total,
+                        .thead_state {
+                          display: none;
+                        }
                       }
                     }
-                  }
-                  tbody {
-                    border-top: 3em solid transparent;
+                    tbody {
+                      border-top: 3em solid transparent;
 
-                    tr {
-                      cursor: pointer;
-                      transition: all 0.3s;
-                      border-top: 2em solid $color-bg-tracks;
+                      tr {
+                        cursor: pointer;
+                        transition: all 0.3s;
+                        border-top: 2em solid $color-bg-tracks;
 
-                      &:hover {
-                        background-color: rgba($color: #fff, $alpha: 0.2);
-                      }
-
-                      td {
-                        p {
-                          padding: 15px;
+                        &:hover {
+                          background-color: rgba($color: #fff, $alpha: 0.2);
                         }
-                      }
 
-                      .item_id {
-                        p {
-                          font-size: 0.9rem;
+                        td {
+                          p {
+                            padding: 15px;
+                            word-break: break-all;
+                          }
                         }
-                      }
-                      .item_total,
-                      .item_state {
-                        display: none;
+
+                        .item_id {
+                          p {
+                            font-size: 0.9rem;
+                          }
+                        }
+                        .item_total,
+                        .item_state {
+                          display: none;
+                        }
                       }
                     }
                   }
                 }
-              }
-              @media (min-width: 600px) {
-                .list {
-                  width: 100%;
-                  text-align: left;
-                  border-collapse: collapse; // 1
-                  border-spacing: 30px;
+                @media (min-width: 600px) {
+                  .list {
+                    width: 100%;
+                    text-align: left;
+                    border-collapse: collapse; // 1
+                    border-spacing: 30px;
 
-                  tbody {
-                    border-top: 3em solid transparent;
+                    tbody {
+                      border-top: 3em solid transparent;
 
-                    tr {
-                      cursor: pointer;
-                      transition: all 0.3s;
-                      border-top: 2em solid $color-bg-tracks;
+                      tr {
+                        cursor: pointer;
+                        transition: all 0.3s;
+                        border-top: 2em solid $color-bg-tracks;
 
-                      &:hover {
-                        background-color: rgba($color: #fff, $alpha: 0.2);
-                      }
-
-                      td {
-                        p {
-                          padding: 15px;
-                        }
-                      }
-                    }
-                    .list_title {
-                      display: flex;
-                      column-gap: 10px;
-                      align-items: center;
-
-                      img {
-                        width: 60px;
-                        height: 60px;
-                        object-fit: cover;
-                      }
-                    }
-                    .list_tags {
-                      button {
-                        @include button_interface;
-                        border: none;
                         &:hover {
-                          color: $color-link;
+                          background-color: rgba($color: #fff, $alpha: 0.2);
+                        }
+
+                        td {
+                          p {
+                            padding: 15px;
+                          }
                         }
                       }
-                    }
-                    .list_link {
-                      button {
-                        @include button_interface;
-                        svg {
-                          transition: all 0.3s;
+                      .list_title {
+                        display: flex;
+                        column-gap: 10px;
+                        align-items: center;
+
+                        img {
+                          width: 60px;
+                          height: 60px;
+                          object-fit: cover;
                         }
-                        &:hover {
+                      }
+                      .list_tags {
+                        button {
+                          @include button_interface;
+                          border: none;
                           &:hover {
                             color: $color-link;
+                          }
+                        }
+                      }
+                      .list_link {
+                        button {
+                          @include button_interface;
+                          svg {
+                            transition: all 0.3s;
+                          }
+                          &:hover {
+                            &:hover {
+                              color: $color-link;
+                            }
                           }
                         }
                       }
