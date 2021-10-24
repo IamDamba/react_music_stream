@@ -5,7 +5,11 @@
   "license": "MIT",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "client": "cd front && yarn start",
+    "install-client": "cd front && yarn install",
+    "heroku-postbuild": "yarn run install-client && yarn run build",
+    "build": "cd front && yarn run build"
   },
   "dependencies": {
     "axios": "^0.21.1",

@@ -4,10 +4,7 @@ const memberSlice = createSlice({
   name: "memberSlice",
   initialState: {
     member_token: localStorage.getItem("member_token") || null,
-    member: {
-      username: null,
-      email: null,
-    },
+    member_tokenDuration: localStorage.getItem("member_tokenDuration") || null,
     userToDelete: null,
     canAddTrack: false,
     trackToDelete: null,
@@ -16,23 +13,24 @@ const memberSlice = createSlice({
     search_users: "",
     search_tracks: "",
     search_comments: "",
+    search_newsletter: "",
+    search_invoice: "",
   },
   reducers: {
     //Member
-    setMemberToReducer: (state, action) => {
-      state.member = action.payload;
-    },
     setMemberTokenToReducer: (state, action) => {
       state.member_token = action.payload;
       localStorage.setItem("member_token", action.payload);
     },
-    resetMemberFromReducer: (state, action) => {
+    setMemberTokenDurationToReducer: (state, action) => {
+      state.member_tokenDuration = action.payload;
+      localStorage.setItem("member_tokenDuration", action.payload);
+    },
+    resetMemberFromReducer: (state) => {
       localStorage.removeItem("member_token");
+      localStorage.removeItem("member_tokenDuration");
+      state.member_tokenDuration = null;
       state.member_token = null;
-      state.member = {
-        username: null,
-        email: null,
-      };
     },
 
     // Users
@@ -65,6 +63,16 @@ const memberSlice = createSlice({
       state.search_comments = action.payload;
     },
 
+    //Notifications
+    setSearchNewslettersFromReducer: (state, action) => {
+      state.search_newsletter = action.payload;
+    },
+
+    //Invoices
+    setSearchInvoicesFromReducer: (state, action) => {
+      state.search_invoice = action.payload;
+    },
+
     resetDataToDeleteFromReducer: (state) => {
       state.userToDelete = null;
       state.canAddTrack = false;
@@ -76,8 +84,8 @@ const memberSlice = createSlice({
 });
 
 export const {
-  setMemberToReducer,
   setMemberTokenToReducer,
+  setMemberTokenDurationToReducer,
   resetMemberFromReducer,
   setSearchUserFromReducer,
   setSearchTracksFromReducer,
@@ -88,5 +96,7 @@ export const {
   resetDataToDeleteFromReducer,
   setTrackToUpdateFromReducer,
   setTrackToAddFromReducer,
+  setSearchNewslettersFromReducer,
+  setSearchInvoicesFromReducer,
 } = memberSlice.actions;
 export default memberSlice.reducer;

@@ -51,7 +51,9 @@ module.exports.newsletter_post = async (req, res) => {
               from: `Music Stream Team - ${process.env.EMAIL_USER}`,
               to: email,
               subject: "Newsletter registration",
-              html: `<p>Thanks you for your registration to our newsletter !!</p> <p>if you want to quit our service, just click on the link down below</p><a href="http:localhost:3001/api/unsubscribe?email=${email}">Unsubscribe here</a>`,
+              html: `<p>Thanks you for your registration to our newsletter !!</p> <p>if you want to quit our service, just click on the link down below</p><a href="${
+                process.env.PORT || "http://localhost:3001"
+              }/api/unsubscribe?email=${email}">Unsubscribe here</a>`,
             };
             transporter.sendMail(mailOptions, function (error, info) {
               if (error) {
@@ -77,7 +79,7 @@ module.exports.newsletter_post = async (req, res) => {
     }
   });
 };
-module.exports.unsubscribe_delete = async (req, res) => {
+module.exports.unsubscribe_get = async (req, res) => {
   const { email } = req.query;
 
   console.log(email);
@@ -87,10 +89,25 @@ module.exports.unsubscribe_delete = async (req, res) => {
     (err, result) => {
       if (err) {
         console.log(err);
-        res.status(400).send("Error Occured: you already are unsubscribed");
+        res.status(400).sent("Error occured: data was not found");
       } else {
-        console.log(result);
-        res.status(200).json({ message: "Unsubscribed successfully" });
+        if (result !== null) {
+          res
+            .status(200)
+            .redirect(
+              `${
+                process.env.PORT || "http://localhost:3000"
+              }/newsletter/unsubscribe/success`
+            );
+        } else {
+          res
+            .status(200)
+            .redirect(
+              `${
+                process.env.PORT || "http://localhost:3000"
+              }/newsletter/unsubscribe/cancel`
+            );
+        }
       }
     }
   );

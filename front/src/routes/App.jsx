@@ -18,6 +18,8 @@ import Cart from "../pages/views/cart/Cart";
 import Error404 from "../pages/views/error404/Error404";
 import Profile from "../pages/views/profile/Profile";
 import CheckoutSuccess from "../pages/views/checkout/CheckoutSuccess";
+import NewsletterDeleteSuccess from "../pages/views/newsletter/NewsletterDeleteSuccess.jsx";
+import NewsletterDeleteCancel from "../pages/views/newsletter/NewsletterDeleteCancel.jsx";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -64,6 +66,16 @@ const App = () => {
         />
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/newsletter" component={Newsletter} />
+        <Route
+          exact
+          path="/newsletter/unsubscribe/success"
+          component={NewsletterDeleteSuccess}
+        />
+        <Route
+          exact
+          path="/newsletter/unsubscribe/cancel"
+          component={NewsletterDeleteCancel}
+        />
         <Route exact path="/terms" component={Terms} />
         <Route exact path="/privacy" component={Privacy} />
         <Route exact path="/licences" component={Licences} />

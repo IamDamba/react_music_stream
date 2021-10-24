@@ -25,6 +25,8 @@ ReactDOM.render(
         <Route exact path="/about" component={App} />
         <Route exact path="/contact" component={App} />
         <Route exact path="/newsletter" component={App} />
+        <Route exact path="/newsletter/unsubscribe/success" component={App} />
+        <Route exact path="/newsletter/unsubscribe/cancel" component={App} />
         <Route exact path="/cart" component={App} />
         <Route exact path="/licences" component={App} />
         <Route exact path="/terms" component={App} />

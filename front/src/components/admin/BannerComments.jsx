@@ -21,6 +21,7 @@ import { useDispatch, useSelector } from "react-redux";
 const BannerUsers = () => {
   // Hooks
   const modalRef = useRef(null);
+  const bodyRef = document.body;
 
   // Redux
   const { search_comments, commentToDelete } = useSelector(
@@ -40,6 +41,7 @@ const BannerUsers = () => {
     if (!e) {
       dispatch(resetDataToDeleteFromReducer(null));
       modalRef.current.style.display = "none";
+      bodyRef.style.overflow = "scroll";
     } else {
       await axios
         .post("/api/member/comments/delete", {
@@ -58,6 +60,7 @@ const BannerUsers = () => {
 
           dispatch(resetDataToDeleteFromReducer(null));
           modalRef.current.style.display = "none";
+          bodyRef.style.overflow = "scroll";
 
           setTimeout(() => {
             window.location.reload();
@@ -75,6 +78,7 @@ const BannerUsers = () => {
           dispatch(setToastItemToReducer(toast_item));
           dispatch(resetDataToDeleteFromReducer(null));
           modalRef.current.style.display = "none";
+          bodyRef.style.overflow = "scroll";
         });
     }
   };
@@ -82,8 +86,10 @@ const BannerUsers = () => {
   useEffect(() => {
     if (commentToDelete !== null) {
       modalRef.current.style.display = "flex";
+      bodyRef.style.overflow = "hidden";
     } else {
       modalRef.current.style.display = "none";
+      bodyRef.style.overflow = "scroll";
     }
   }, [commentToDelete]);
 

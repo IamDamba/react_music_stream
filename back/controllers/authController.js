@@ -37,7 +37,14 @@ module.exports.currentuser_post = async (req, res) => {
             address: user.address,
             country: user.country,
           };
-          res.status(200).json({ isUser: true, user: res.locals.user });
+
+          console.log(user);
+
+          if (user !== false) {
+            res.status(200).json({ isUser: true, user: res.locals.user });
+          } else {
+            res.status(400).json({ isUser: false, user: res.locals.user });
+          }
         }
       });
     } else {

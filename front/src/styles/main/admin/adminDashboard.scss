@@ -94,7 +94,9 @@
 
               .banner_users,
               .banner_tracks,
-              .banner_comments {
+              .banner_comments,
+              .banner_newsletters,
+              .banner_invoices {
                 .search_form {
                   display: flex;
                   justify-content: center;
@@ -166,6 +168,38 @@
                   }
                 }
                 .tracks_list_pagination {
+                  @include pagination_interface;
+                }
+              }
+              .banner_newsletters {
+                .list_message {
+                  p {
+                    max-width: 120px;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                  }
+                }
+                .newsletters_list_table {
+                  @include table_interface;
+                  overflow-y: scroll;
+                }
+                .newsletters_list_pagination {
+                  @include pagination_interface;
+                }
+              }
+              .banner_invoices {
+                .list_message {
+                  p {
+                    max-width: 120px;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                  }
+                }
+                .invoices_list_table {
+                  @include table_interface;
+                  overflow-y: scroll;
+                }
+                .invoices_list_pagination {
                   @include pagination_interface;
                 }
               }

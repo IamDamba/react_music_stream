@@ -29,6 +29,7 @@ const BannerTracks = () => {
   const modalRef = useRef(null);
   const updateModalRef = useRef(null);
   const addModalRef = useRef(null);
+  const bodyRef = document.body;
 
   // Redux
   const { search_tracks, trackToDelete, trackToUpdate, canAddTrack } =
@@ -47,6 +48,7 @@ const BannerTracks = () => {
     if (!e) {
       dispatch(resetDataToDeleteFromReducer(null));
       modalRef.current.style.display = "none";
+      bodyRef.style.overflow = "scroll";
     } else {
       await axios
         .post("/api/member/tracks/delete", {
@@ -65,6 +67,7 @@ const BannerTracks = () => {
 
           dispatch(resetDataToDeleteFromReducer(null));
           modalRef.current.style.display = "none";
+          bodyRef.style.overflow = "scroll";
 
           setTimeout(() => {
             window.location.reload();
@@ -82,6 +85,7 @@ const BannerTracks = () => {
           dispatch(setToastItemToReducer(toast_item));
           dispatch(resetDataToDeleteFromReducer(null));
           modalRef.current.style.display = "none";
+          bodyRef.style.overflow = "scroll";
         });
     }
   };
@@ -92,6 +96,7 @@ const BannerTracks = () => {
     if (!e) {
       dispatch(resetDataToDeleteFromReducer(null));
       addModalRef.current.style.display = "none";
+      bodyRef.style.overflow = "scroll";
     } else {
       await axios
         .post("/api/member/tracks/add", {
@@ -121,6 +126,7 @@ const BannerTracks = () => {
           dispatch(resetDataToDeleteFromReducer(null));
 
           addModalRef.current.style.display = "none";
+          bodyRef.style.overflow = "scroll";
 
           setTimeout(() => {
             window.location.reload();
@@ -138,6 +144,7 @@ const BannerTracks = () => {
           dispatch(setToastItemToReducer(toast_item));
           dispatch(resetDataToDeleteFromReducer(null));
           addModalRef.current.style.display = "none";
+          bodyRef.style.overflow = "scroll";
         });
     }
   };
@@ -160,6 +167,7 @@ const BannerTracks = () => {
       if (!e) {
         dispatch(resetDataToDeleteFromReducer(null));
         updateModalRef.current.style.display = "none";
+        bodyRef.style.overflow = "scroll";
       } else {
         await axios
           .post("/api/member/tracks/update", {
@@ -190,6 +198,7 @@ const BannerTracks = () => {
             dispatch(resetDataToDeleteFromReducer(null));
 
             updateModalRef.current.style.display = "none";
+            bodyRef.style.overflow = "scroll";
 
             setTimeout(() => {
               window.location.reload();
@@ -207,6 +216,7 @@ const BannerTracks = () => {
             dispatch(setToastItemToReducer(toast_item));
             dispatch(resetDataToDeleteFromReducer(null));
             updateModalRef.current.style.display = "none";
+            bodyRef.style.overflow = "scroll";
           });
       }
     });
@@ -215,8 +225,10 @@ const BannerTracks = () => {
   useEffect(() => {
     if (trackToDelete !== null) {
       modalRef.current.style.display = "flex";
+      bodyRef.style.overflow = "hidden";
     } else {
       modalRef.current.style.display = "none";
+      bodyRef.style.overflow = "scroll";
     }
   }, [trackToDelete]);
   useEffect(() => {
@@ -227,6 +239,7 @@ const BannerTracks = () => {
       setTag(trackToUpdate.tag);
       setBpm(trackToUpdate.bpm);
       updateModalRef.current.style.display = "flex";
+      bodyRef.style.overflow = "hidden";
     } else {
       setTitle(null);
       setImage(null);
@@ -234,6 +247,7 @@ const BannerTracks = () => {
       setTag(null);
       setBpm(null);
       updateModalRef.current.style.display = "none";
+      bodyRef.style.overflow = "scroll";
     }
   }, [trackToUpdate]);
   useEffect(() => {
@@ -245,8 +259,10 @@ const BannerTracks = () => {
 
     if (canAddTrack) {
       addModalRef.current.style.display = "flex";
+      bodyRef.style.overflow = "hidden";
     } else {
       addModalRef.current.style.display = "none";
+      bodyRef.style.overflow = "scroll";
     }
   }, [canAddTrack]);
 

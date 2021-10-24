@@ -5,20 +5,19 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/Users");
 const Comments = require("../models/Comments");
 const Tracks = require("../models/Tracks");
+const Newsletters = require("../models/Newsletters");
 const secret = process.env.SECRET_TOKEN;
-const tokenDuration = 0 * 24 * 60 * 60;
+const tokenDuration = 10 * 60 * 60 * 1000;
 
 // |||||||||||||||||||||||| Function ||||||||||||||||||||||||||
 
 const createToken = (id) => {
-  return jwt.sign({ id }, secret, {
-    expiresIn: tokenDuration,
-  });
+  return jwt.sign({ id }, secret);
 };
 
 // |||||||||||||||||||||||| Routes ||||||||||||||||||||||||||
 
-module.exports.currentMember_get = async (req, res) => {
+module.exports.currentMember_post = async (req, res) => {
   const { token } = req.body;
   if (token) {
     jwt.verify(token, secret, async (err, decodedToken) => {
@@ -46,7 +45,11 @@ module.exports.signin_post = async (req, res) => {
     const member = await Members.signin(email, password);
     const token = createToken(member._id);
     console.log("Login successfully");
-    res.status(200).json({ message: "Login Successfully", token: token });
+    res.status(200).json({
+      message: "Login Successfully",
+      token: token,
+      tokenDuration: Date.now() + tokenDuration,
+    });
   } catch (err) {
     console.log("error");
     console.log(err);
@@ -186,4 +189,18 @@ module.exports.trackadd_post = async (req, res) => {
       console.log(err);
       res.status(400).json({ message: err });
     });
+};
+module.exports.newsletterList_get = async (req, res) => {
+  try {
+    res.send(res.paginatedResults);
+  } catch (err) {
+    res.status(400).json({ err: err.message });
+  }
+};
+module.exports.invoiceList_get = async (req, res) => {
+  try {
+    res.send(res.paginatedResults);
+  } catch (err) {
+    res.status(400).json({ err: err.message });
+  }
 };

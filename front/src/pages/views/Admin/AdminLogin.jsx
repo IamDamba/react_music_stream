@@ -7,7 +7,10 @@ import axios from "axios";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { setMemberTokenToReducer } from "../../../reducer/slices/memberSlice";
+import {
+  setMemberTokenToReducer,
+  setMemberTokenDurationToReducer,
+} from "../../../reducer/slices/memberSlice";
 import { setToastItemToReducer } from "../../../reducer/slices/toastSlice";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -20,6 +23,9 @@ const AdminLogin = () => {
   // redux
   const { toast_list, warning_color } = useSelector(
     (state) => state.toastReducer
+  );
+  const { member_token, member_tokenDuration } = useSelector(
+    (state) => state.memberReducer
   );
   const dispatch = useDispatch();
 
@@ -37,6 +43,7 @@ const AdminLogin = () => {
         redirect.href = "/member/log/dashboard";
 
         dispatch(setMemberTokenToReducer(res.data.token));
+        dispatch(setMemberTokenDurationToReducer(res.data.tokenDuration));
         redirect.click();
       })
       .catch((err) => {

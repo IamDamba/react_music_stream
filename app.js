@@ -8,6 +8,7 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const morgan = require("morgan");
 const dotenv = require("dotenv").config();
+const path = require("path");
 
 const Tracks = require("./back/models/Tracks");
 
@@ -27,6 +28,7 @@ app.use(cors());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, "front/build")));
 
 // ||||||||||||||||||||||||| Routes |||||||||||||||||||||||||||
 
@@ -35,6 +37,10 @@ app.use(tracksRoute);
 app.use(paymentRoute);
 app.use(contactRoute);
 app.use(memberRoute);
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "front/build", "index.html"));
+});
 
 // ||||||||||||||||||||||||| Listen |||||||||||||||||||||||||||
 
