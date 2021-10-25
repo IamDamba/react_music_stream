@@ -4,7 +4,6 @@
   "main": "app.js",
   "license": "MIT",
   "scripts": {
-    "build": "cd front && yarn run build",
     "start": "node app.js",
     "dev": "nodemon app.js"
   },
