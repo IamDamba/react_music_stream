@@ -5,9 +5,6 @@
   "license": "MIT",
   "scripts": {
     "build": "cd front && yarn run build",
-    "install-client": "cd front && yarn install",
-    "heroku-postbuild": "yarn run install-client && yarn run build",
-    "client": "cd front && yarn start",
     "start": "node app.js",
     "dev": "nodemon app.js"
   },
