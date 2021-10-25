@@ -28,6 +28,7 @@ app.use(cors());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(express.static("../front/build"));
 
 // ||||||||||||||||||||||||| Routes |||||||||||||||||||||||||||
 
@@ -37,6 +38,9 @@ app.use(paymentRoute);
 app.use(contactRoute);
 app.use(memberRoute);
 
+app.get("/*", (_, res) => {
+  res.sendFile(path.join(__dirname, "../front/build/index.html"));
+});
 // ||||||||||||||||||||||||| Listen |||||||||||||||||||||||||||
 
 mongoose
