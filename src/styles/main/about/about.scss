@@ -1,0 +1,95 @@
+@import "../../variables/colors";
+@import "../../variables/interfaces";
+
+.about {
+  .content {
+    padding-top: 180px;
+
+    .about_info {
+      padding: 0 8%;
+      display: grid;
+      gap: 60px;
+      padding-bottom: 30px;
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+
+      .about_info_first {
+        width: 100%;
+        p {
+          margin-bottom: 30px;
+          line-height: 1.6;
+          letter-spacing: 0.1rem;
+          text-align: justify;
+        }
+      }
+      .about_info_second {
+        .list {
+          width: 100%;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 60px;
+          align-items: center;
+          justify-items: center;
+
+          .item {
+            background-color: $color-bg-tracks;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 230px;
+            height: 300px;
+
+            .img {
+              flex: 1;
+              position: relative;
+              img {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+              }
+              .filter {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-color: rgba($color: #000000, $alpha: 0.4);
+                display: flex;
+                align-items: flex-end;
+                justify-content: center;
+                padding-bottom: 30px;
+                column-gap: 30px;
+
+                a {
+                  @include button_interface;
+
+                  svg {
+                    font-size: 1.4rem;
+                    cursor: pointer;
+                    transition: all 0.3s;
+                    color: $color-text-black;
+                  }
+                  &:hover {
+                    svg {
+                      color: $color-link;
+                    }
+                  }
+                }
+              }
+            }
+            .detail {
+              display: grid;
+              gap: 10px;
+              text-align: center;
+              padding: 20px 0;
+
+              p {
+                font-size: 0.9rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

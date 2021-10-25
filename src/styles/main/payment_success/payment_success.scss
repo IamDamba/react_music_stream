@@ -1,0 +1,25 @@
+@import "../../variables/colors";
+@import "../../variables/interfaces";
+
+.payment_success {
+  .content {
+    padding-top: 180px;
+
+    .content_body {
+      padding: 0 8%;
+    }
+    .content_body {
+      text-align: center;
+      .button {
+        a {
+          text-align: center;
+          @include button_interface;
+          border: none;
+          &:hover {
+            color: $color-link;
+          }
+        }
+      }
+    }
+  }
+}
