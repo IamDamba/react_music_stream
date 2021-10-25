@@ -39,6 +39,10 @@ app.use(paymentRoute);
 app.use(contactRoute);
 app.use(memberRoute);
 
+app.get("/api/*", function (request, response) {
+  response.sendFile(path.join(__dirname, "./front/build", "index.html"));
+});
+
 // ||||||||||||||||||||||||| Listen |||||||||||||||||||||||||||
 
 mongoose
