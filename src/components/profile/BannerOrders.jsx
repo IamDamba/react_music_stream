@@ -13,7 +13,7 @@ const BannerOrders = () => {
 
   const fetchData = async () => {
     await axios
-      .post("/api/userorders", {
+      .post("https://music-stream-serverside.herokuapp.com//userorders", {
         token: token,
       })
       .then((res) => {

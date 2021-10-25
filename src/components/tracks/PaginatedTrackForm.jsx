@@ -20,7 +20,7 @@ const PaginatedTrackForm = () => {
     let offset = limit * currentPage - limit;
 
     await axios
-      .get(`/api/tracks/list?search=${search}`)
+      .get(`https://music-stream-serverside.herokuapp.com/api/tracks/list?search=${search}`)
       .then((res) => {
         let result = res.data.result;
 

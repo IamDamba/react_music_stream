@@ -19,7 +19,7 @@ const TracksForm = () => {
 
   const fetchTrack = async () => {
     await axios
-      .get("/api/tracks/all")
+      .get("https://music-stream-serverside.herokuapp.com/api/tracks/all")
       .then(async (res) => {
         setData(res.data.slice(0, 4));
         setIsData(true);

@@ -43,7 +43,7 @@ const ForgetPassword = () => {
       dispatch(setToastItemToReducer(toast_item));
     } else {
       await axios
-        .post("/api/forgottenpassword", {
+        .post("https://music-stream-serverside.herokuapp.com/api/forgottenpassword", {
           email: email,
         })
         .then((res) => {

@@ -20,7 +20,7 @@ const CommentsPaginationForm = () => {
     let offset = limit * currentPage - limit;
 
     await axios
-      .get(`/api/member/comments?search=${search_comments}`)
+      .get(`https://music-stream-serverside.herokuapp.com/api/member/comments?search=${search_comments}`)
       .then((res) => {
         let result = res.data.result;
 

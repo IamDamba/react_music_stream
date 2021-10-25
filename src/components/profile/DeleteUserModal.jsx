@@ -24,7 +24,7 @@ const DeleteUserModal = () => {
     a.href = "/";
 
     await axios
-      .post("/api/deleteaccount", {
+      .post("https://music-stream-serverside.herokuapp.com//deleteaccount", {
         token: token,
       })
       .then((res) => {

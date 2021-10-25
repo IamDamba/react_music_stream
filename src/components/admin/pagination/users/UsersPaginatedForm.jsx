@@ -20,7 +20,7 @@ const UsersPaginatedForm = () => {
     let offset = limit * currentPage - limit;
 
     await axios
-      .get(`/api/member/users?search=${search_users}`)
+      .get(`https://music-stream-serverside.herokuapp.com/api/member/users?search=${search_users}`)
       .then((res) => {
         let result = res.data.result;
 

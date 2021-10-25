@@ -31,7 +31,7 @@ const ResetPassword = () => {
 
     if (password === confirmPassword) {
       await axios
-        .post("/api/resetpassword", {
+        .post("https://music-stream-serverside.herokuapp.com/api/resetpassword", {
           email: email,
           password: password,
         })

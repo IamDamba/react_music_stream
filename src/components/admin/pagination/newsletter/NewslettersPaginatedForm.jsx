@@ -20,7 +20,7 @@ const NewslettersPaginatedForm = () => {
     let offset = limit * currentPage - limit;
 
     await axios
-      .get(`/api/member/newsletters?search=${search_newsletter}`)
+      .get(`https://music-stream-serverside.herokuapp.com/api/member/newsletters?search=${search_newsletter}`)
       .then((res) => {
         let result = res.data.result;
 

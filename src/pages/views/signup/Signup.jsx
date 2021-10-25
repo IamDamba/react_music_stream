@@ -37,7 +37,7 @@ const Signup = () => {
 
     if (confirmPassword === password) {
       await axios
-        .post("api/signup", {
+        .post("https://music-stream-serverside.herokuapp.com/api/signup", {
           email: email,
           password: password,
           username: username,

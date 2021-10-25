@@ -40,7 +40,7 @@ const AdminDashboard = () => {
   // Functons
   const fetchMember = async () => {
     await axios
-      .post("/api/member/currentmember", {
+      .post("https://music-stream-serverside.herokuapp.com/api/member/currentmember", {
         token: member_token,
       })
       .then((res) => {

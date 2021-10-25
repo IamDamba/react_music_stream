@@ -19,7 +19,7 @@ const UserIndex = () => {
 
   const fetchUser = async () => {
     await axios
-      .post("/api/currentuser", {
+      .post("https://music-stream-serverside.herokuapp.com/api/currentuser", {
         token: token,
         tokenDuration: tokenDuration,
       })

@@ -20,7 +20,7 @@ const InvoicesPaginatedForm = () => {
     let offset = limit * currentPage - limit;
 
     await axios
-      .get(`/api/member/invoices?search=${search_invoice}`)
+      .get(`https://music-stream-serverside.herokuapp.com/api/member/invoices?search=${search_invoice}`)
       .then((res) => {
         let result = res.data.result;
 

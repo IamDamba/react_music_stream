@@ -42,7 +42,7 @@ const SingleTrackModel = ({ id }) => {
 
   const dataFetch = async () => {
     await axios
-      .get(`/api/tracks/q/?id=${id}`)
+      .get(`https://music-stream-serverside.herokuapp.com/api/tracks/q/?id=${id}`)
       .then((res) => {
         if (player_id === id) {
           setListenTextBtn("Is Playing");
@@ -57,7 +57,7 @@ const SingleTrackModel = ({ id }) => {
   };
   const fetchComments = async () => {
     await axios
-      .post(`/api/tracks/comments?id=${id}`, {
+      .post(`https://music-stream-serverside.herokuapp.com/api/tracks/comments?id=${id}`, {
         id: id,
       })
       .then((res) => {
@@ -137,7 +137,7 @@ const SingleTrackModel = ({ id }) => {
         dispatch(setToastItemToReducer(toast_item));
       } else {
         await axios
-          .post("/api/tracks/comments/create", {
+          .post("https://music-stream-serverside.herokuapp.com//tracks/comments/create", {
             token: token,
             id: id,
             message: message,

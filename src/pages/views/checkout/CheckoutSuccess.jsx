@@ -15,7 +15,7 @@ const CheckoutSuccess = () => {
 
   const dataLoaded = async () => {
     await axios
-      .post("/api/checkout/matching_id", {
+      .post("https://music-stream-serverside.herokuapp.com/api/checkout/matching_id", {
         transaction_id: transaction_id,
       })
       .then((res) => {

@@ -44,7 +44,7 @@ const BannerUsers = () => {
       bodyRef.style.overflow = "scroll";
     } else {
       await axios
-        .post("/api/member/users/delete", {
+        .post("https://music-stream-serverside.herokuapp.com/api/member/users/delete", {
           email: userToDelete.email,
         })
         .then((res) => {

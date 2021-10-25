@@ -51,7 +51,7 @@ const BannerTracks = () => {
       bodyRef.style.overflow = "scroll";
     } else {
       await axios
-        .post("/api/member/tracks/delete", {
+        .post("https://music-stream-serverside.herokuapp.com/api/member/tracks/delete", {
           id: trackToDelete.id,
         })
         .then((res) => {
@@ -99,7 +99,7 @@ const BannerTracks = () => {
       bodyRef.style.overflow = "scroll";
     } else {
       await axios
-        .post("/api/member/tracks/add", {
+        .post("https://music-stream-serverside.herokuapp.com/api/member/tracks/add", {
           title: title,
           image: image,
           media: media,
@@ -170,7 +170,7 @@ const BannerTracks = () => {
         bodyRef.style.overflow = "scroll";
       } else {
         await axios
-          .post("/api/member/tracks/update", {
+          .post("https://music-stream-serverside.herokuapp.com/api/member/tracks/update", {
             id: trackToUpdate.id,
             title: title,
             image: image,

@@ -46,7 +46,7 @@ const Footer = () => {
       return;
     } else {
       await axios
-        .post("/api/newsletter", {
+        .post("https://music-stream-serverside.herokuapp.com/api/newsletter", {
           email: email,
         })
         .then((res) => {

@@ -27,7 +27,7 @@ const PasswordModal = () => {
       console.log("Passwords are different");
     } else {
       await axios
-        .put("/api/updatepassword", {
+        .put("https://music-stream-serverside.herokuapp.com//updatepassword", {
           token: token,
           password: newPassword,
         })

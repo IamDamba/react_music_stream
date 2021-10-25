@@ -115,7 +115,7 @@ const Contact = () => {
       console.log("Can't send form");
     } else {
       await axios
-        .post("/api/contactform", {
+        .post("https://music-stream-serverside.herokuapp.com/api/contactform", {
           name: name,
           email: email,
           message: message,

@@ -34,7 +34,7 @@ const Signin = () => {
 
     e.preventDefault();
     await axios
-      .post("/api/signin", {
+      .post("https://music-stream-serverside.herokuapp.com/api/signin", {
         email: e.target.email.value,
         password: e.target.password.value,
       })

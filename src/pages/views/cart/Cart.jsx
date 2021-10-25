@@ -122,7 +122,7 @@ const Cart = () => {
       if (cart_list.length > 0) {
         console.log(token);
         await axios
-          .post("/api/checkout", {
+          .post("https://music-stream-serverside.herokuapp.com/api/checkout", {
             token: token,
             data: items.data,
             total: items.total,

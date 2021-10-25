@@ -16,7 +16,7 @@ const BannerUserInfo = () => {
 
   const fetchUserData = async () => {
     await axios
-      .post("/api/currentuser", {
+      .post("https://music-stream-serverside.herokuapp.com//currentuser", {
         token: token,
       })
       .then((res) => {
@@ -31,7 +31,7 @@ const BannerUserInfo = () => {
   };
   const updateUserData = async () => {
     await axios
-      .put("/api/userupdate", {
+      .put("https://music-stream-serverside.herokuapp.com//userupdate", {
         token: token,
         username: usernameField,
         email: emailField,
