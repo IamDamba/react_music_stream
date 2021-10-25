@@ -46,7 +46,7 @@ module.exports.comments_post = async (req, res) => {
   let comments = await Comments.find({ track_id: id }, (err, data) => {
     if (err) {
       console.log(err);
-      res.status(400).json({ message: err });
+      res.status(200).json({ message: err });
     } else {
       console.log(data);
       res.status(200).json({ results: data });
@@ -62,7 +62,7 @@ module.exports.createcomments_post = async (req, res) => {
       if (err) {
         console.log("error occured on verify");
         res.locals.user = null;
-        res.status(400).json({ message: err });
+        res.status(200).json({ message: err });
       } else {
         let user = await User.findById(decodedToken.id);
 
@@ -79,7 +79,7 @@ module.exports.createcomments_post = async (req, res) => {
           })
           .catch((err) => {
             console.log(err);
-            res.status(400).json({ message: err });
+            res.status(200).json({ message: err });
           });
       }
     });
