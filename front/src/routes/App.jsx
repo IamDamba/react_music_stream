@@ -46,7 +46,9 @@ const App = () => {
     } else {
       setIsAdBlockActive(false);
     }
-
+  }, []);
+  
+  useEffect(() => {
     if (tokenDuration !== null) {
       const interval = setInterval(() => {
         if (tokenDuration < Date.now()) {
