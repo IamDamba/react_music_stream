@@ -9,9 +9,9 @@ const morgan = require("morgan");
 const dotenv = require("dotenv").config();
 const path = require("path");
 const contactRoute = require("./back/routes/contactRoute");
+const config = require("./back/global/config");
 
 const dbURI = process.env.DB_URI;
-const port = process.env.PORT || 5000;
 
 // ||||||||||||||||||||||||| MiddleWare |||||||||||||||||||||||||||
 
@@ -43,8 +43,8 @@ mongoose
     useCreateIndex: true,
   })
   .then((res) => {
-    app.listen(port, () => {
-      console.log(`Listen to port ${port}`);
+    app.listen(config.port, () => {
+      console.log(`Listen to port ${config.port}`);
     });
   })
   .catch((err) => {
