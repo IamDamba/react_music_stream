@@ -38,8 +38,8 @@ const TracksForm = () => {
       });
   };
 
-  useEffect(async () => {
-    await fetchTrack();
+  useEffect(() => {
+    fetchTrack();
   }, []);
 
   return (
