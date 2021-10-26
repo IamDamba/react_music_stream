@@ -1,14 +1,19 @@
-import React, { useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import AdminLogin from "../pages/views/Admin/AdminLogin";
 import AdminDashboard from "../pages/views/Admin/AdminDashboard";
 import Error404 from "../pages/views/error404/Error404";
 import Toast from "../pages/layouts/Toast";
+import AdBlockModal from "../pages/layouts/AdBlockModal.jsx";
 
 import { useSelector, useDispatch } from "react-redux";
 import { resetMemberFromReducer } from "../reducer/slices/memberSlice";
+import { detectAnyAdblocker } from "just-detect-adblock";
 
 const AdminIndex = () => {
+  //hooks
+  const [isAdBlockActive, setIsAdBlockActive] = useState(false);
+
   //Redux
   const { member_token, member_tokenDuration } = useSelector(
     (state) => state.memberReducer
@@ -16,6 +21,16 @@ const AdminIndex = () => {
   const dispatch = useDispatch();
 
   // Functions
+  useEffect(() => {
+    detectAnyAdblocker().then((detected) => {
+      if (detected) {
+        setIsAdBlockActive(true);
+      } else {
+        setIsAdBlockActive(false);
+      }
+    });
+  }, []);
+
   useEffect(() => {
     if (member_tokenDuration !== null) {
       const interval = setInterval(() => {
@@ -28,23 +43,27 @@ const AdminIndex = () => {
     }
   }, []);
 
-  return (
-    <Router>
-      <Toast position={"bottom-left"} />
-      <Switch>
-        <Route exact path="/member/signin" component={AdminLogin} />
-        {member_token !== null ? (
-          <Route
-            exact
-            path="/member/log/dashboard"
-            component={AdminDashboard}
-          />
-        ) : (
-          <Route exact path="/member/log/dashboard" component={Error404} />
-        )}
-      </Switch>
-    </Router>
-  );
+  if (isAdBlockActive) {
+    return <AdBlockModal />;
+  } else {
+    return (
+      <Router>
+        <Toast position={"bottom-left"} />
+        <Switch>
+          <Route exact path="/member/signin" component={AdminLogin} />
+          {member_token !== null ? (
+            <Route
+              exact
+              path="/member/log/dashboard"
+              component={AdminDashboard}
+            />
+          ) : (
+            <Route exact path="/member/log/dashboard" component={Error404} />
+          )}
+        </Switch>
+      </Router>
+    );
+  }
 };
 
 export default AdminIndex;
