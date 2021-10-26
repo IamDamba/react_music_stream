@@ -2,36 +2,26 @@
 
 const nodemailer = require("nodemailer");
 const Newsletters = require("../models/Newsletters");
+const {
+  ContactMailSender,
+  NewsletterMailSender,
+} = require("../data/mail/sendMail");
 const home_url = process.env.PORT || 5000;
-const transporter = nodemailer.createTransport({
-  Host: "smtp.gmail.com",
-  port: 465,
-  secure: true, // use SSL,
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASSWORD,
-  },
-});
 
 // |||||||||||||||||||||||| Functions ||||||||||||||||||||||||||
 
 module.exports.contactform_post = async (req, res) => {
   const { name, email, message } = req.body;
-  const mailOptions = {
-    from: `Contact Service`,
-    to: process.env.EMAIL_USER,
-    subject: `Message send by ${name} <${email}>`,
-    text: message,
-  };
-  transporter.sendMail(mailOptions, function (error, info) {
-    if (error) {
-      console.log("Error occured:" + error);
-      res.status(400).json({ message: "Error occured: " + error });
-    } else {
-      console.log("Email sent: " + info.response);
-      res.status(200).json({ message: "Form has successfully been sent." });
-    }
-  });
+
+  ContactMailSender(name, email, message)
+    .then((rep) => {
+      console.log("Email sent: ", rep);
+      res.status(200).json({ message: "Email Sent Successfully !" });
+    })
+    .catch((err) => {
+      console.log("Error occurerd: ", err);
+      res.status(400).json({ message: "Error Occured: Email Not Sent" });
+    });
 };
 module.exports.newsletter_post = async (req, res) => {
   const { email } = req.body;
@@ -49,23 +39,24 @@ module.exports.newsletter_post = async (req, res) => {
           }),
         ])
           .then((response) => {
-            const mailOptions = {
-              from: `Music Stream Team - ${process.env.EMAIL_USER}`,
-              to: email,
-              subject: "Newsletter registration",
-              html: `<p>Thanks you for your registration to our newsletter !!</p> <p>if you want to quit our service, just click on the link down below</p><a href="${home_url}/api/unsubscribe?email=${email}">Unsubscribe here</a>`,
+            const htmlMessage = () => {
+              return `<p>Thanks you for your registration to our newsletter !!</p>
+              <br>
+              <br>
+              <p>If you want to quit our service, just click on the link down below</p>
+              <a href="${home_url}/api/unsubscribe?email=${email}">Unsubscribe here</a>`;
             };
-            transporter.sendMail(mailOptions, function (error, info) {
-              if (error) {
-                console.log("Error occured:" + error);
-                res.status(400).json({ message: "Error occured: " });
-              } else {
-                console.log("Email sent: " + info.response);
+            NewsletterMailSender(email, htmlMessage())
+              .then((rep) => {
+                console.log("Email sent: ", rep);
+                res.status(200).json({ message: "Email Sent Successfully !" });
+              })
+              .catch((err) => {
+                console.log("Error occurerd: ", err);
                 res
-                  .status(200)
-                  .json({ message: "Newsletter registration successfully !" });
-              }
-            });
+                  .status(400)
+                  .json({ message: "Error Occured: Email Not Sent" });
+              });
           })
           .catch((err) => {
             console.log(err);
