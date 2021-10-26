@@ -1,6 +1,6 @@
 // ||||||||||||||||||||||| Dependencies |||||||||||||||||||||||||
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../pages/layouts/Header";
 import Footer from "../pages/layouts/Footer";
 import Player from "../pages/layouts/Player";
@@ -20,20 +20,33 @@ import Profile from "../pages/views/profile/Profile";
 import CheckoutSuccess from "../pages/views/checkout/CheckoutSuccess";
 import NewsletterDeleteSuccess from "../pages/views/newsletter/NewsletterDeleteSuccess.jsx";
 import NewsletterDeleteCancel from "../pages/views/newsletter/NewsletterDeleteCancel.jsx";
+import AdBlockModal from "../pages/layouts/AdBlockModal.jsx";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { resetTokenToReducer } from "../reducer/slices/userSlice";
+import { useDetectAdBlock } from "adblock-detect-react";
 
 // ||||||||||||||||||||||| App |||||||||||||||||||||||||
 
 const App = () => {
+  //hooks
+  const [isAdBlockActive, setIsAdBlockActive] = useState(false);
+
   // Redux
   const { token, tokenDuration } = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
 
+  const adBlockDetected = useDetectAdBlock();
+
   // Functions
   useEffect(() => {
+    if (adBlockDetected) {
+      setIsAdBlockActive(true);
+    } else {
+      setIsAdBlockActive(false);
+    }
+
     if (tokenDuration !== null) {
       const interval = setInterval(() => {
         if (tokenDuration < Date.now()) {
@@ -45,48 +58,52 @@ const App = () => {
     }
   }, []);
 
-  return (
-    <Router>
-      <Header />
-      <Toast position="bottom-left" />
-      <Player />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/about" component={About} />
-        <Route exact path="/tracks" component={AllTracks} />
-        <Route exact path="/track/detail/:track_id" component={SingleTrack} />
-        <Route exact path="/cart" component={Cart} />
-        <Route
-          exact
-          path="/checkout/success/:transaction_id"
-          component={CheckoutSuccess}
-        />
-        <Route exact path="/contact" component={Contact} />
-        <Route exact path="/newsletter" component={Newsletter} />
-        <Route
-          exact
-          path="/newsletter/unsubscribe/success"
-          component={NewsletterDeleteSuccess}
-        />
-        <Route
-          exact
-          path="/newsletter/unsubscribe/cancel"
-          component={NewsletterDeleteCancel}
-        />
-        <Route exact path="/terms" component={Terms} />
-        <Route exact path="/privacy" component={Privacy} />
-        <Route exact path="/licences" component={Licences} />
-        {token !== null ? (
-          <Route exact path="/profile" component={Profile} />
-        ) : (
-          <Route exact path="/profile" component={Error404} />
-        )}
-        {/*All Other Route*/}
-        <Route path="*" component={Error404} />
-      </Switch>
-      <Footer />
-    </Router>
-  );
+  if (isAdBlockActive) {
+    return <AdBlockModal />;
+  } else {
+    return (
+      <Router>
+        <Header />
+        <Toast position="bottom-left" />
+        <Player />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/tracks" component={AllTracks} />
+          <Route exact path="/track/detail/:track_id" component={SingleTrack} />
+          <Route exact path="/cart" component={Cart} />
+          <Route
+            exact
+            path="/checkout/success/:transaction_id"
+            component={CheckoutSuccess}
+          />
+          <Route exact path="/contact" component={Contact} />
+          <Route exact path="/newsletter" component={Newsletter} />
+          <Route
+            exact
+            path="/newsletter/unsubscribe/success"
+            component={NewsletterDeleteSuccess}
+          />
+          <Route
+            exact
+            path="/newsletter/unsubscribe/cancel"
+            component={NewsletterDeleteCancel}
+          />
+          <Route exact path="/terms" component={Terms} />
+          <Route exact path="/privacy" component={Privacy} />
+          <Route exact path="/licences" component={Licences} />
+          {token !== null ? (
+            <Route exact path="/profile" component={Profile} />
+          ) : (
+            <Route exact path="/profile" component={Error404} />
+          )}
+          {/*All Other Route*/}
+          <Route path="*" component={Error404} />
+        </Switch>
+        <Footer />
+      </Router>
+    );
+  }
 };
 
 export default App;
