@@ -6,7 +6,7 @@ const {
   ContactMailSender,
   NewsletterMailSender,
 } = require("../data/mail/sendMail");
-const home_url = process.env.PORT || 5000;
+const home_url = window.location.origin;
 
 // |||||||||||||||||||||||| Functions ||||||||||||||||||||||||||
 
