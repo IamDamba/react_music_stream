@@ -20,7 +20,7 @@ const config = require("./back/global/config");
 // ||||||||||||||||||||||||| MiddleWare |||||||||||||||||||||||||||
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("front/build"));
+  app.use(express.static(path.join(__dirname, "front/build")));
 }
 
 app.use(morgan("dev"));
@@ -30,6 +30,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // ||||||||||||||||||||||||| Routes |||||||||||||||||||||||||||
+
+if (process.env.NODE_ENV === "production") {
+  app.get("/*", function (req, res) {
+    res.sendFile(path.join(__dirname, "front/build", "index.html"));
+  });
+}
 
 app.use("/api", authRoute);
 app.use("/api", tracksRoute);
