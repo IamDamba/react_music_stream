@@ -25,7 +25,7 @@ import AdBlockModal from "../pages/layouts/AdBlockModal.jsx";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { resetTokenToReducer } from "../reducer/slices/userSlice";
-import { useDetectAdBlock } from "adblock-detect-react";
+import { detectAnyAdblocker } from 'just-detect-adblock'
 
 // ||||||||||||||||||||||| App |||||||||||||||||||||||||
 
@@ -37,17 +37,18 @@ const App = () => {
   const { token, tokenDuration } = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
 
-  const adBlockDetected = useDetectAdBlock();
 
   // Functions
   useEffect(() => {
-    if (adBlockDetected) {
-      setIsAdBlockActive(true);
-    } else {
-      setIsAdBlockActive(false);
-    }
+    detectAnyAdblocker().then((detected) => {
+      if (detected) {
+        setIsAdBlockActive(true);
+      } else {
+        setIsAdBlockActive(false);
+      }
+    });
   }, []);
-  
+
   useEffect(() => {
     if (tokenDuration !== null) {
       const interval = setInterval(() => {
