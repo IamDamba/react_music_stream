@@ -7052,6 +7052,11 @@ jsprim@^1.2.2:
     array-includes "^3.1.2"
     object.assign "^4.1.2"
 
+just-detect-adblock@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/just-detect-adblock/-/just-detect-adblock-1.1.0.tgz#01910678247394b8d8b146afc869055eda2edd2e"
+  integrity sha512-xtgnwBBZaLtKspGo6jDX/H0FDsHrn41mQVWhNHge7pZe6Nj2gU2izfC09O0rPU/i97iMcJFVjbecFiTAvmNhLQ==
+
 killable@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/killable/-/killable-1.0.1.tgz#4c8ce441187a061c7474fb87ca08e2a638194892"
