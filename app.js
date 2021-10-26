@@ -31,11 +31,9 @@ app.use(express.urlencoded({ extended: true }));
 
 // ||||||||||||||||||||||||| Routes |||||||||||||||||||||||||||
 
-if (process.env.NODE_ENV === "production") {
-  app.get("/*", function (req, res) {
-    res.sendFile(path.join(__dirname, "front/build", "index.html"));
-  });
-}
+app.get("/*", function (req, res) {
+  res.sendFile(path.join(__dirname, "front/build", "index.html"));
+});
 
 app.use("/api", authRoute);
 app.use("/api", tracksRoute);
