@@ -31,18 +31,15 @@ app.use(express.urlencoded({ extended: true }));
 
 // ||||||||||||||||||||||||| Routes |||||||||||||||||||||||||||
 
-app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "front/build", "index.html"));
-});
-app.get("/api/*", (req, res) => {
-  res.sendFile(path.join(__dirname));
-});
-
 app.use("/api", authRoute);
 app.use("/api", tracksRoute);
 app.use("/api", paymentRoute);
 app.use("/api", contactRoute);
 app.use("/api", memberRoute);
+
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "front/build", "index.html"));
+});
 
 // ||||||||||||||||||||||||| Listen |||||||||||||||||||||||||||
 
