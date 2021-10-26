@@ -6,7 +6,8 @@ const {
   ContactMailSender,
   NewsletterMailSender,
 } = require("../data/mail/sendMail");
-const home_url = window.location.origin;
+const config = require("../global/config");
+const home_url = config.base_url;
 
 // |||||||||||||||||||||||| Functions ||||||||||||||||||||||||||
 
