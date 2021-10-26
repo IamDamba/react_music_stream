@@ -4,13 +4,16 @@
   "main": "app.js",
   "license": "MIT",
   "scripts": {
+    "build": "cd front && yarn run build",
+    "install-client": "cd front && yarn install",
+    "heroku-postbuild": "yarn run install-client && yarn run build",
+    "client": "cd front && yarn start",
     "start": "node app.js",
     "dev": "nodemon app.js"
   },
   "dependencies": {
     "axios": "^0.21.1",
     "bcrypt": "^5.0.1",
-    "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",

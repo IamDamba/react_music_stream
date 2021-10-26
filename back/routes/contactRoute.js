@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const router = Router();
-const contactController = require("../controllers/contactController.js");
+const contactController = require("../controllers/contactController");
 
 router.post("/contactform", contactController.contactform_post);
 router.post("/newsletter", contactController.newsletter_post);
