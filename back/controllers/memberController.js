@@ -182,7 +182,7 @@ module.exports.trackadd_post = async (req, res) => {
     .then((rep) => {
       console.log(rep);
       res
-        .status(400)
+        .status(200)
         .json({ message: "Track Added Successfully, wait 3 sec for reload." });
     })
     .catch((err) => {

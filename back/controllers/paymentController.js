@@ -7,6 +7,7 @@ const paypal = require("paypal-rest-sdk");
 const nodemailer = require("nodemailer");
 const config = require("../global/config");
 const home_url = config.base_url;
+const { CheckoutSuccessMailSender } = require("../data/mail/sendMail");
 
 let userid = "";
 let userEmail = "";
@@ -27,14 +28,6 @@ const execute_payment_json = {
     },
   ],
 };
-const transporter = nodemailer.createTransport({
-  host: "smtp.ethereal.email",
-  port: "587",
-  auth: {
-    user: "hortense.cummings65@ethereal.email",
-    pass: "Wc8PQ7svBURP6c26WZ",
-  },
-});
 
 // |||||||||||||||||||||||| Function ||||||||||||||||||||||||||
 
@@ -217,13 +210,12 @@ module.exports.checkoutSuccess_get = async (req, res) => {
                   subject: `Purshase - ${act_date}`,
                   html: message(),
                 };
-                transporter.sendMail(mailOptions, function (error, info) {
-                  if (error) {
-                    console.log("Error occured:" + error);
-                  } else {
-                    console.log("Email sent: " + info.response);
-                  }
-                });
+                CheckoutSuccessMailSender(
+                  userEmail,
+                  act_date,
+                  tracklist[index],
+                  title
+                );
               }
               console.log(result);
               res
