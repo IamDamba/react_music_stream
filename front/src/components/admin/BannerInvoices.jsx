@@ -16,6 +16,9 @@ import { useDispatch, useSelector } from "react-redux";
 // ||||||||||||||||||||||| Banner Users |||||||||||||||||||||||||
 
 const BannerInvoices = () => {
+  //Scroll To Top
+  window.scrollTo(0, 0);
+
   // Hooks
   const modalRef = useRef(null);
   const bodyRef = document.body;

@@ -32,6 +32,7 @@ const AdminDashboard = () => {
   const [canLeave, setCanLeave] = useState(false);
   const [bannerValue, setBannerValue] = useState(1);
   const [memberData, setMemberData] = useState(null);
+  const [canScroll, setCanScroll] = useState(false);
 
   // Redux
   const member_token = useSelector((state) => state.memberReducer.member_token);
@@ -87,6 +88,12 @@ const AdminDashboard = () => {
     handleShowBanner();
     fetchMember();
   }, [bannerValue]);
+
+  useEffect(() => {
+    //Scroll To Top
+    window.scrollTo(0, 0);
+    setCanScroll(true);
+  }, [!canScroll]);
 
   return (
     <main className="admin_dashboard">
