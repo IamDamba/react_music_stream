@@ -1,0 +1,17 @@
+@import "../../variables/colors";
+@import "../../variables/interfaces";
+
+.newsletter_delete_success {
+  .content {
+    padding-top: 180px;
+    text-align: center;
+    h1 {
+      margin-bottom: 30px;
+    }
+    p {
+      a {
+        color: $color-link;
+      }
+    }
+  }
+}

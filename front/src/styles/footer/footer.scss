@@ -1,0 +1,219 @@
+@import "../variables/colors";
+@import "../variables/interfaces";
+
+footer {
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+
+  .newsletter {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 60px 8%;
+    width: 100%;
+    background-color: $color-bg-newsletter;
+
+    .newsletter_head,
+    .newsletter_body {
+      width: 100%;
+      max-width: 550px;
+      text-align: center;
+    }
+    .newsletter_head {
+      h2 {
+        font-size: 1.7rem;
+        margin-bottom: 10px;
+      }
+      h3 {
+        font-size: 1rem;
+        font-weight: 500;
+      }
+    }
+    .newsletter_body {
+      display: flex;
+      flex-direction: column;
+      row-gap: 10px;
+      .input {
+        width: 100%;
+        input[type="email"] {
+          @include input_interface;
+        }
+      }
+      .button {
+        button {
+          @include button_interface;
+          border: none;
+          &:hover {
+            color: $color-link;
+          }
+        }
+      }
+    }
+  }
+  @media screen {
+    @media (max-width: 415px) {
+      .bottom {
+        padding: 30px 8%;
+        display: grid;
+        gap: 6rem;
+        text-align: center;
+
+        .bottom_first {
+          display: grid;
+          justify-content: center;
+
+          .logo {
+            margin-bottom: 60px;
+
+            a {
+              font-size: 1rem;
+
+              img {
+                width: 9.3em;
+              }
+            }
+          }
+
+          .list {
+            display: grid;
+            gap: 50px;
+
+            div {
+              h2 {
+                margin-bottom: 15px;
+              }
+              ul {
+                display: grid;
+                gap: 10px;
+
+                a {
+                  transition: all 0.3s;
+                  &:hover {
+                    color: $color-link;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .bottom_second {
+          p {
+            font-size: 0.85rem;
+            a {
+              color: $color-link;
+            }
+          }
+        }
+      }
+    }
+    @media (min-width: 415px) and (max-width: 800px) {
+      .bottom {
+        padding: 30px 8%;
+        display: grid;
+        gap: 6rem;
+        text-align: center;
+
+        .bottom_first {
+          display: grid;
+          justify-content: center;
+
+          .logo {
+            margin-bottom: 60px;
+
+            a {
+              font-size: 1rem;
+
+              img {
+                width: 9.3em;
+              }
+            }
+          }
+
+          .list {
+            display: flex;
+            column-gap: 50px;
+
+            div {
+              h2 {
+                margin-bottom: 15px;
+              }
+              ul {
+                display: grid;
+                gap: 10px;
+
+                a {
+                  transition: all 0.3s;
+                  &:hover {
+                    color: $color-link;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .bottom_second {
+          p {
+            font-size: 0.85rem;
+            a {
+              color: $color-link;
+            }
+          }
+        }
+      }
+    }
+    @media (min-width: 800px) {
+      .bottom {
+        padding: 30px 8%;
+        display: grid;
+        gap: 6rem;
+
+        .bottom_first {
+          display: flex;
+          justify-content: space-between;
+
+          .logo {
+            a {
+              font-size: 1rem;
+
+              img {
+                width: 9.3em;
+              }
+            }
+          }
+
+          .list {
+            display: flex;
+            column-gap: 50px;
+
+            div {
+              h2 {
+                margin-bottom: 15px;
+              }
+              ul {
+                display: grid;
+                gap: 10px;
+
+                a {
+                  transition: all 0.3s;
+                  &:hover {
+                    color: $color-link;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .bottom_second {
+          p {
+            font-size: 0.85rem;
+            a {
+              color: $color-link;
+            }
+          }
+        }
+      }
+    }
+  }
+}

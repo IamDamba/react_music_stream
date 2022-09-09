@@ -1,0 +1,20 @@
+@import "../../variables/colors";
+@import "../../variables/interfaces";
+
+.checkout_success {
+  .content {
+    padding-top: 180px;
+
+    .content_body {
+      display: grid;
+      gap: 15px;
+      p {
+        text-align: center;
+      }
+      a {
+        text-align: center;
+        color: $color-link;
+      }
+    }
+  }
+}

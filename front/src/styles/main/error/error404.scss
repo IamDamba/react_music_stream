@@ -1,0 +1,19 @@
+@import "../../variables/colors";
+@import "../../variables/interfaces";
+
+.error404 {
+  .content {
+    padding-top: 180px;
+
+    .error404_body {
+      p {
+        text-align: center;
+
+        a {
+          text-decoration: underline;
+          color: $color-link;
+        }
+      }
+    }
+  }
+}
