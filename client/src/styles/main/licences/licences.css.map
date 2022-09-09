@@ -1,0 +1,11 @@
+{
+    "version": 3,
+    "mappings": "AAGA,AACE,SADO,CACP,QAAQ,CAAC;EACP,WAAW,EAAE,KAAK;CAuBnB;;AAzBH,AAII,SAJK,CACP,QAAQ,CAGN,cAAc,CAAC;EACb,KAAK,EAAE,IAAI;EACX,SAAS,EAAE,KAAK;EAChB,MAAM,EAAE,MAAM;EACd,UAAU,EAAE,IAAI;EAChB,OAAO,EAAE,IAAI;EACb,GAAG,EAAE,IAAI;CAcV;;AAxBL,AAcU,SAdD,CACP,QAAQ,CAGN,cAAc,CAQZ,eAAe,CACb,sBAAsB,CACpB,EAAE,CAAC;EACD,YAAY,EAAE,IAAI;CAMnB;;AAJG,MAAM,CAAC,MAAkB,MAAjB,SAAS,EAAE,KAAK;EAjBtC,AAcU,SAdD,CACP,QAAQ,CAGN,cAAc,CAQZ,eAAe,CACb,sBAAsB,CACpB,EAAE,CAAC;IAIG,SAAS,EAAE,KAAK;GAGrB",
+    "sources": [
+        "licences.scss",
+        "../../variables/_colors.scss",
+        "../../variables/_interfaces.scss"
+    ],
+    "names": [],
+    "file": "licences.css"
+}

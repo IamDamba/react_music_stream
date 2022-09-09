@@ -1,0 +1,621 @@
+.tracks .content {
+  padding-top: 180px;
+}
+
+@media screen and (max-width: 600px) {
+  .tracks .content .content_header form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 30px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .tracks .content .content_header form .input {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: relative;
+    margin-bottom: 20px;
+  }
+  .tracks .content .content_header form .input .search_icon {
+    color: #1a1a1a;
+    font-size: 1.2rem;
+    background-color: #e0e0e0;
+    padding: 11.5px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+  .tracks .content .content_header form .input input[type="search"] {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px 30px;
+    color: #1a1a1a;
+    background-color: #e0e0e0;
+    border: none;
+    outline: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  .tracks .content .content_header form .button button {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+    border: none;
+  }
+  .tracks .content .content_header form .button button a {
+    color: white;
+  }
+  .tracks .content .content_header form .button button:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .tracks .content .content_header form .button button:hover a {
+    color: #c79b35;
+  }
+  .tracks .content .content_header form .button button:hover {
+    color: #c79b35;
+  }
+  .tracks .content .tracks_list {
+    width: 100%;
+    padding: 0 8%;
+    margin-bottom: 30px;
+  }
+  .tracks .content .tracks_list .tracks_list_filter {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 0;
+    background-color: #1e1e1e;
+  }
+  .tracks .content .tracks_list .tracks_list_filter .filters {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-column-gap: 30px;
+            column-gap: 30px;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  .tracks .content .tracks_list .tracks_list_filter .filters select {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #1e1e1e;
+    -webkit-box-shadow: 0px 0px 4px rgba(185, 185, 185, 0.2);
+            box-shadow: 0px 0px 4px rgba(185, 185, 185, 0.2);
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+    color: #ffffff;
+    border: none;
+  }
+  .tracks .content .tracks_list .tracks_list_filter .filters select:hover {
+    background-color: #c79b35;
+  }
+  .tracks .content .tracks_list .tracks_list_table {
+    background-color: #1e1e1e;
+    padding: 30px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .tracks .content .tracks_list .tracks_list_table table {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    border-spacing: 30px;
+  }
+  .tracks .content .tracks_list .tracks_list_table table tbody {
+    border-top: 3em solid transparent;
+  }
+  .tracks .content .tracks_list .tracks_list_table table tbody tr {
+    cursor: pointer;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-top: 2em solid #1e1e1e;
+  }
+  .tracks .content .tracks_list .tracks_list_table table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  .tracks .content .tracks_list .tracks_list_table table tbody .list_title {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-column-gap: 10px;
+            column-gap: 10px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .tracks .content .tracks_list .tracks_list_table table tbody .list_title img {
+    width: 60px;
+    height: 60px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .tracks .content .tracks_list .tracks_list_table table tbody .list_tags button {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+    border: none;
+  }
+  .tracks .content .tracks_list .tracks_list_table table tbody .list_tags button a {
+    color: white;
+  }
+  .tracks .content .tracks_list .tracks_list_table table tbody .list_tags button:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .tracks .content .tracks_list .tracks_list_table table tbody .list_tags button:hover a {
+    color: #c79b35;
+  }
+  .tracks .content .tracks_list .tracks_list_table table tbody .list_tags button:hover {
+    color: #c79b35;
+  }
+  .tracks .content .tracks_list .tracks_list_table table tbody .list_link button {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+  }
+  .tracks .content .tracks_list .tracks_list_table table tbody .list_link button a {
+    color: white;
+  }
+  .tracks .content .tracks_list .tracks_list_table table tbody .list_link button:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .tracks .content .tracks_list .tracks_list_table table tbody .list_link button:hover a {
+    color: #c79b35;
+  }
+  .tracks .content .tracks_list .tracks_list_table table tbody .list_link button svg {
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  .tracks .content .tracks_list .tracks_list_table table tbody .list_link button:hover:hover {
+    color: #c79b35;
+  }
+  .tracks .content .tracks_list .tracks_list_table table thead .thead_tags,
+  .tracks .content .tracks_list .tracks_list_table table thead .thead_bpm {
+    display: none;
+  }
+  .tracks .content .tracks_list .tracks_list_table table tbody tr {
+    vertical-align: baseline;
+  }
+  .tracks .content .tracks_list .tracks_list_table table tbody tr .list_tags,
+  .tracks .content .tracks_list .tracks_list_table table tbody tr .list_bpm {
+    display: none;
+  }
+  .tracks .content .tracks_list .tracks_list_table table tbody tr .list_title img {
+    display: none;
+  }
+  .tracks .content .tracks_list .tracks_list_pagination {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    background-color: #1e1e1e;
+    padding: 30px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .tracks .content .tracks_list .tracks_list_pagination .pagination {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-column-gap: 10px;
+            column-gap: 10px;
+  }
+  .tracks .content .tracks_list .tracks_list_pagination .pagination li {
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  .tracks .content .tracks_list .tracks_list_pagination .pagination li a {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+    font-size: 0.9rem;
+    border-radius: 0;
+    color: #1a1a1a;
+  }
+  .tracks .content .tracks_list .tracks_list_pagination .pagination li a a {
+    color: white;
+  }
+  .tracks .content .tracks_list .tracks_list_pagination .pagination li a:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .tracks .content .tracks_list .tracks_list_pagination .pagination li a:hover a {
+    color: #c79b35;
+  }
+  .tracks .content .tracks_list .tracks_list_pagination .pagination .active a {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+    font-size: 0.9rem;
+    border-radius: 0;
+    background-color: #1a1a1a;
+    color: #ffffff;
+  }
+  .tracks .content .tracks_list .tracks_list_pagination .pagination .active a a {
+    color: white;
+  }
+  .tracks .content .tracks_list .tracks_list_pagination .pagination .active a:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .tracks .content .tracks_list .tracks_list_pagination .pagination .active a:hover a {
+    color: #c79b35;
+  }
+  .tracks .content .tracks_list .tracks_list_pagination .pagination .disabled {
+    opacity: 0;
+    display: none;
+  }
+  .tracks .content .tracks_list .tracks_list_pagination .pagination .disabled a {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+    font-size: 0.9rem;
+    border-radius: 0;
+  }
+  .tracks .content .tracks_list .tracks_list_pagination .pagination .disabled a a {
+    color: white;
+  }
+  .tracks .content .tracks_list .tracks_list_pagination .pagination .disabled a:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .tracks .content .tracks_list .tracks_list_pagination .pagination .disabled a:hover a {
+    color: #c79b35;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .tracks .content .content_header form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 30px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .tracks .content .content_header form .input {
+    position: relative;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 400px;
+  }
+  .tracks .content .content_header form .input .search_icon {
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+    color: #1a1a1a;
+    font-size: 1.2rem;
+  }
+  .tracks .content .content_header form .input input[type="search"] {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px 8% 15px 60px;
+    color: #1a1a1a;
+    background-color: #e0e0e0;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+  }
+  .tracks .content .content_header form .input input[type="search"] {
+    padding: 15px 8% 15px 16%;
+  }
+  .tracks .content .content_header form .button button {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+    border: none;
+  }
+  .tracks .content .content_header form .button button a {
+    color: white;
+  }
+  .tracks .content .content_header form .button button:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .tracks .content .content_header form .button button:hover a {
+    color: #c79b35;
+  }
+  .tracks .content .content_header form .button button:hover {
+    color: #c79b35;
+  }
+  .tracks .content .tracks_list {
+    width: 100%;
+    padding: 0 8%;
+    margin-bottom: 30px;
+  }
+  .tracks .content .tracks_list .tracks_list_filter {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 0;
+    background-color: #1e1e1e;
+  }
+  .tracks .content .tracks_list .tracks_list_filter .filters {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-column-gap: 30px;
+            column-gap: 30px;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  .tracks .content .tracks_list .tracks_list_filter .filters select {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #1e1e1e;
+    -webkit-box-shadow: 0px 0px 4px rgba(185, 185, 185, 0.2);
+            box-shadow: 0px 0px 4px rgba(185, 185, 185, 0.2);
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+    color: #ffffff;
+    border: none;
+  }
+  .tracks .content .tracks_list .tracks_list_filter .filters select:hover {
+    background-color: #c79b35;
+  }
+  .tracks .content .tracks_list .tracks_list_table {
+    background-color: #1e1e1e;
+    padding: 30px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .tracks .content .tracks_list .tracks_list_table table {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    border-spacing: 30px;
+  }
+  .tracks .content .tracks_list .tracks_list_table table tbody {
+    border-top: 3em solid transparent;
+  }
+  .tracks .content .tracks_list .tracks_list_table table tbody tr {
+    cursor: pointer;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-top: 2em solid #1e1e1e;
+  }
+  .tracks .content .tracks_list .tracks_list_table table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  .tracks .content .tracks_list .tracks_list_table table tbody .list_title {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-column-gap: 10px;
+            column-gap: 10px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .tracks .content .tracks_list .tracks_list_table table tbody .list_title img {
+    width: 60px;
+    height: 60px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .tracks .content .tracks_list .tracks_list_table table tbody .list_tags button {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+    border: none;
+  }
+  .tracks .content .tracks_list .tracks_list_table table tbody .list_tags button a {
+    color: white;
+  }
+  .tracks .content .tracks_list .tracks_list_table table tbody .list_tags button:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .tracks .content .tracks_list .tracks_list_table table tbody .list_tags button:hover a {
+    color: #c79b35;
+  }
+  .tracks .content .tracks_list .tracks_list_table table tbody .list_tags button:hover {
+    color: #c79b35;
+  }
+  .tracks .content .tracks_list .tracks_list_table table tbody .list_link button {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+  }
+  .tracks .content .tracks_list .tracks_list_table table tbody .list_link button a {
+    color: white;
+  }
+  .tracks .content .tracks_list .tracks_list_table table tbody .list_link button:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .tracks .content .tracks_list .tracks_list_table table tbody .list_link button:hover a {
+    color: #c79b35;
+  }
+  .tracks .content .tracks_list .tracks_list_table table tbody .list_link button svg {
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  .tracks .content .tracks_list .tracks_list_table table tbody .list_link button:hover:hover {
+    color: #c79b35;
+  }
+  .tracks .content .tracks_list .tracks_list_pagination {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    background-color: #1e1e1e;
+    padding: 30px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .tracks .content .tracks_list .tracks_list_pagination .pagination {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-column-gap: 10px;
+            column-gap: 10px;
+  }
+  .tracks .content .tracks_list .tracks_list_pagination .pagination li {
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  .tracks .content .tracks_list .tracks_list_pagination .pagination li a {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+    font-size: 0.9rem;
+    border-radius: 0;
+    color: #1a1a1a;
+  }
+  .tracks .content .tracks_list .tracks_list_pagination .pagination li a a {
+    color: white;
+  }
+  .tracks .content .tracks_list .tracks_list_pagination .pagination li a:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .tracks .content .tracks_list .tracks_list_pagination .pagination li a:hover a {
+    color: #c79b35;
+  }
+  .tracks .content .tracks_list .tracks_list_pagination .pagination .active a {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+    font-size: 0.9rem;
+    border-radius: 0;
+    background-color: #1a1a1a;
+    color: #ffffff;
+  }
+  .tracks .content .tracks_list .tracks_list_pagination .pagination .active a a {
+    color: white;
+  }
+  .tracks .content .tracks_list .tracks_list_pagination .pagination .active a:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .tracks .content .tracks_list .tracks_list_pagination .pagination .active a:hover a {
+    color: #c79b35;
+  }
+  .tracks .content .tracks_list .tracks_list_pagination .pagination .disabled {
+    opacity: 0;
+    display: none;
+  }
+  .tracks .content .tracks_list .tracks_list_pagination .pagination .disabled a {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+    font-size: 0.9rem;
+    border-radius: 0;
+  }
+  .tracks .content .tracks_list .tracks_list_pagination .pagination .disabled a a {
+    color: white;
+  }
+  .tracks .content .tracks_list .tracks_list_pagination .pagination .disabled a:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .tracks .content .tracks_list .tracks_list_pagination .pagination .disabled a:hover a {
+    color: #c79b35;
+  }
+}
+/*# sourceMappingURL=tracks.css.map */

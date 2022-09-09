@@ -1,0 +1,498 @@
+.single_track .content {
+  padding-top: 180px;
+}
+
+.single_track .content .track_comment_form .input {
+  padding: 0 30px;
+}
+
+.single_track .content .track_list_detail .item .track_data {
+  padding: 0 60px;
+}
+
+.single_track .content .track_list_detail .item .comments {
+  width: 100%;
+  text-align: center;
+  display: -ms-grid;
+  display: grid;
+}
+
+.single_track .content .track_list_detail .item .comments .track_comment_title {
+  margin-bottom: 30px;
+}
+
+.single_track .content .track_list_detail .item .comments .track_comment_list {
+  margin-bottom: 30px;
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.single_track .content .track_list_detail .item .comments .track_comment_list .comment_content {
+  padding: 0 30px;
+  text-align: center;
+  display: -ms-grid;
+  display: grid;
+  width: 100%;
+  max-width: 360px;
+  margin: auto;
+}
+
+.single_track .content .track_list_detail .item .comments .track_comment_list .comment_content .username {
+  padding: 15px;
+  background: #420000;
+  width: 100%;
+}
+
+.single_track .content .track_list_detail .item .comments .track_comment_list .comment_content .message {
+  padding: 15px 30px;
+  width: 100%;
+}
+
+.single_track .content .track_list_detail .item .comments .track_comment_form .input {
+  margin-bottom: 30px;
+}
+
+.single_track .content .track_list_detail .item .comments .track_comment_form .input textarea {
+  max-width: 600px;
+  resize: none;
+  padding: 20px 10%;
+}
+
+.single_track .content .track_list_detail .item .comments .track_comment_form .buttons button {
+  padding: 10px 12px;
+  cursor: pointer;
+  background-color: #c79b35;
+  font-weight: 600;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border-radius: 10px;
+  border: none;
+}
+
+.single_track .content .track_list_detail .item .comments .track_comment_form .buttons button a {
+  color: white;
+}
+
+.single_track .content .track_list_detail .item .comments .track_comment_form .buttons button:hover {
+  background-color: #1a1a1a;
+  color: #c79b35;
+}
+
+.single_track .content .track_list_detail .item .comments .track_comment_form .buttons button:hover a {
+  color: #c79b35;
+}
+
+@media screen and (max-width: 800px) {
+  .single_track .content .track_list_detail {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .single_track .content .track_list_detail .item {
+    display: -ms-grid;
+    display: grid;
+    gap: 80px;
+    width: 100%;
+  }
+  .single_track .content .track_list_detail .item .add_cart {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  .single_track .content .track_list_detail .item .track_data {
+    display: -ms-grid;
+    display: grid;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 30px;
+  }
+  .single_track .content .track_list_detail .item .track_data .track_cover {
+    display: -ms-grid;
+    display: grid;
+    justify-items: center;
+  }
+  .single_track .content .track_list_detail .item .track_data .track_cover .img {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 30px;
+    cursor: pointer;
+  }
+  .single_track .content .track_list_detail .item .track_data .track_cover .img img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    border: none;
+  }
+  .single_track .content .track_list_detail .item .track_data .track_cover .img .filter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: -ms-grid;
+    display: grid;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .single_track .content .track_list_detail .item .track_data .track_cover .img .filter button {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+  }
+  .single_track .content .track_list_detail .item .track_data .track_cover .img .filter button a {
+    color: white;
+  }
+  .single_track .content .track_list_detail .item .track_data .track_cover .img .filter button:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .single_track .content .track_list_detail .item .track_data .track_cover .img .filter button:hover a {
+    color: #c79b35;
+  }
+  .single_track .content .track_list_detail .item .track_data .track_cover .buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-column-gap: 20px;
+            column-gap: 20px;
+  }
+  .single_track .content .track_list_detail .item .track_data .track_cover .buttons li button {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+  }
+  .single_track .content .track_list_detail .item .track_data .track_cover .buttons li button a {
+    color: white;
+  }
+  .single_track .content .track_list_detail .item .track_data .track_cover .buttons li button:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .single_track .content .track_list_detail .item .track_data .track_cover .buttons li button:hover a {
+    color: #c79b35;
+  }
+  .single_track .content .track_list_detail .item .track_data .track_info {
+    text-align: center;
+    display: -ms-grid;
+    display: grid;
+    gap: 10px;
+  }
+  .single_track .content .track_list_detail .item .track_data .track_info button {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+  }
+  .single_track .content .track_list_detail .item .track_data .track_info button a {
+    color: white;
+  }
+  .single_track .content .track_list_detail .item .track_data .track_info button:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .single_track .content .track_list_detail .item .track_data .track_info button:hover a {
+    color: #c79b35;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .single_track .content .track_list_detail {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .single_track .content .track_list_detail .item {
+    display: -ms-grid;
+    display: grid;
+    gap: 80px;
+    width: 100%;
+  }
+  .single_track .content .track_list_detail .item .add_cart {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  .single_track .content .track_list_detail .item .track_data {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .single_track .content .track_list_detail .item .track_data .track_cover .img {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 30px;
+    cursor: pointer;
+  }
+  .single_track .content .track_list_detail .item .track_data .track_cover .img img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    border: none;
+  }
+  .single_track .content .track_list_detail .item .track_data .track_cover .img .filter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: -ms-grid;
+    display: grid;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .single_track .content .track_list_detail .item .track_data .track_cover .img .filter button {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+  }
+  .single_track .content .track_list_detail .item .track_data .track_cover .img .filter button a {
+    color: white;
+  }
+  .single_track .content .track_list_detail .item .track_data .track_cover .img .filter button:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .single_track .content .track_list_detail .item .track_data .track_cover .img .filter button:hover a {
+    color: #c79b35;
+  }
+  .single_track .content .track_list_detail .item .track_data .track_cover .buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-column-gap: 20px;
+            column-gap: 20px;
+  }
+  .single_track .content .track_list_detail .item .track_data .track_cover .buttons li button {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+  }
+  .single_track .content .track_list_detail .item .track_data .track_cover .buttons li button a {
+    color: white;
+  }
+  .single_track .content .track_list_detail .item .track_data .track_cover .buttons li button:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .single_track .content .track_list_detail .item .track_data .track_cover .buttons li button:hover a {
+    color: #c79b35;
+  }
+  .single_track .content .track_list_detail .item .track_data .track_info {
+    text-align: right;
+    display: -ms-grid;
+    display: grid;
+    gap: 10px;
+  }
+  .single_track .content .track_list_detail .item .track_data .track_info button {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+  }
+  .single_track .content .track_list_detail .item .track_data .track_info button a {
+    color: white;
+  }
+  .single_track .content .track_list_detail .item .track_data .track_info button:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .single_track .content .track_list_detail .item .track_data .track_info button:hover a {
+    color: #c79b35;
+  }
+  .single_track .content .track_list_detail .item .visualizer {
+    width: 100%;
+    height: 120px;
+    background-color: #1e1e1e;
+  }
+  .single_track .content .track_list_detail .item .comments {
+    width: 100%;
+    text-align: center;
+    display: -ms-grid;
+    display: grid;
+  }
+  .single_track .content .track_list_detail .item .comments .track_comment_title {
+    margin-bottom: 30px;
+  }
+  .single_track .content .track_list_detail .item .comments .track_comment_list {
+    margin-bottom: 30px;
+    width: 100%;
+    max-width: 600px;
+  }
+  .single_track .content .track_list_detail .item .comments .track_comment_form .input {
+    margin-bottom: 30px;
+  }
+  .single_track .content .track_list_detail .item .comments .track_comment_form .input textarea {
+    max-width: 600px;
+    resize: none;
+  }
+  .single_track .content .track_list_detail .item .comments .track_comment_form .buttons button {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+  }
+  .single_track .content .track_list_detail .item .comments .track_comment_form .buttons button a {
+    color: white;
+  }
+  .single_track .content .track_list_detail .item .comments .track_comment_form .buttons button:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .single_track .content .track_list_detail .item .comments .track_comment_form .buttons button:hover a {
+    color: #c79b35;
+  }
+}
+
+.single_track .modale_cart {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  z-index: 11;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(26, 26, 26, 0.7);
+}
+
+.single_track .modale_cart .content {
+  margin: 0 auto;
+  text-align: center;
+  max-width: 700px;
+  width: 100%;
+  padding: 20px;
+}
+
+.single_track .modale_cart .content .content_header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 30px;
+          column-gap: 30px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #867575;
+  padding: 20px 0px;
+  margin-bottom: 0;
+  padding: 20px;
+}
+
+.single_track .modale_cart .content .content_header button {
+  padding: 10px 12px;
+  cursor: pointer;
+  background-color: #c79b35;
+  font-weight: 600;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border-radius: 10px;
+  border: none;
+}
+
+.single_track .modale_cart .content .content_header button a {
+  color: white;
+}
+
+.single_track .modale_cart .content .content_header button:hover {
+  background-color: #1a1a1a;
+  color: #c79b35;
+}
+
+.single_track .modale_cart .content .content_header button:hover a {
+  color: #c79b35;
+}
+
+.single_track .modale_cart .content .content_body {
+  display: -ms-grid;
+  display: grid;
+  padding: 30px 0;
+  background-color: #303030;
+  gap: 20px;
+}
+
+.single_track .modale_cart .content .content_body button {
+  padding: 10px 12px;
+  cursor: pointer;
+  background-color: #c79b35;
+  font-weight: 600;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border-radius: 10px;
+  border: none;
+}
+
+.single_track .modale_cart .content .content_body button a {
+  color: white;
+}
+
+.single_track .modale_cart .content .content_body button:hover {
+  background-color: #1a1a1a;
+  color: #c79b35;
+}
+
+.single_track .modale_cart .content .content_body button:hover a {
+  color: #c79b35;
+}
+/*# sourceMappingURL=single_track.css.map */

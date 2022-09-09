@@ -1,0 +1,13 @@
+.newsletter_delete_success .content {
+  padding-top: 180px;
+  text-align: center;
+}
+
+.newsletter_delete_success .content h1 {
+  margin-bottom: 30px;
+}
+
+.newsletter_delete_success .content p a {
+  color: #c79b35;
+}
+/*# sourceMappingURL=newsletter_delete_success.css.map */

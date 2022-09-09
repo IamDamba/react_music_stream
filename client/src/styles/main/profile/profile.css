@@ -1,0 +1,514 @@
+.profile .content {
+  padding-top: 180px;
+}
+
+.profile .content .profile_content {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  margin-top: 80px;
+  gap: 60px;
+  padding: 0 60px;
+}
+
+.profile .content .profile_content .btn {
+  padding: 10px 12px;
+  cursor: pointer;
+  background-color: #c79b35;
+  font-weight: 600;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border-radius: 10px;
+  border: none;
+}
+
+.profile .content .profile_content .btn a {
+  color: white;
+}
+
+.profile .content .profile_content .btn:hover {
+  background-color: #1a1a1a;
+  color: #c79b35;
+}
+
+.profile .content .profile_content .btn:hover a {
+  color: #c79b35;
+}
+
+.profile .content .profile_content .banner {
+  background: #1e1e1e;
+  padding: 40px;
+}
+
+.profile .content .profile_content .banner .banner_header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-column-gap: 30px;
+          column-gap: 30px;
+  margin-bottom: 60px;
+}
+
+.profile .content .profile_content .banner .banner_header li button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: 600;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.profile .content .profile_content .banner .banner_header li button:hover {
+  color: #c79b35;
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 600px) {
+  .profile .content .profile_content .banner .banner_content .user_info .first {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-bottom: 30px;
+  }
+  .profile .content .profile_content .banner .banner_content .user_info .second {
+    display: -ms-grid;
+    display: grid;
+    gap: 40px 10px;
+    margin-bottom: 30px;
+  }
+  .profile .content .profile_content .banner .banner_content .user_info .third h3 {
+    margin-bottom: 30px;
+  }
+  .profile .content .profile_content .banner .banner_content .user_info .third .buttons {
+    display: -ms-grid;
+    display: grid;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .profile .content .profile_content .banner .banner_content .user_info .third .buttons .left {
+    display: -ms-grid;
+    display: grid;
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+  .profile .content .profile_content .banner .banner_content .user_info .third .buttons .right {
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .profile .content .profile_content .banner .banner_content .user_info .first {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    margin-bottom: 30px;
+  }
+  .profile .content .profile_content .banner .banner_content .user_info .second {
+    display: -ms-grid;
+    display: grid;
+    gap: 40px 10px;
+    margin-bottom: 30px;
+  }
+  .profile .content .profile_content .banner .banner_content .user_info .second input {
+    margin: auto;
+  }
+  .profile .content .profile_content .banner .banner_content .user_info .third h3 {
+    margin-bottom: 30px;
+  }
+  .profile .content .profile_content .banner .banner_content .user_info .third .buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+  }
+  .profile .content .profile_content .banner .banner_content .user_info .third .buttons .left {
+    display: -ms-grid;
+    display: grid;
+    gap: 30px;
+  }
+}
+
+.profile .content .profile_content .banner .banner_content .orders .second {
+  overflow-y: scroll;
+  max-height: 400px;
+}
+
+@media screen and (max-width: 600px) {
+  .profile .content .profile_content .banner .banner_content .orders .second .list {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    border-spacing: 30px;
+  }
+  .profile .content .profile_content .banner .banner_content .orders .second .list thead tr .thead_total,
+  .profile .content .profile_content .banner .banner_content .orders .second .list thead tr .thead_state {
+    display: none;
+  }
+  .profile .content .profile_content .banner .banner_content .orders .second .list tbody {
+    border-top: 3em solid transparent;
+  }
+  .profile .content .profile_content .banner .banner_content .orders .second .list tbody tr {
+    cursor: pointer;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-top: 2em solid #1e1e1e;
+  }
+  .profile .content .profile_content .banner .banner_content .orders .second .list tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  .profile .content .profile_content .banner .banner_content .orders .second .list tbody tr td p {
+    padding: 15px;
+    word-break: break-all;
+  }
+  .profile .content .profile_content .banner .banner_content .orders .second .list tbody tr .item_id p {
+    font-size: 0.9rem;
+  }
+  .profile .content .profile_content .banner .banner_content .orders .second .list tbody tr .item_total,
+  .profile .content .profile_content .banner .banner_content .orders .second .list tbody tr .item_state {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .profile .content .profile_content .banner .banner_content .orders .second .list {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    border-spacing: 30px;
+  }
+  .profile .content .profile_content .banner .banner_content .orders .second .list tbody {
+    border-top: 3em solid transparent;
+  }
+  .profile .content .profile_content .banner .banner_content .orders .second .list tbody tr {
+    cursor: pointer;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-top: 2em solid #1e1e1e;
+  }
+  .profile .content .profile_content .banner .banner_content .orders .second .list tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  .profile .content .profile_content .banner .banner_content .orders .second .list tbody tr td p {
+    padding: 15px;
+  }
+  .profile .content .profile_content .banner .banner_content .orders .second .list tbody .list_title {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-column-gap: 10px;
+            column-gap: 10px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .profile .content .profile_content .banner .banner_content .orders .second .list tbody .list_title img {
+    width: 60px;
+    height: 60px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .profile .content .profile_content .banner .banner_content .orders .second .list tbody .list_tags button {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+    border: none;
+  }
+  .profile .content .profile_content .banner .banner_content .orders .second .list tbody .list_tags button a {
+    color: white;
+  }
+  .profile .content .profile_content .banner .banner_content .orders .second .list tbody .list_tags button:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .profile .content .profile_content .banner .banner_content .orders .second .list tbody .list_tags button:hover a {
+    color: #c79b35;
+  }
+  .profile .content .profile_content .banner .banner_content .orders .second .list tbody .list_tags button:hover {
+    color: #c79b35;
+  }
+  .profile .content .profile_content .banner .banner_content .orders .second .list tbody .list_link button {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+  }
+  .profile .content .profile_content .banner .banner_content .orders .second .list tbody .list_link button a {
+    color: white;
+  }
+  .profile .content .profile_content .banner .banner_content .orders .second .list tbody .list_link button:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .profile .content .profile_content .banner .banner_content .orders .second .list tbody .list_link button:hover a {
+    color: #c79b35;
+  }
+  .profile .content .profile_content .banner .banner_content .orders .second .list tbody .list_link button svg {
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  .profile .content .profile_content .banner .banner_content .orders .second .list tbody .list_link button:hover:hover {
+    color: #c79b35;
+  }
+}
+
+.profile .email_modal {
+  display: none;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 11;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(26, 26, 26, 0.7);
+}
+
+.profile .email_modal .content {
+  margin: 0 auto;
+  text-align: center;
+  max-width: 700px;
+  width: 100%;
+}
+
+.profile .email_modal .content .content_header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 30px;
+          column-gap: 30px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #867575;
+  padding: 20px 0px;
+  margin-bottom: 0;
+}
+
+.profile .email_modal .content .content_header h2 {
+  color: #ffffff;
+  font-size: 1.2rem;
+}
+
+.profile .email_modal .content .content_header button {
+  padding: 10px 12px;
+  cursor: pointer;
+  background-color: #c79b35;
+  font-weight: 600;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border-radius: 10px;
+  border: none;
+}
+
+.profile .email_modal .content .content_header button a {
+  color: white;
+}
+
+.profile .email_modal .content .content_header button:hover {
+  background-color: #1a1a1a;
+  color: #c79b35;
+}
+
+.profile .email_modal .content .content_header button:hover a {
+  color: #c79b35;
+}
+
+.profile .email_modal .content .content_body {
+  display: -ms-grid;
+  display: grid;
+  padding: 30px 0;
+  background-color: #303030;
+  gap: 20px;
+}
+
+.profile .email_modal .content .content_body form {
+  display: -ms-grid;
+  display: grid;
+  gap: 30px;
+}
+
+.profile .email_modal .content .content_body form .input {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 10px;
+}
+
+.profile .email_modal .content .content_body form .input input {
+  padding: 10px 30px;
+  color: #1a1a1a;
+}
+
+.profile .email_modal .content .content_body form .button button {
+  padding: 10px 12px;
+  cursor: pointer;
+  background-color: #c79b35;
+  font-weight: 600;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border-radius: 10px;
+  border: none;
+}
+
+.profile .email_modal .content .content_body form .button button a {
+  color: white;
+}
+
+.profile .email_modal .content .content_body form .button button:hover {
+  background-color: #1a1a1a;
+  color: #c79b35;
+}
+
+.profile .email_modal .content .content_body form .button button:hover a {
+  color: #c79b35;
+}
+
+.profile .delete_user_modal {
+  display: none;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 11;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(26, 26, 26, 0.7);
+}
+
+.profile .delete_user_modal .content {
+  margin: 0 auto;
+  text-align: center;
+  max-width: 700px;
+  width: 100%;
+}
+
+.profile .delete_user_modal .content .content_header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 30px;
+          column-gap: 30px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #867575;
+  padding: 20px 0px;
+  margin-bottom: 0;
+}
+
+.profile .delete_user_modal .content .content_header h2 {
+  color: #ffffff;
+  font-size: 1.2rem;
+}
+
+.profile .delete_user_modal .content .content_header button {
+  padding: 10px 12px;
+  cursor: pointer;
+  background-color: #c79b35;
+  font-weight: 600;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border-radius: 10px;
+  border: none;
+}
+
+.profile .delete_user_modal .content .content_header button a {
+  color: white;
+}
+
+.profile .delete_user_modal .content .content_header button:hover {
+  background-color: #1a1a1a;
+  color: #c79b35;
+}
+
+.profile .delete_user_modal .content .content_header button:hover a {
+  color: #c79b35;
+}
+
+.profile .delete_user_modal .content .content_body {
+  display: -ms-grid;
+  display: grid;
+  padding: 30px 0;
+  background-color: #303030;
+  gap: 20px;
+}
+
+.profile .delete_user_modal .content .content_body .button {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 15px;
+}
+
+.profile .delete_user_modal .content .content_body .button button {
+  padding: 10px 12px;
+  cursor: pointer;
+  background-color: #c79b35;
+  font-weight: 600;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border-radius: 10px;
+  border: none;
+}
+
+.profile .delete_user_modal .content .content_body .button button a {
+  color: white;
+}
+
+.profile .delete_user_modal .content .content_body .button button:hover {
+  background-color: #1a1a1a;
+  color: #c79b35;
+}
+
+.profile .delete_user_modal .content .content_body .button button:hover a {
+  color: #c79b35;
+}
+/*# sourceMappingURL=profile.css.map */

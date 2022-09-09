@@ -1,0 +1,11 @@
+{
+    "version": 3,
+    "mappings": "AAGA,AACE,MADI,CACJ,QAAQ,CAAC;EACP,WAAW,EAAE,KAAK;CAuBnB;;AAzBH,AAII,MAJE,CACJ,QAAQ,CAGN,WAAW,CAAC;EACV,KAAK,EAAE,IAAI;EACX,SAAS,EAAE,KAAK;EAChB,MAAM,EAAE,MAAM;EACd,UAAU,EAAE,IAAI;EAChB,OAAO,EAAE,IAAI;EACb,GAAG,EAAE,IAAI;CAcV;;AAxBL,AAcU,MAdJ,CACJ,QAAQ,CAGN,WAAW,CAQT,eAAe,CACb,sBAAsB,CACpB,EAAE,CAAA;EACA,YAAY,EAAE,IAAI;CAMnB;;AAJG,MAAM,CAAC,MAAkB,MAAjB,SAAS,EAAE,KAAK;EAjBtC,AAcU,MAdJ,CACJ,QAAQ,CAGN,WAAW,CAQT,eAAe,CACb,sBAAsB,CACpB,EAAE,CAAA;IAIG,SAAS,EAAE,KAAK;GAGpB",
+    "sources": [
+        "terms.scss",
+        "../../variables/_colors.scss",
+        "../../variables/_interfaces.scss"
+    ],
+    "names": [],
+    "file": "terms.css"
+}

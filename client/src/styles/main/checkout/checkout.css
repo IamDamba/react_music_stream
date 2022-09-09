@@ -1,0 +1,19 @@
+.checkout_success .content {
+  padding-top: 180px;
+}
+
+.checkout_success .content .content_body {
+  display: -ms-grid;
+  display: grid;
+  gap: 15px;
+}
+
+.checkout_success .content .content_body p {
+  text-align: center;
+}
+
+.checkout_success .content .content_body a {
+  text-align: center;
+  color: #c79b35;
+}
+/*# sourceMappingURL=checkout.css.map */

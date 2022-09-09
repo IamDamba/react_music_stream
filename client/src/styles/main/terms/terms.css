@@ -1,0 +1,24 @@
+.terms .content {
+  padding-top: 180px;
+}
+
+.terms .content .terms_list {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 80px;
+  display: -ms-grid;
+  display: grid;
+  gap: 60px;
+}
+
+.terms .content .terms_list .accordion_item .accordion_item_header h3 {
+  margin-right: 30px;
+}
+
+@media screen and (max-width: 500px) {
+  .terms .content .terms_list .accordion_item .accordion_item_header h3 {
+    max-width: 220px;
+  }
+}
+/*# sourceMappingURL=terms.css.map */

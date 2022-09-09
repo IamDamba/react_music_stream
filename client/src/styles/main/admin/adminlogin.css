@@ -1,0 +1,249 @@
+.adminlogin {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 100vh;
+}
+
+@media screen and (max-width: 900px) {
+  .adminlogin .adminlogin_form {
+    width: 100%;
+    position: relative;
+    background-color: #420000;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    row-gap: 30px;
+    padding: 30px;
+  }
+  .adminlogin .adminlogin_form .return_link {
+    position: absolute;
+    top: 8%;
+    left: 30px;
+    text-decoration: underline;
+    font-weight: 600;
+  }
+  .adminlogin .adminlogin_form h1 {
+    text-align: center;
+  }
+  .adminlogin .adminlogin_form form {
+    display: -ms-grid;
+    display: grid;
+    width: 100%;
+  }
+  .adminlogin .adminlogin_form form .input {
+    display: -ms-grid;
+    display: grid;
+    width: 100%;
+    margin-bottom: 30px;
+    gap: 10px;
+    justify-items: center;
+  }
+  .adminlogin .adminlogin_form form .input input[type="email"],
+  .adminlogin .adminlogin_form form .input input[type="password"],
+  .adminlogin .adminlogin_form form .input input[type="text"] {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px 8%;
+    color: #1a1a1a;
+    background-color: #e0e0e0;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+  }
+  .adminlogin .adminlogin_form form .input.password .checkbox label {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-column-gap: 20px;
+            column-gap: 20px;
+    max-width: 190px;
+  }
+  .adminlogin .adminlogin_form form .input.password .checkbox label input[type="checkbox"] {
+    -webkit-transform: scale(1.4);
+            transform: scale(1.4);
+    border: none;
+  }
+  .adminlogin .adminlogin_form form .other_button {
+    display: -ms-grid;
+    display: grid;
+    text-align: center;
+    gap: 20px;
+  }
+  .adminlogin .adminlogin_form form .other_button .send_button button {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+    border: none;
+  }
+  .adminlogin .adminlogin_form form .other_button .send_button button a {
+    color: white;
+  }
+  .adminlogin .adminlogin_form form .other_button .send_button button:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .adminlogin .adminlogin_form form .other_button .send_button button:hover a {
+    color: #c79b35;
+  }
+  .adminlogin .adminlogin_form form .other_button .send_button button:hover {
+    color: #c79b35;
+  }
+  .adminlogin .adminlogin_form form .other_button label a {
+    text-decoration: underline;
+    font-weight: 600;
+  }
+  .adminlogin .banner {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .adminlogin .adminlogin_form {
+    width: 100%;
+    max-width: 460px;
+    position: relative;
+    background-color: #420000;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    row-gap: 30px;
+    padding: 30px;
+  }
+  .adminlogin .adminlogin_form .return_link {
+    position: absolute;
+    top: 8%;
+    left: 30px;
+    text-decoration: underline;
+    font-weight: 600;
+  }
+  .adminlogin .adminlogin_form h1 {
+    text-align: center;
+  }
+  .adminlogin .adminlogin_form form {
+    display: -ms-grid;
+    display: grid;
+    width: 100%;
+  }
+  .adminlogin .adminlogin_form form .input {
+    display: -ms-grid;
+    display: grid;
+    width: 100%;
+    margin-bottom: 30px;
+    gap: 10px;
+  }
+  .adminlogin .adminlogin_form form .input input[type="email"],
+  .adminlogin .adminlogin_form form .input input[type="password"],
+  .adminlogin .adminlogin_form form .input input[type="text"] {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px 8%;
+    color: #1a1a1a;
+    background-color: #e0e0e0;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+  }
+  .adminlogin .adminlogin_form form .input.password .checkbox label {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-column-gap: 20px;
+            column-gap: 20px;
+    max-width: 190px;
+  }
+  .adminlogin .adminlogin_form form .input.password .checkbox label input[type="checkbox"] {
+    -webkit-transform: scale(1.4);
+            transform: scale(1.4);
+    border: none;
+  }
+  .adminlogin .adminlogin_form form .other_button {
+    display: -ms-grid;
+    display: grid;
+    text-align: center;
+    gap: 20px;
+  }
+  .adminlogin .adminlogin_form form .other_button .send_button button {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+    border: none;
+  }
+  .adminlogin .adminlogin_form form .other_button .send_button button a {
+    color: white;
+  }
+  .adminlogin .adminlogin_form form .other_button .send_button button:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .adminlogin .adminlogin_form form .other_button .send_button button:hover a {
+    color: #c79b35;
+  }
+  .adminlogin .adminlogin_form form .other_button .send_button button:hover {
+    color: #c79b35;
+  }
+  .adminlogin .adminlogin_form form .other_button label a {
+    text-decoration: underline;
+    font-weight: 600;
+  }
+  .adminlogin .banner {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    position: relative;
+  }
+  .adminlogin .banner .img {
+    z-index: 4;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../../media/signin/signin.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .adminlogin .banner .filter {
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+}
+/*# sourceMappingURL=adminlogin.css.map */

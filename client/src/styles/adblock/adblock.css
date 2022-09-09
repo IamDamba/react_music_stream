@@ -1,0 +1,21 @@
+.ad_block_detecter {
+  display: -ms-grid;
+  display: grid;
+  z-index: 15;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(32, 32, 32, 0.7);
+  width: 100vw;
+  height: 100vh;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.ad_block_detecter .ad_block_detecter_message .first h1 {
+  font-size: 2.5rem;
+}
+/*# sourceMappingURL=adblock.css.map */

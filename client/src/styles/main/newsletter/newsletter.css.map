@@ -1,0 +1,11 @@
+{
+    "version": 3,
+    "mappings": "AAGA,AACE,WADS,CACT,QAAQ,CAAC;EACP,WAAW,EAAE,KAAK;EAClB,UAAU,EAAE,MAAM;CASnB;;AAZH,AAII,WAJO,CACT,QAAQ,CAGN,EAAE,CAAC;EACD,aAAa,EAAE,IAAI;CACpB;;AANL,AAQM,WARK,CACT,QAAQ,CAMN,CAAC,CACC,CAAC,CAAC;EACA,KAAK,ECTA,OAAO;CDUb",
+    "sources": [
+        "newsletter.scss",
+        "../../variables/_colors.scss",
+        "../../variables/_interfaces.scss"
+    ],
+    "names": [],
+    "file": "newsletter.css"
+}

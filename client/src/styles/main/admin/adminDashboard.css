@@ -1,0 +1,1376 @@
+.admin_dashboard {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+}
+
+@media screen and (max-width: 1024px) {
+  .admin_dashboard {
+    display: -ms-grid;
+    display: grid;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .admin_dashboard .desktop {
+    display: none;
+  }
+  .admin_dashboard .mobile {
+    padding-top: 180px;
+    text-align: center;
+  }
+  .admin_dashboard .mobile .error404_body p {
+    text-align: center;
+    padding: 30px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .admin_dashboard .desktop {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+  }
+  .admin_dashboard .desktop header .logo img {
+    width: 150px;
+  }
+  .admin_dashboard .desktop header .second {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-column-gap: 30px;
+            column-gap: 30px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .admin_dashboard .desktop header .second .welcome p {
+    font-weight: 600;
+  }
+  .admin_dashboard .desktop header .second button {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+  }
+  .admin_dashboard .desktop header .second button a {
+    color: white;
+  }
+  .admin_dashboard .desktop header .second button:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop header .second button:hover a {
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .admin_menu {
+    position: absolute;
+    top: 50%;
+    left: 8%;
+    -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+    opacity: 0.8;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  .admin_dashboard .desktop .admin_menu ul {
+    display: -ms-grid;
+    display: grid;
+    gap: 20px;
+    background-color: #242424;
+    border-radius: 30px;
+    padding: 30px 15px;
+  }
+  .admin_dashboard .desktop .admin_menu ul li button {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+  }
+  .admin_dashboard .desktop .admin_menu ul li button a {
+    color: white;
+  }
+  .admin_dashboard .desktop .admin_menu ul li button:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .admin_menu ul li button:hover a {
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .admin_menu:hover {
+    opacity: 1;
+  }
+  .admin_dashboard .desktop .content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+  }
+  .admin_dashboard .desktop .content .banner {
+    width: 100%;
+    padding: 0px 20%;
+    display: -ms-grid;
+    display: grid;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content {
+    background-color: #1e1e1e;
+    padding: 30px 50px;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_users .search_form,
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .search_form,
+  .admin_dashboard .desktop .content .banner .banner_content .banner_comments .search_form,
+  .admin_dashboard .desktop .content .banner .banner_content .banner_newsletters .search_form,
+  .admin_dashboard .desktop .content .banner .banner_content .banner_invoices .search_form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-bottom: 30px;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_users .search_form .input,
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .search_form .input,
+  .admin_dashboard .desktop .content .banner .banner_content .banner_comments .search_form .input,
+  .admin_dashboard .desktop .content .banner .banner_content .banner_newsletters .search_form .input,
+  .admin_dashboard .desktop .content .banner .banner_content .banner_invoices .search_form .input {
+    position: relative;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 400px;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_users .search_form .input .search_icon,
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .search_form .input .search_icon,
+  .admin_dashboard .desktop .content .banner .banner_content .banner_comments .search_form .input .search_icon,
+  .admin_dashboard .desktop .content .banner .banner_content .banner_newsletters .search_form .input .search_icon,
+  .admin_dashboard .desktop .content .banner .banner_content .banner_invoices .search_form .input .search_icon {
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+    color: #1a1a1a;
+    font-size: 1.2rem;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_users .search_form .input input[type="search"],
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .search_form .input input[type="search"],
+  .admin_dashboard .desktop .content .banner .banner_content .banner_comments .search_form .input input[type="search"],
+  .admin_dashboard .desktop .content .banner .banner_content .banner_newsletters .search_form .input input[type="search"],
+  .admin_dashboard .desktop .content .banner .banner_content .banner_invoices .search_form .input input[type="search"] {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px 8% 15px 60px;
+    color: #1a1a1a;
+    background-color: #e0e0e0;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_users .search_form .input input[type="search"],
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .search_form .input input[type="search"],
+  .admin_dashboard .desktop .content .banner .banner_content .banner_comments .search_form .input input[type="search"],
+  .admin_dashboard .desktop .content .banner .banner_content .banner_newsletters .search_form .input input[type="search"],
+  .admin_dashboard .desktop .content .banner .banner_content .banner_invoices .search_form .input input[type="search"] {
+    padding: 15px 8% 15px 16%;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_users .users_list_table {
+    background-color: #1e1e1e;
+    padding: 30px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    overflow-y: scroll;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_users .users_list_table table {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    border-spacing: 30px;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_users .users_list_table table tbody {
+    border-top: 3em solid transparent;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_users .users_list_table table tbody tr {
+    cursor: pointer;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-top: 2em solid #1e1e1e;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_users .users_list_table table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_users .users_list_table table tbody .list_title {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-column-gap: 10px;
+            column-gap: 10px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_users .users_list_table table tbody .list_title img {
+    width: 60px;
+    height: 60px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_users .users_list_table table tbody .list_tags button {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+    border: none;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_users .users_list_table table tbody .list_tags button a {
+    color: white;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_users .users_list_table table tbody .list_tags button:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_users .users_list_table table tbody .list_tags button:hover a {
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_users .users_list_table table tbody .list_tags button:hover {
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_users .users_list_table table tbody .list_link button {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_users .users_list_table table tbody .list_link button a {
+    color: white;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_users .users_list_table table tbody .list_link button:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_users .users_list_table table tbody .list_link button:hover a {
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_users .users_list_table table tbody .list_link button svg {
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_users .users_list_table table tbody .list_link button:hover:hover {
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_users .users_list_pagination {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    background-color: #1e1e1e;
+    padding: 30px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_users .users_list_pagination .pagination {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-column-gap: 10px;
+            column-gap: 10px;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_users .users_list_pagination .pagination li {
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_users .users_list_pagination .pagination li a {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+    font-size: 0.9rem;
+    border-radius: 0;
+    color: #1a1a1a;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_users .users_list_pagination .pagination li a a {
+    color: white;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_users .users_list_pagination .pagination li a:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_users .users_list_pagination .pagination li a:hover a {
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_users .users_list_pagination .pagination .active a {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+    font-size: 0.9rem;
+    border-radius: 0;
+    background-color: #1a1a1a;
+    color: #ffffff;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_users .users_list_pagination .pagination .active a a {
+    color: white;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_users .users_list_pagination .pagination .active a:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_users .users_list_pagination .pagination .active a:hover a {
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_users .users_list_pagination .pagination .disabled {
+    opacity: 0;
+    display: none;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_users .users_list_pagination .pagination .disabled a {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+    font-size: 0.9rem;
+    border-radius: 0;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_users .users_list_pagination .pagination .disabled a a {
+    color: white;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_users .users_list_pagination .pagination .disabled a:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_users .users_list_pagination .pagination .disabled a:hover a {
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_comments .list_message p {
+    max-width: 120px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_comments .comments_list_table {
+    background-color: #1e1e1e;
+    padding: 30px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    overflow-y: scroll;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_comments .comments_list_table table {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    border-spacing: 30px;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_comments .comments_list_table table tbody {
+    border-top: 3em solid transparent;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_comments .comments_list_table table tbody tr {
+    cursor: pointer;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-top: 2em solid #1e1e1e;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_comments .comments_list_table table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_comments .comments_list_table table tbody .list_title {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-column-gap: 10px;
+            column-gap: 10px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_comments .comments_list_table table tbody .list_title img {
+    width: 60px;
+    height: 60px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_comments .comments_list_table table tbody .list_tags button {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+    border: none;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_comments .comments_list_table table tbody .list_tags button a {
+    color: white;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_comments .comments_list_table table tbody .list_tags button:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_comments .comments_list_table table tbody .list_tags button:hover a {
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_comments .comments_list_table table tbody .list_tags button:hover {
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_comments .comments_list_table table tbody .list_link button {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_comments .comments_list_table table tbody .list_link button a {
+    color: white;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_comments .comments_list_table table tbody .list_link button:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_comments .comments_list_table table tbody .list_link button:hover a {
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_comments .comments_list_table table tbody .list_link button svg {
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_comments .comments_list_table table tbody .list_link button:hover:hover {
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_comments .comments_list_pagination {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    background-color: #1e1e1e;
+    padding: 30px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_comments .comments_list_pagination .pagination {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-column-gap: 10px;
+            column-gap: 10px;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_comments .comments_list_pagination .pagination li {
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_comments .comments_list_pagination .pagination li a {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+    font-size: 0.9rem;
+    border-radius: 0;
+    color: #1a1a1a;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_comments .comments_list_pagination .pagination li a a {
+    color: white;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_comments .comments_list_pagination .pagination li a:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_comments .comments_list_pagination .pagination li a:hover a {
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_comments .comments_list_pagination .pagination .active a {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+    font-size: 0.9rem;
+    border-radius: 0;
+    background-color: #1a1a1a;
+    color: #ffffff;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_comments .comments_list_pagination .pagination .active a a {
+    color: white;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_comments .comments_list_pagination .pagination .active a:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_comments .comments_list_pagination .pagination .active a:hover a {
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_comments .comments_list_pagination .pagination .disabled {
+    opacity: 0;
+    display: none;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_comments .comments_list_pagination .pagination .disabled a {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+    font-size: 0.9rem;
+    border-radius: 0;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_comments .comments_list_pagination .pagination .disabled a a {
+    color: white;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_comments .comments_list_pagination .pagination .disabled a:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_comments .comments_list_pagination .pagination .disabled a:hover a {
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .search_form {
+    -webkit-box-align: baseline;
+        -ms-flex-align: baseline;
+            align-items: baseline;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .search_form .button button {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .search_form .button button a {
+    color: white;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .search_form .button button:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .search_form .button button:hover a {
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .list_message p {
+    max-width: 120px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .tracks_list_table {
+    background-color: #1e1e1e;
+    padding: 30px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    overflow-y: scroll;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .tracks_list_table table {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    border-spacing: 30px;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .tracks_list_table table tbody {
+    border-top: 3em solid transparent;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .tracks_list_table table tbody tr {
+    cursor: pointer;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-top: 2em solid #1e1e1e;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .tracks_list_table table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .tracks_list_table table tbody .list_title {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-column-gap: 10px;
+            column-gap: 10px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .tracks_list_table table tbody .list_title img {
+    width: 60px;
+    height: 60px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .tracks_list_table table tbody .list_tags button {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+    border: none;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .tracks_list_table table tbody .list_tags button a {
+    color: white;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .tracks_list_table table tbody .list_tags button:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .tracks_list_table table tbody .list_tags button:hover a {
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .tracks_list_table table tbody .list_tags button:hover {
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .tracks_list_table table tbody .list_link button {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .tracks_list_table table tbody .list_link button a {
+    color: white;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .tracks_list_table table tbody .list_link button:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .tracks_list_table table tbody .list_link button:hover a {
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .tracks_list_table table tbody .list_link button svg {
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .tracks_list_table table tbody .list_link button:hover:hover {
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .tracks_list_table tbody tr {
+    vertical-align: baseline;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .tracks_list_pagination {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    background-color: #1e1e1e;
+    padding: 30px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .tracks_list_pagination .pagination {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-column-gap: 10px;
+            column-gap: 10px;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .tracks_list_pagination .pagination li {
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .tracks_list_pagination .pagination li a {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+    font-size: 0.9rem;
+    border-radius: 0;
+    color: #1a1a1a;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .tracks_list_pagination .pagination li a a {
+    color: white;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .tracks_list_pagination .pagination li a:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .tracks_list_pagination .pagination li a:hover a {
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .tracks_list_pagination .pagination .active a {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+    font-size: 0.9rem;
+    border-radius: 0;
+    background-color: #1a1a1a;
+    color: #ffffff;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .tracks_list_pagination .pagination .active a a {
+    color: white;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .tracks_list_pagination .pagination .active a:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .tracks_list_pagination .pagination .active a:hover a {
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .tracks_list_pagination .pagination .disabled {
+    opacity: 0;
+    display: none;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .tracks_list_pagination .pagination .disabled a {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+    font-size: 0.9rem;
+    border-radius: 0;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .tracks_list_pagination .pagination .disabled a a {
+    color: white;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .tracks_list_pagination .pagination .disabled a:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_tracks .tracks_list_pagination .pagination .disabled a:hover a {
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_newsletters .list_message p {
+    max-width: 120px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_newsletters .newsletters_list_table {
+    background-color: #1e1e1e;
+    padding: 30px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    overflow-y: scroll;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_newsletters .newsletters_list_table table {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    border-spacing: 30px;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_newsletters .newsletters_list_table table tbody {
+    border-top: 3em solid transparent;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_newsletters .newsletters_list_table table tbody tr {
+    cursor: pointer;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-top: 2em solid #1e1e1e;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_newsletters .newsletters_list_table table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_newsletters .newsletters_list_table table tbody .list_title {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-column-gap: 10px;
+            column-gap: 10px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_newsletters .newsletters_list_table table tbody .list_title img {
+    width: 60px;
+    height: 60px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_newsletters .newsletters_list_table table tbody .list_tags button {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+    border: none;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_newsletters .newsletters_list_table table tbody .list_tags button a {
+    color: white;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_newsletters .newsletters_list_table table tbody .list_tags button:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_newsletters .newsletters_list_table table tbody .list_tags button:hover a {
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_newsletters .newsletters_list_table table tbody .list_tags button:hover {
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_newsletters .newsletters_list_table table tbody .list_link button {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_newsletters .newsletters_list_table table tbody .list_link button a {
+    color: white;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_newsletters .newsletters_list_table table tbody .list_link button:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_newsletters .newsletters_list_table table tbody .list_link button:hover a {
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_newsletters .newsletters_list_table table tbody .list_link button svg {
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_newsletters .newsletters_list_table table tbody .list_link button:hover:hover {
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_newsletters .newsletters_list_pagination {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    background-color: #1e1e1e;
+    padding: 30px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_newsletters .newsletters_list_pagination .pagination {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-column-gap: 10px;
+            column-gap: 10px;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_newsletters .newsletters_list_pagination .pagination li {
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_newsletters .newsletters_list_pagination .pagination li a {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+    font-size: 0.9rem;
+    border-radius: 0;
+    color: #1a1a1a;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_newsletters .newsletters_list_pagination .pagination li a a {
+    color: white;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_newsletters .newsletters_list_pagination .pagination li a:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_newsletters .newsletters_list_pagination .pagination li a:hover a {
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_newsletters .newsletters_list_pagination .pagination .active a {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+    font-size: 0.9rem;
+    border-radius: 0;
+    background-color: #1a1a1a;
+    color: #ffffff;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_newsletters .newsletters_list_pagination .pagination .active a a {
+    color: white;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_newsletters .newsletters_list_pagination .pagination .active a:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_newsletters .newsletters_list_pagination .pagination .active a:hover a {
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_newsletters .newsletters_list_pagination .pagination .disabled {
+    opacity: 0;
+    display: none;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_newsletters .newsletters_list_pagination .pagination .disabled a {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+    font-size: 0.9rem;
+    border-radius: 0;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_newsletters .newsletters_list_pagination .pagination .disabled a a {
+    color: white;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_newsletters .newsletters_list_pagination .pagination .disabled a:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_newsletters .newsletters_list_pagination .pagination .disabled a:hover a {
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_invoices .list_message p {
+    max-width: 120px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_invoices .invoices_list_table {
+    background-color: #1e1e1e;
+    padding: 30px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    overflow-y: scroll;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_invoices .invoices_list_table table {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    border-spacing: 30px;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_invoices .invoices_list_table table tbody {
+    border-top: 3em solid transparent;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_invoices .invoices_list_table table tbody tr {
+    cursor: pointer;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-top: 2em solid #1e1e1e;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_invoices .invoices_list_table table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_invoices .invoices_list_table table tbody .list_title {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-column-gap: 10px;
+            column-gap: 10px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_invoices .invoices_list_table table tbody .list_title img {
+    width: 60px;
+    height: 60px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_invoices .invoices_list_table table tbody .list_tags button {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+    border: none;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_invoices .invoices_list_table table tbody .list_tags button a {
+    color: white;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_invoices .invoices_list_table table tbody .list_tags button:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_invoices .invoices_list_table table tbody .list_tags button:hover a {
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_invoices .invoices_list_table table tbody .list_tags button:hover {
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_invoices .invoices_list_table table tbody .list_link button {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_invoices .invoices_list_table table tbody .list_link button a {
+    color: white;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_invoices .invoices_list_table table tbody .list_link button:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_invoices .invoices_list_table table tbody .list_link button:hover a {
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_invoices .invoices_list_table table tbody .list_link button svg {
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_invoices .invoices_list_table table tbody .list_link button:hover:hover {
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_invoices .invoices_list_pagination {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    background-color: #1e1e1e;
+    padding: 30px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_invoices .invoices_list_pagination .pagination {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-column-gap: 10px;
+            column-gap: 10px;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_invoices .invoices_list_pagination .pagination li {
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_invoices .invoices_list_pagination .pagination li a {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+    font-size: 0.9rem;
+    border-radius: 0;
+    color: #1a1a1a;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_invoices .invoices_list_pagination .pagination li a a {
+    color: white;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_invoices .invoices_list_pagination .pagination li a:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_invoices .invoices_list_pagination .pagination li a:hover a {
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_invoices .invoices_list_pagination .pagination .active a {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+    font-size: 0.9rem;
+    border-radius: 0;
+    background-color: #1a1a1a;
+    color: #ffffff;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_invoices .invoices_list_pagination .pagination .active a a {
+    color: white;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_invoices .invoices_list_pagination .pagination .active a:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_invoices .invoices_list_pagination .pagination .active a:hover a {
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_invoices .invoices_list_pagination .pagination .disabled {
+    opacity: 0;
+    display: none;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_invoices .invoices_list_pagination .pagination .disabled a {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+    font-size: 0.9rem;
+    border-radius: 0;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_invoices .invoices_list_pagination .pagination .disabled a a {
+    color: white;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_invoices .invoices_list_pagination .pagination .disabled a:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .banner_invoices .invoices_list_pagination .pagination .disabled a:hover a {
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(26, 26, 26, 0.6);
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .modal .modal_content {
+    width: 100%;
+    max-width: 500px;
+    padding: 30px;
+    text-align: center;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .modal .modal_content .modal_content_title {
+    padding: 20px 60px;
+    background-color: #420000;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .modal .modal_content form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-column-gap: 30px;
+            column-gap: 30px;
+    padding: 30px 60px;
+    background-color: #0f0f0f;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .modal .modal_content form .button button {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .modal .modal_content form .button button a {
+    color: white;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .modal .modal_content form .button button:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .modal .modal_content form .button button:hover a {
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .add_form_modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(26, 26, 26, 0.6);
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .add_form_modal .modal_content {
+    width: 100%;
+    max-width: 500px;
+    padding: 30px;
+    text-align: center;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .add_form_modal .modal_content .modal_content_title {
+    padding: 20px 60px;
+    background-color: #420000;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .add_form_modal .modal_content form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-column-gap: 30px;
+            column-gap: 30px;
+    padding: 30px 60px;
+    background-color: #0f0f0f;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .add_form_modal .modal_content form .button button {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .add_form_modal .modal_content form .button button a {
+    color: white;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .add_form_modal .modal_content form .button button:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .add_form_modal .modal_content form .button button:hover a {
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .update_form_modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(26, 26, 26, 0.6);
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .update_form_modal .modal_content {
+    width: 100%;
+    max-width: 500px;
+    padding: 30px;
+    text-align: center;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .update_form_modal .modal_content .modal_content_title {
+    padding: 20px 60px;
+    background-color: #420000;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .update_form_modal .modal_content form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-column-gap: 30px;
+            column-gap: 30px;
+    padding: 30px 60px;
+    background-color: #0f0f0f;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .update_form_modal .modal_content form .button button {
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #c79b35;
+    font-weight: 600;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 10px;
+    border: none;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .update_form_modal .modal_content form .button button a {
+    color: white;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .update_form_modal .modal_content form .button button:hover {
+    background-color: #1a1a1a;
+    color: #c79b35;
+  }
+  .admin_dashboard .desktop .content .banner .banner_content .update_form_modal .modal_content form .button button:hover a {
+    color: #c79b35;
+  }
+  .admin_dashboard .mobile {
+    display: none;
+  }
+}
+/*# sourceMappingURL=adminDashboard.css.map */

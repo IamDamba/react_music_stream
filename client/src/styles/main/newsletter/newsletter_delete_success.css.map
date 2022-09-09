@@ -1,0 +1,11 @@
+{
+    "version": 3,
+    "mappings": "AAGA,AACE,0BADwB,CACxB,QAAQ,CAAC;EACP,WAAW,EAAE,KAAK;EAClB,UAAU,EAAE,MAAM;CASnB;;AAZH,AAII,0BAJsB,CACxB,QAAQ,CAGN,EAAE,CAAC;EACD,aAAa,EAAE,IAAI;CACpB;;AANL,AAQM,0BARoB,CACxB,QAAQ,CAMN,CAAC,CACC,CAAC,CAAC;EACA,KAAK,ECTA,OAAO;CDUb",
+    "sources": [
+        "newsletter_delete_success.scss",
+        "../../variables/_colors.scss",
+        "../../variables/_interfaces.scss"
+    ],
+    "names": [],
+    "file": "newsletter_delete_success.css"
+}

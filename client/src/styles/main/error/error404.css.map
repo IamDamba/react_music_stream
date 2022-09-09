@@ -1,0 +1,11 @@
+{
+    "version": 3,
+    "mappings": "AAGA,AACE,SADO,CACP,QAAQ,CAAC;EACP,WAAW,EAAE,KAAK;CAYnB;;AAdH,AAKM,SALG,CACP,QAAQ,CAGN,cAAc,CACZ,CAAC,CAAC;EACA,UAAU,EAAE,MAAM;CAMnB;;AAZP,AAQQ,SARC,CACP,QAAQ,CAGN,cAAc,CACZ,CAAC,CAGC,CAAC,CAAC;EACA,eAAe,EAAE,SAAS;EAC1B,KAAK,ECVF,OAAO;CDWX",
+    "sources": [
+        "error404.scss",
+        "../../variables/_colors.scss",
+        "../../variables/_interfaces.scss"
+    ],
+    "names": [],
+    "file": "error404.css"
+}

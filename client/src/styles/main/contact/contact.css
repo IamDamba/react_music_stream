@@ -1,0 +1,90 @@
+.contact .content {
+  padding-top: 180px;
+}
+
+.contact .content .contact_form {
+  padding: 0 8%;
+}
+
+.contact .content .contact_form form {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  display: -ms-grid;
+  display: grid;
+  gap: 30px;
+}
+
+.contact .content .contact_form form .fields {
+  display: -ms-grid;
+  display: grid;
+  gap: 30px;
+}
+
+.contact .content .contact_form form .fields .input {
+  display: -ms-grid;
+  display: grid;
+  gap: 30px;
+}
+
+.contact .content .contact_form form .fields .input input {
+  max-width: 500px;
+}
+
+.contact .content .contact_form form .textarea {
+  display: -ms-grid;
+  display: grid;
+  gap: 30px;
+  text-align: center;
+}
+
+.contact .content .contact_form form .textarea label {
+  text-align: left;
+}
+
+.contact .content .contact_form form .textarea textarea {
+  width: 100%;
+  height: 200px;
+  resize: none;
+  padding: 30px;
+  border: none;
+  max-width: 500px;
+}
+
+.contact .content .contact_form form .textarea .textarea_maxlength {
+  font-weight: 600;
+}
+
+.contact .content .contact_form form .button {
+  text-align: center;
+}
+
+.contact .content .contact_form form .button button {
+  padding: 10px 12px;
+  cursor: pointer;
+  background-color: #c79b35;
+  font-weight: 600;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border-radius: 10px;
+  border: none;
+  border: none;
+}
+
+.contact .content .contact_form form .button button a {
+  color: white;
+}
+
+.contact .content .contact_form form .button button:hover {
+  background-color: #1a1a1a;
+  color: #c79b35;
+}
+
+.contact .content .contact_form form .button button:hover a {
+  color: #c79b35;
+}
+
+.contact .content .contact_form form .button button:hover {
+  color: #ffffff;
+}
+/*# sourceMappingURL=contact.css.map */

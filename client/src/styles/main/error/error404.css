@@ -1,0 +1,13 @@
+.error404 .content {
+  padding-top: 180px;
+}
+
+.error404 .content .error404_body p {
+  text-align: center;
+}
+
+.error404 .content .error404_body p a {
+  text-decoration: underline;
+  color: #c79b35;
+}
+/*# sourceMappingURL=error404.css.map */

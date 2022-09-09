@@ -1,0 +1,145 @@
+.toast {
+  position: relative;
+  z-index: 8;
+}
+
+.toast .notification-container {
+  font-size: 14px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: fixed;
+}
+
+.toast .notification-container .notification-toast {
+  background-color: #5cb85c;
+  padding: 14px 25px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  text-align: center;
+  -webkit-box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+          box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+  max-width: 300px;
+}
+
+.toast .notification-container .notification-toast .button {
+  margin-bottom: 10px;
+  width: 100%;
+  text-align: right;
+}
+
+.toast .notification-container .notification-toast .button button {
+  background-color: transparent;
+  color: #ffffff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.toast .notification-container .notification-toast .button button:hover {
+  color: #1a1a1a;
+}
+
+.toast .notification-container .notification-toast .notification-image img {
+  width: 30px;
+  height: 30px;
+}
+
+.toast .notification-container .notification-toast .notification-title {
+  margin-bottom: 10px;
+}
+
+.toast .notification-container .notification-toast .notification-title,
+.toast .notification-container .notification-toast .notification-message {
+  font-weight: 600;
+}
+
+.toast .top-right {
+  top: 12px;
+  right: 12px;
+  -webkit-transition: -webkit-transform 0.6s ease-in-out;
+  transition: -webkit-transform 0.6s ease-in-out;
+  transition: transform 0.6s ease-in-out;
+  transition: transform 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out;
+  -webkit-animation: toast-in-right 0.7s;
+          animation: toast-in-right 0.7s;
+}
+
+.toast .bottom-right {
+  bottom: 12px;
+  right: 12px;
+  -webkit-transition: -webkit-transform 0.6s ease-in-out;
+  transition: -webkit-transform 0.6s ease-in-out;
+  transition: transform 0.6s ease-in-out;
+  transition: transform 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out;
+  -webkit-animation: toast-in-right 0.7s;
+          animation: toast-in-right 0.7s;
+}
+
+.toast .top-left {
+  top: 12px;
+  left: 12px;
+  -webkit-transition: -webkit-transform 0.6s ease-in;
+  transition: -webkit-transform 0.6s ease-in;
+  transition: transform 0.6s ease-in;
+  transition: transform 0.6s ease-in, -webkit-transform 0.6s ease-in;
+  -webkit-animation: toast-in-left 0.7s;
+          animation: toast-in-left 0.7s;
+}
+
+.toast .bottom-left {
+  bottom: 12px;
+  left: 12px;
+  -webkit-transition: -webkit-transform 0.6s ease-in;
+  transition: -webkit-transform 0.6s ease-in;
+  transition: transform 0.6s ease-in;
+  transition: transform 0.6s ease-in, -webkit-transform 0.6s ease-in;
+  -webkit-animation: toast-in-left 0.7s;
+          animation: toast-in-left 0.7s;
+}
+
+@-webkit-keyframes toast-in-right {
+  from {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes toast-in-right {
+  from {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes toast-in-left {
+  from {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes toast-in-left {
+  from {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+/*# sourceMappingURL=toast.css.map */
